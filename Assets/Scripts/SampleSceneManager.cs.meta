@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 11780d66c66ad4c539012fb5b79e5232
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - titlePanel: {instanceID: 0}
+  - gameHUDPanel: {instanceID: 0}
+  - defaultPlayer: {fileID: 3209496015032530632, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

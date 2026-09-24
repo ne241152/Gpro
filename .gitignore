@@ -1,0 +1,56 @@
+# Unity generated folders
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# macOS
+.DS_Store
+
+# IDE / Editor
+.vs/
+.vscode/
+.gradle/
+
+# Unity / IDE generated files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Crash reports
+sysinfo.txt
+
+# Builds / packages
+*.apk
+*.aab
+*.app
+*.unitypackage
+*.unitypackage.meta
+
+# JetBrains Rider
+/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Android generated assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+*.slnx
+ignore.conf
