@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: fe6cf337d6ac2464290c829f0bae2ab5
+guid: 9a39a5a4787354d018c6594be9196aad
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 802289811025296925
     second: brokenTile1_0
+  - first:
+      213: -808136901682870939
+    second: brokenTile1_1
+  - first:
+      213: 9038011552153139893
+    second: brokenTile1_2
+  - first:
+      213: -8296301377229695154
+    second: brokenTile1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +57,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1254
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -142,10 +151,10 @@ TextureImporter:
       name: brokenTile1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1254
-        height: 1254
+        x: 329
+        y: 387
+        width: 591
+        height: 567
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,6 +165,72 @@ TextureImporter:
       bones: []
       spriteID: d1ef319155e422b00800000000000000
       internalID: 802289811025296925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brokenTile1_1
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 367
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 565ce4505cbe8c4f0800000000000000
+      internalID: -808136901682870939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brokenTile1_2
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 367
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5baf6f90f977d6d70800000000000000
+      internalID: 9038011552153139893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brokenTile1_3
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 371
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e47d3a46add9ddc80800000000000000
+      internalID: -8296301377229695154
       vertices: []
       indices: 
       edges: []
@@ -175,6 +250,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       brokenTile1_0: 802289811025296925
+      brokenTile1_1: -808136901682870939
+      brokenTile1_2: 9038011552153139893
+      brokenTile1_3: -8296301377229695154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
