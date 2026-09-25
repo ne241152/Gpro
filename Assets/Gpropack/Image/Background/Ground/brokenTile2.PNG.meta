@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dd39a3bff1d424cbb9a1da3ea8b519a8
+guid: 5937b756cab0641599e076a9e01858f1
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1254
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -142,10 +142,10 @@ TextureImporter:
       name: brokenTile2_0
       rect:
         serializedVersion: 2
-        x: 352
-        y: 370
-        width: 581
-        height: 565
+        x: 0
+        y: 0
+        width: 1254
+        height: 1254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
