@@ -5129,45 +5129,64 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 323
+  - serializedVersion: 2
+    m_RefCount: 323
     m_Data: {fileID: 11400000, guid: 23d4b0a4cfc184df987c1590c6263472, type: 2}
-  - m_RefCount: 46
+  - serializedVersion: 2
+    m_RefCount: 46
     m_Data: {fileID: 11400000, guid: 726f6f0c6552b40718346a7c0d716d07, type: 2}
-  - m_RefCount: 38
+  - serializedVersion: 2
+    m_RefCount: 38
     m_Data: {fileID: 11400000, guid: 1d9452fdfa2304c49b6111cc45be62f2, type: 2}
-  - m_RefCount: 35
+  - serializedVersion: 2
+    m_RefCount: 35
     m_Data: {fileID: 11400000, guid: 0707d3d1144154652b149e76ae7c0835, type: 2}
-  - m_RefCount: 30
+  - serializedVersion: 2
+    m_RefCount: 30
     m_Data: {fileID: 11400000, guid: f9ff30aefb7f444dc92d5af06ae54528, type: 2}
-  - m_RefCount: 16
+  - serializedVersion: 2
+    m_RefCount: 16
     m_Data: {fileID: 11400000, guid: 035b7dc131dc8479ca185abb19b351d1, type: 2}
-  - m_RefCount: 9
+  - serializedVersion: 2
+    m_RefCount: 9
     m_Data: {fileID: 11400000, guid: d6f56c73eb3ce4e9a951da185fd849c3, type: 2}
-  - m_RefCount: 5
+  - serializedVersion: 2
+    m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 7fe26a038a48d44d5a427cc9a4bda18a, type: 2}
-  - m_RefCount: 2
+  - serializedVersion: 2
+    m_RefCount: 2
     m_Data: {fileID: 11400000, guid: d88c98601029b494cb34d3aa01cbfdca, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 323
+  - serializedVersion: 2
+    m_RefCount: 323
     m_Data: {fileID: 21300000, guid: 42d2412804e3647adafd110be047d451, type: 3}
-  - m_RefCount: 46
+  - serializedVersion: 2
+    m_RefCount: 46
     m_Data: {fileID: 21300000, guid: f3a9cfbc888ee44d8bd793a61694cf73, type: 3}
-  - m_RefCount: 38
+  - serializedVersion: 2
+    m_RefCount: 38
     m_Data: {fileID: 21300000, guid: 23b0d365916bb4e96932aef58c7a2dcb, type: 3}
-  - m_RefCount: 35
+  - serializedVersion: 2
+    m_RefCount: 35
     m_Data: {fileID: 21300000, guid: 65748c10a428a42259028f1217bec29f, type: 3}
-  - m_RefCount: 30
+  - serializedVersion: 2
+    m_RefCount: 30
     m_Data: {fileID: 21300000, guid: fe6cf337d6ac2464290c829f0bae2ab5, type: 3}
-  - m_RefCount: 16
+  - serializedVersion: 2
+    m_RefCount: 16
     m_Data: {fileID: 21300000, guid: 5937b756cab0641599e076a9e01858f1, type: 3}
-  - m_RefCount: 9
+  - serializedVersion: 2
+    m_RefCount: 9
     m_Data: {fileID: 21300000, guid: 57f81df55ad32458d9523cfc6d32ea8f, type: 3}
-  - m_RefCount: 5
+  - serializedVersion: 2
+    m_RefCount: 5
     m_Data: {fileID: 21300000, guid: 1182ac466ccb9485c9203a6d683938e8, type: 3}
-  - m_RefCount: 2
+  - serializedVersion: 2
+    m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 3356260d331bd4bdaa701ce554a59d35, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 504
+  - serializedVersion: 2
+    m_RefCount: 504
     m_Data:
       e00: 1
       e01: 0
@@ -5186,7 +5205,8 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 504
+  - serializedVersion: 2
+    m_RefCount: 504
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -5214,6 +5234,7 @@ Tilemap:
     e33: 1
 --- !u!483693784 &1293985077243814133
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5232,6 +5253,8 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5253,9 +5276,11 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -5263,7 +5288,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1 &5060453059444155733
 GameObject:
   m_ObjectHideFlags: 0

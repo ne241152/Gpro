@@ -956,7 +956,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527950891}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2527,7 +2527,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908077846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3206,7 +3206,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039092662}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3345,12 +3345,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageManager
   player: {fileID: 1313847725}
-  normalChunkPrefab: {fileID: 6152869890863838163, guid: 37b8e56e9c9f049a9b1ca1c379cfc894, type: 3}
-  rareChunkPrefab: {fileID: 7697226387584451918, guid: f89b40bc14ab046a6a778f5c03a1f470, type: 3}
-  chunkWidth: 10
-  chunkHeight: 6
-  viewDistance: 2
-  rareRate: 0.1
+  normalChunkPrefab: {fileID: 5060453059444155733, guid: 012efc5a402a24ae8bfd3ebd8e9e1653, type: 3}
+  loadRange: 2
 --- !u!4 &1043378912
 Transform:
   m_ObjectHideFlags: 0
@@ -4295,6 +4291,9 @@ MonoBehaviour:
   gameHUDPanel: {fileID: 1581944345}
   levelUpPanel: {fileID: 1910307998}
   resultPanel: {fileID: 732340267}
+  phase1Image: {fileID: -3273148185640608202, guid: eabb1c18587ee48e6a0193806337481a, type: 3}
+  phase2Image: {fileID: -8733063017929654013, guid: 87708d874332e4cdea76851171aac446, type: 3}
+  phase3Image: {fileID: 2230822592000104784, guid: 5e927f735c78d4411971004961e9d0f4, type: 3}
   player: {fileID: 1313847722}
   enemySpawner: {fileID: 0}
   resultText: {fileID: 1868938915}
@@ -5256,14 +5255,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 527950892}
-  - {fileID: 1039092663}
-  - {fileID: 908077847}
   - {fileID: 534142702}
   - {fileID: 1657096687}
   - {fileID: 212557240}
   - {fileID: 1570732075}
   - {fileID: 1342234473}
+  - {fileID: 527950892}
+  - {fileID: 1039092663}
+  - {fileID: 908077847}
   m_Father: {fileID: 1501246634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
