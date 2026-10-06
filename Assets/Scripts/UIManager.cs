@@ -9,6 +9,13 @@ public class UIManager : MonoBehaviour
     public GameObject gameHUDPanel;
     public GameObject levelUpPanel;
     public GameObject resultPanel;
+
+    [Header("Level Up Images")]
+    public Sprite phase1Image;
+    public Sprite phase2Image;
+    public Sprite phase3Image;
+
+    private Image levelUpPanelImage;
     
     [Header("Game Systems")]
     public WizardPlayerController player;
@@ -28,6 +35,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        levelUpPanelImage = levelUpPanel.GetComponent<Image>();
         ShowTitle(); // 起動時はタイトル画面を表示
     }
 
@@ -60,13 +68,28 @@ public class UIManager : MonoBehaviour
     // レベルアップ画面を表示
     public void ShowLevelUp(int phase)
     {
+        if (phase == 1)
+        {
+            levelUpPanelImage.sprite = phase1Image;
+        }
+        else if (phase == 2)
+        {
+            levelUpPanelImage.sprite = phase2Image;
+        }
+        else if (phase == 3)
+        {
+            levelUpPanelImage.sprite = phase3Image;
+        }
+
         levelUpPanel.SetActive(true);
-        Time.timeScale = 0; 
+
+        Time.timeScale = 0;
     }
 
     // 強化カードを選んだ時の処理
     public void SelectSkillCard(int cardNo)
     {
+        Debug.Log("Card " + cardNo + " が押されました");
         switch (player.BattlePhase){
             case 1:
                 switch (cardNo){
