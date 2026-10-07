@@ -50,6 +50,7 @@ public class WizardPlayerController : MonoBehaviour
 
     private GameObject currentDrone;
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb;
     private Vector2 moveInput;
     private float animTimer;
     private int frameIndex;
@@ -61,6 +62,7 @@ public class WizardPlayerController : MonoBehaviour
     void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
         lastWalkDirection = walkRight;
 
         // 自動で HPFill を探す
@@ -97,7 +99,6 @@ public class WizardPlayerController : MonoBehaviour
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput = moveInput.normalized;
-        transform.position += (Vector3)(moveInput * moveSpeed * Time.deltaTime);
 
         UpdateSprite();
 
@@ -130,6 +131,15 @@ public class WizardPlayerController : MonoBehaviour
                 delayBombTimer = 0f;
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        if (rb == null) return;
+
+        rb.MovePosition(
+            rb.position + moveInput * moveSpeed * Time.fixedDeltaTime
+        );
     }
 
     void UpdateSprite()
