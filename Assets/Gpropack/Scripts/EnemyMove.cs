@@ -68,6 +68,9 @@ public class EnemyMove : MonoBehaviour
         rb.MovePosition(nextPosition);
 
         moveTimer = 0f;
+
+        // 画面外に離れすぎたらメモリ節約のために消す
+        if (Vector2.Distance(transform.position, player.position) > 25f) Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
