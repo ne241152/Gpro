@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int hp = 2;
+    public GameObject expPrefab;
 
     public void TakeDamage(int damage)
     {
@@ -10,20 +11,9 @@ public class EnemyHealth : MonoBehaviour
 
         if (hp <= 0)
         {
+            // 倒されたらその場に経験値をドロップして消滅
+            Instantiate(expPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            PlayerHealth health = collision.GetComponent<PlayerHealth>();
-
-            if (health != null)
-            {
-            health.TakeDamage(10);
-            }
-    }
     }
 }
