@@ -58,6 +58,7 @@ public class WizardPlayerController : MonoBehaviour
 
     // ★追加：最初のゲージの大きさを記憶しておく変数
     private Vector3 initialHpFillScale;
+    private Vector3 initialHpFillPosition;
 
     void Awake()
     {
@@ -66,23 +67,30 @@ public class WizardPlayerController : MonoBehaviour
         lastWalkDirection = walkRight;
 
         // 自動で HPFill を探す
-        if (hpFillTransform == null)
-        {
-            Transform[] allChildren = GetComponentsInChildren<Transform>(true);
-            foreach (Transform child in allChildren)
-            {
-                if (child.name == "HPFill")
-                {
-                    hpFillTransform = child;
-                    break;
-                }
-            }
-        }
+if (hpFillTransform != null)
+{
+    float hpRatio = Mathf.Clamp01((float)hp / maxHp);
+
+    hpFillTransform.localScale = new Vector3(
+        initialHpFillScale.x * hpRatio,
+        initialHpFillScale.y,
+        initialHpFillScale.z
+    );
+
+    float lostWidth = initialHpFillScale.x * (1f - hpRatio);
+
+    hpFillTransform.localPosition = new Vector3(
+        initialHpFillPosition.x - lostWidth / 2f,
+        initialHpFillPosition.y,
+        initialHpFillPosition.z
+    );
+}
 
         // ★ゲーム開始直後の「本来のサイズ」を記憶する
         if (hpFillTransform != null)
         {
             initialHpFillScale = hpFillTransform.localScale;
+            initialHpFillPosition = hpFillTransform.localPosition;
         }
     }
 

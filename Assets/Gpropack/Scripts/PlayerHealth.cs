@@ -56,6 +56,8 @@ public void TakeDamage(int damage)
     // 既存フィールドも同期
     currentHp = controller.hp;
     maxHp = controller.maxHp;
+    UpdateHPBar();
+    
 
     // 被弾演出は維持
     if (controller.hp < beforeHp && spriteRenderer != null)
