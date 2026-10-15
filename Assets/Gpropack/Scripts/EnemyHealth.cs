@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int hp = 2;
+    public int hp = 15;
     public GameObject expPrefab;
 
     public void TakeDamage(int damage)

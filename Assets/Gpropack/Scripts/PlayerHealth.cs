@@ -38,26 +38,32 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+public void TakeDamage(int damage)
+{
+    var controller = GetComponent<WizardPlayerController>();
+
+    if (controller == null)
     {
-        currentHp -= damage;
-        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
-
-        UpdateHPBar();
-
-        // ダメージを受けたとき赤く光らせる
-        if (spriteRenderer != null)
-        {
-            StopCoroutine(nameof(DamageFlash));
-            StartCoroutine(DamageFlash());
-        }
-
-        if (currentHp <= 0)
-        {
-            Debug.Log("Game Over");
-            gameObject.SetActive(false);
-        }
+        Debug.LogError("WizardPlayerControllerが見つかりません");
+        return;
     }
+
+    int beforeHp = controller.hp;
+
+    // HPの減少・バー更新・死亡判定を一本化
+    controller.TakeDamage(damage);
+
+    // 既存フィールドも同期
+    currentHp = controller.hp;
+    maxHp = controller.maxHp;
+
+    // 被弾演出は維持
+    if (controller.hp < beforeHp && spriteRenderer != null)
+    {
+        StopCoroutine(nameof(DamageFlash));
+        StartCoroutine(DamageFlash());
+    }
+}
 
     IEnumerator DamageFlash()
     {

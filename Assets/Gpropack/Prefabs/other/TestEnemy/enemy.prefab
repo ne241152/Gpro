@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b4e4f300c7e43e5948a5789b40a444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
+  hp: 30
   expPrefab: {fileID: 7601855759927414291, guid: 4bcfbb91f665d4dad8bb413a34c9153f, type: 3}
 --- !u!114 &1556214941068499616
 MonoBehaviour:
