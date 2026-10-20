@@ -28,7 +28,16 @@ public class SampleSceneManager : MonoBehaviour
             {
                 // 見た目のすり替え処理
                 SpriteRenderer targetSR = defaultPlayer.GetComponent<SpriteRenderer>();
-                if (targetSR == null) targetSR = defaultPlayer.GetComponentInChildren<SpriteRenderer>();
+
+                if (targetSR == null)
+                {
+                    Transform wizardSprite = defaultPlayer.transform.Find("WizardSprite");
+
+                    if (wizardSprite != null)
+                    {
+                        targetSR = wizardSprite.GetComponent<SpriteRenderer>();
+                    }
+                }
 
                 int selectedID = PlayerPrefs.GetInt("SelectedCharacterID", 0);
 

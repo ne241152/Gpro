@@ -68,7 +68,23 @@ public class WizardPlayerController : MonoBehaviour
 {
     mobileJoystick = FindFirstObjectByType<MobileJoystick>();
 }
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        // プレイヤーの画像だけを取得する
+        Transform wizardSprite = transform.Find("WizardSprite");
+        spriteRenderer = null;
+
+        if (wizardSprite != null)
+        {
+            spriteRenderer = wizardSprite.GetComponent<SpriteRenderer>();
+        }
+
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("WizardSpriteのSpriteRendererが取得できません");
+        }
+        else
+        {
+            Debug.Log("取得成功: " + spriteRenderer.gameObject.name);
+        }
         rb = GetComponent<Rigidbody2D>();
         lastWalkDirection = walkRight;
 

@@ -29,12 +29,24 @@ public class PlayerHealth : MonoBehaviour
             UpdateHPBar();
         }
 
-        // 魔法使いのSpriteRendererを取得
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        // WizardSpriteのSpriteRendererを取得
+        Transform wizardSprite = transform.Find("WizardSprite");
+
+        spriteRenderer = null;
+
+        if (wizardSprite != null)
+        {
+            spriteRenderer = wizardSprite.GetComponentInChildren<SpriteRenderer>(true);
+        }
 
         if (spriteRenderer != null)
         {
             originalColor = spriteRenderer.color;
+            Debug.Log("PlayerHealthの取得先: " + spriteRenderer.gameObject.name);
+        }
+        else
+        {
+            Debug.LogError("PlayerHealthのSpriteRendererが取得できません");
         }
     }
 
