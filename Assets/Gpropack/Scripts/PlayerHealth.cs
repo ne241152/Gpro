@@ -48,6 +48,16 @@ public void TakeDamage(int damage)
         return;
     }
 
+    //バリアが有効ならプレイヤーへのダメージを防ぐ
+    LinkBarrierController barrier =
+        GetComponentInChildren<LinkBarrierController>();
+
+    if (barrier != null)
+    {
+        Debug.Log("連携バリアがダメージを防ぎました");
+        return;
+    }
+
     int beforeHp = controller.hp;
 
     // HPの減少・バー更新・死亡判定を一本化

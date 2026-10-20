@@ -245,13 +245,7 @@ if (hpFillTransform != null)
         if (currentExp >= expToNextLevel) {
             currentExp -= expToNextLevel;
             currentLevel++;
-
-            if (currentLevel == 2) {
-                // 2回目のレベルアップを防ぐため、必要経験値をカンストさせる(デモ用)
-                expToNextLevel = 80; 
-            } else {
-                expToNextLevel += 5; 
-            }
+            expToNextLevel += 1; 
             
             if (uiManager != null) {
                 uiManager.ShowLevelUp(BattlePhase);
