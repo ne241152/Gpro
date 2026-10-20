@@ -21,6 +21,9 @@ public class UIManager : MonoBehaviour
     public WizardPlayerController player;
     public GameObject enemySpawner; 
 
+    [Header("Barrier")]
+    public LinkBarrierController linkBarrier;
+
     [Header("UI Elements")]
     public TextMeshProUGUI resultText;
 
@@ -36,6 +39,13 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         levelUpPanelImage = levelUpPanel.GetComponent<Image>();
+
+        //ゲーム開始前はバリアを無効化
+        if (linkBarrier != null)
+        {
+            linkBarrier.DeactivateBarrier();
+        }
+
         ShowTitle(); // 起動時はタイトル画面を表示
     }
 
@@ -127,6 +137,15 @@ public class UIManager : MonoBehaviour
                         player.IncreaseAttackSpeed(20f);
                         player.IncreaseDefense(10f);
                         player.IncreaseMoveSpeed(10f);
+                        // バリアを有効化
+                        if (linkBarrier != null)
+                        {
+                            linkBarrier.ActivateBarrier();
+                        }
+                        else
+                        {
+                            Debug.LogWarning("LinkBarrierが設定されていません");
+                        }
                         break;
                     case 2:
                         break;
