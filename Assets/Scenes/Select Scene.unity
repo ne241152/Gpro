@@ -1017,6 +1017,7 @@ GameObject:
   - component: {fileID: 1513106287}
   - component: {fileID: 1513106286}
   - component: {fileID: 1513106290}
+  - component: {fileID: 1513106291}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1138,6 +1139,22 @@ MonoBehaviour:
   - characterSprite: {fileID: 2258303971956559414, guid: 9b1e814fd98d048a8851feceed0b7ab3, type: 3}
     characterName: 
     description: 
+--- !u!114 &1513106291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513106284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9023ec3f3ae034f53898e13b51dec29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobileSelectLayout
+  prevButton: {fileID: 1095070823}
+  nextButton: {fileID: 29512721}
+  confirmButton: {fileID: 989514721}
+  previewMobileInEditor: 1
 --- !u!1 &1669077997
 GameObject:
   m_ObjectHideFlags: 0

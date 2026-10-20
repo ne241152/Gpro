@@ -8,6 +8,8 @@ public class WizardPlayerController : MonoBehaviour
     public bool hasPasskey = false;
     [Header("移動・アニメーション設定")]
     public float moveSpeed = 3f;
+    [Header("スマホ操作")]
+    public MobileJoystick mobileJoystick;
     public Sprite front;
     public Sprite[] walkLeft;
     public Sprite[] walkRight;
@@ -62,6 +64,10 @@ public class WizardPlayerController : MonoBehaviour
 
     void Awake()
     {
+        if (mobileJoystick == null)
+{
+    mobileJoystick = FindFirstObjectByType<MobileJoystick>();
+}
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         lastWalkDirection = walkRight;
@@ -104,9 +110,18 @@ if (hpFillTransform != null)
     {
         if (Time.timeScale == 0) return;
 
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
-        moveInput = moveInput.normalized;
+if (mobileJoystick != null && mobileJoystick.IsActive)
+{
+    // スマホ操作
+    moveInput = mobileJoystick.Direction;
+}
+else
+{
+    // 従来のPC操作
+    moveInput.x = Input.GetAxisRaw("Horizontal");
+    moveInput.y = Input.GetAxisRaw("Vertical");
+    moveInput = moveInput.normalized;
+}
 
         UpdateSprite();
 
