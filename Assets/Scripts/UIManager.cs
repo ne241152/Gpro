@@ -78,6 +78,7 @@ public class UIManager : MonoBehaviour
     // レベルアップ画面を表示
     public void ShowLevelUp(int phase)
     {
+        hintPanel.SetActive(false);
         if (phase == 1)
         {
             levelUpPanelImage.sprite = phase1Image;
@@ -176,6 +177,7 @@ public class UIManager : MonoBehaviour
     // 「？」ボタンを押したときに呼ばれる処理
     public void ShowHint(int cardNo)
     {
+        Debug.Log("ヒントボタンが押されました: " + cardNo);
         hintPanel.SetActive(true); 
 
         // ヒントパネル自体の座標パーツを取得
@@ -185,16 +187,65 @@ public class UIManager : MonoBehaviour
         switch (cardNo)
         {
             case 1:
-                hintText.text = "【長いパスワード】\n文字数が多いほど解読時間は爆発的に伸びます。\n強力ですが、入力が面倒になるため「攻撃速度低下」のデメリットがついています。";
                 targetBtn = HintButton_1;
                 break;
             case 2:
-                hintText.text = "【パスキー(Passkey)】\nこのカードの正体は最新の認証技術「パスキー」です。\nデバイス内蔵の鍵を使うため、偽サイト(フィッシング)による被害を完全に無効化します！";
                 targetBtn = HintButton_2;
                 break;
             case 3:
-                hintText.text = "【二段階認証(2FA)】\nパスワードだけでなく、スマホのSMSなどに届くコードを使う防衛手段です。\n万が一パスワードが突破されても、二重の鍵でアカウントを復活・保護できます。";
                 targetBtn = HintButton_3;
+                break;
+        }
+
+        switch (player.BattlePhase)
+        {
+            case 1:
+                switch (cardNo)
+                {
+                    case 1:
+                        hintText.text = "【長いパスワード】\n文字数が多いほど解読時間は爆発的に伸びます。\n強力ですが、入力が面倒になるため「攻撃速度低下」のデメリットがついています。";
+                        break;
+                    case 2:
+                        hintText.text = "【パスキー(Passkey)】\nこのカードの正体は最新の認証技術「パスキー」です。\nデバイス内蔵の鍵を使うため、偽サイト(フィッシング)による被害を完全に無効化します！";
+                        break;
+                    case 3:
+                        hintText.text = "【二段階認証(2FA)】\nパスワードだけでなく、スマホのSMSなどに届くコードを使う防衛手段です。\n万が一パスワードが突破されても、二重の鍵でアカウントを復活・保護できます。";
+                        break;
+                }
+                break;
+            case 2:
+                switch (cardNo)
+                {
+                    case 1:
+                        hintText.text = "フェーズ2・カード1のヒント";
+                        targetBtn = HintButton_1;
+                        break;
+                    case 2:
+                        hintText.text = "フェーズ2・カード2のヒント";
+                        targetBtn = HintButton_2;
+                        break;
+                    case 3:
+                        hintText.text = "フェーズ2・カード3のヒント";
+                        targetBtn = HintButton_3;
+                        break;
+                }
+                break;
+            case 3:
+                switch (cardNo)
+                {
+                    case 1:
+                        hintText.text = "フェーズ3・カード1のヒント";
+                        targetBtn = HintButton_1;
+                        break;
+                    case 2:
+                        hintText.text = "フェーズ3・カード2のヒント";
+                        targetBtn = HintButton_2;
+                        break;
+                    case 3:
+                        hintText.text = "フェーズ3・カード3のヒント";
+                        targetBtn = HintButton_3;
+                        break;
+                }
                 break;
         }
 

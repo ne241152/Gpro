@@ -4472,6 +4472,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9135767063249597970, guid: 02a8faa0a016a42a1ace488cc40d0421, type: 3}
     - target: {fileID: 3883314898495956719, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
+      propertyPath: expToNextLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883314898495956719, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
       propertyPath: delayBombPrefab
       value: 
       objectReference: {fileID: 7231074936438221963, guid: 2415013de44f142c9bbe0d6ad8d8e176, type: 3}
@@ -5858,13 +5862,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 534142702}
+  - {fileID: 527950892}
+  - {fileID: 1039092663}
+  - {fileID: 908077847}
   - {fileID: 1657096687}
   - {fileID: 212557240}
   - {fileID: 1570732075}
   - {fileID: 1342234473}
-  - {fileID: 527950892}
-  - {fileID: 1039092663}
-  - {fileID: 908077847}
   m_Father: {fileID: 1501246634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
