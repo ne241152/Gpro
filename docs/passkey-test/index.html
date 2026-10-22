@@ -36,60 +36,91 @@
     const button = document.getElementById('register');
     const status = document.getElementById('status');
 
-    button.addEventListener('click', async () => {
+    let prepared = null;
+
+    // ページを開いた時点で登録情報を取得
+    async function prepareRegistration() {
       button.disabled = true;
-      status.textContent = '登録の準備中です...';
+      status.textContent = 'パスキー登録の準備中です...';
 
       try {
-        const optionsResponse = await fetch(
-          API + '/register/options',
-          { method: 'POST' }
-        );
+        const res = await fetch(API + '/register/options', {
+          method: 'POST',
+          cache: 'no-store'
+        });
 
-        if (!optionsResponse.ok) {
-          throw new Error('登録準備APIでエラーが発生しました');
+        if (!res.ok) {
+          throw new Error('登録準備API: HTTP ' + res.status);
         }
 
-        const { registrationId, options } =
-          await optionsResponse.json();
-
-        status.textContent = 'iPhoneでパスキーを作成してください。';
-
-        const credential =
-          await SimpleWebAuthnBrowser.startRegistration({
-            optionsJSON: options
-          });
-
-        status.textContent = '登録結果を確認しています...';
-
-        const verifyResponse = await fetch(
-          API + '/register/verify',
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              registrationId,
-              response: credential
-            })
-          }
-        );
-
-        const result = await verifyResponse.json();
-
-        if (!verifyResponse.ok || !result.verified) {
-          throw new Error(result.error || '登録の検証に失敗しました');
-        }
+        prepared = await res.json();
 
         status.textContent =
-          ' パスキーの登録とサーバー検証に成功しました！';
-
+          '準備完了！ ボタンを押してください。';
+        button.textContent = 'パスキーを登録';
       } catch (error) {
-        status.textContent = '❌ ' + error.message;
-        console.error(error);
+        prepared = null;
+        status.textContent = '準備エラー: ' + error.message;
+        button.textContent = '準備を再試行';
       } finally {
         button.disabled = false;
       }
+    }
+
+    button.addEventListener('click', async () => {
+      if (!prepared) {
+        await prepareRegistration();
+        return;
+      }
+
+      const { registrationId, options } = prepared;
+      prepared = null;
+
+      button.disabled = true;
+      status.textContent = 'パスキー作成を開始しています...';
+
+      try {
+        // Safari対策：クリック直後に呼ぶ
+        // この前にawaitで通信しない
+        const registrationPromise =
+          SimpleWebAuthnBrowser.startRegistration({
+            optionsJSON: options
+          });
+
+        const credential = await registrationPromise;
+
+        status.textContent = 'サーバーで検証しています...';
+
+        const response = await fetch(API + '/register/verify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            registrationId,
+            response: credential
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.verified) {
+          throw new Error(result.error || '検証に失敗しました');
+        }
+
+        status.textContent =
+          '✅ パスキーの登録と検証に成功しました！';
+
+      } catch (error) {
+        status.textContent =
+          '❌ ' + (error.name || 'Error') +
+          ': ' + error.message;
+        console.error(error);
+      } finally {
+        button.disabled = false;
+        button.textContent = 'もう一度登録';
+      }
     });
+
+    prepareRegistration();
   </script>
 </body>
 </html>
