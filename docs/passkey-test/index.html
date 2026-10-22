@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gpro パスキー登録テスト</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #172338;
+      color: white;
+      padding: 32px 20px;
+      text-align: center;
+    }
+    button {
+      font-size: 20px;
+      padding: 18px 28px;
+      border: 0;
+      border-radius: 12px;
+      background: #80caff;
+      color: #102030;
+    }
+    button:disabled { opacity: 0.5; }
+    #status { margin-top: 24px; line-height: 1.8; }
+  </style>
+  <script src="https://unpkg.com/@simplewebauthn/browser@14.0.0/dist/bundle/index.umd.min.js"></script>
+</head>
+<body>
+  <h1>Gpro パスキー体験</h1>
+  <p>実際にパスキーを登録してみましょう。</p>
+  <button id="register">パスキーを登録</button>
+  <p id="status">登録ボタンを押してください。</p>
+
+  <script>
+    const API = 'https://passkey-api.gpro-security.workers.dev';
+    const button = document.getElementById('register');
+    const status = document.getElementById('status');
+
+    button.addEventListener('click', async () => {
+      button.disabled = true;
+      status.textContent = '登録の準備中です...';
+
+      try {
+        const optionsResponse = await fetch(
+          API + '/register/options',
+          { method: 'POST' }
+        );
+
+        if (!optionsResponse.ok) {
+          throw new Error('登録準備APIでエラーが発生しました');
+        }
+
+        const { registrationId, options } =
+          await optionsResponse.json();
+
+        status.textContent = 'iPhoneでパスキーを作成してください。';
+
+        const credential =
+          await SimpleWebAuthnBrowser.startRegistration({
+            optionsJSON: options
+          });
+
+        status.textContent = '登録結果を確認しています...';
+
+        const verifyResponse = await fetch(
+          API + '/register/verify',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              registrationId,
+              response: credential
+            })
+          }
+        );
+
+        const result = await verifyResponse.json();
+
+        if (!verifyResponse.ok || !result.verified) {
+          throw new Error(result.error || '登録の検証に失敗しました');
+        }
+
+        status.textContent =
+          ' パスキーの登録とサーバー検証に成功しました！';
+
+      } catch (error) {
+        status.textContent = '❌ ' + error.message;
+        console.error(error);
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
