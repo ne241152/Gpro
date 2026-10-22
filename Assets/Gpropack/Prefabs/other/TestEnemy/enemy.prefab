@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 9
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7888590878692936395, guid: 887a0c6bb7ee5403c87c4eb1c799182d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed9abf342a11442998160110d80d9d70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b4e4f300c7e43e5948a5789b40a444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
+  hp: 10
   expPrefab: {fileID: 7601855759927414291, guid: 4bcfbb91f665d4dad8bb413a34c9153f, type: 3}
 --- !u!114 &1556214941068499616
 MonoBehaviour:
@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de48d365b101f41d49c60ea914bff6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  enemyType: 0
   damage: 10
   attackInterval: 1
 --- !u!50 &8364301752642675224
