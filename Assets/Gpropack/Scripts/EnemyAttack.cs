@@ -1,8 +1,17 @@
-
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    public enum EnemyType
+    {
+        Phishing, //フィッシングの敵
+        Normal,  //これからの敵用に一旦置いてます
+        Zombie
+    }
+
+    [Header("敵の種類")]
+    public EnemyType enemyType = EnemyType.Normal;
+
     [Header("攻撃力")]
     public int damage = 10;
 
@@ -24,9 +33,30 @@ public class EnemyAttack : MonoBehaviour
         // 攻撃間隔が経過したらダメージ
         if (attackTimer >= attackInterval)
         {
-            playerHealth.TakeDamage(damage);
+            AttackPlayer();
             attackTimer = 0f;
         }
+    }
+
+    // プレイヤーにダメージを与える処理
+    void AttackPlayer()
+    {
+        if (playerHealth == null) return;
+
+        WizardPlayerController player =
+            playerHealth.GetComponent<WizardPlayerController>();
+
+        if (player == null) return;
+
+        // フィッシング型の敵で、パスキー取得済みなら攻撃を無効化
+        if (enemyType == EnemyType.Phishing && player.hasPasskey)
+        {
+            Debug.Log("パスキーによってフィッシング攻撃を無効化しました");
+            return;
+        }
+
+        // 通常のダメージ処理
+        playerHealth.TakeDamage(damage);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -42,7 +72,7 @@ public class EnemyAttack : MonoBehaviour
 
                 touchingPlayer = true;
 
-                playerHealth.TakeDamage(damage);
+                AttackPlayer();
 
                 attackTimer = 0f;
             }

@@ -105,5 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroneWeapon
   player: {fileID: 0}
+  bulletPrefab: {fileID: 0}
   radius: 2
   rotateSpeed: 120
+  attackInterval: 1
