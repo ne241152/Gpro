@@ -1,0 +1,88 @@
+import { generateRegistrationOptions } from '@simplewebauthn/server';
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+    const origin = request.headers.get('Origin');
+
+    // Gproの公開サイトからのアクセスを許可
+    const allowedOrigins = [
+      'https://ne241152.github.io',
+      'http://localhost:8787',
+    ];
+
+    if (origin && !allowedOrigins.includes(origin)) {
+      return new Response('Forbidden', { status: 403 });
+    }
+
+    const headers = {
+      'Access-Control-Allow-Origin': origin || 'https://ne241152.github.io',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Cache-Control': 'no-store',
+    };
+
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers });
+    }
+
+    if (url.pathname === '/' && request.method === 'GET') {
+      return new Response('Gpro Passkey API OK', { headers });
+    }
+
+    if (
+      url.pathname === '/register/options' &&
+      request.method === 'POST'
+    ) {
+      try {
+        // 匿名の体験者用ID
+        const registrationId = crypto.randomUUID();
+
+        // パスキー登録用の情報を作成
+        const options = await generateRegistrationOptions({
+          rpName: 'Gpro',
+          rpID: 'ne241152.github.io',
+          userName: `Guest-${registrationId.slice(0, 8)}`,
+          userID: new TextEncoder().encode(registrationId),
+          attestationType: 'none',
+          authenticatorSelection: {
+            residentKey: 'required',
+            userVerification: 'required',
+          },
+        });
+
+        // チャレンジを5分間保存
+        await env.DB.prepare(
+          `INSERT INTO challenges
+           (id, user_id, challenge, purpose, expires_at)
+           VALUES (?, ?, ?, ?, ?)`
+        )
+          .bind(
+            registrationId,
+            registrationId,
+            options.challenge,
+            'registration',
+            Math.floor(Date.now() / 1000) + 300
+          )
+          .run();
+
+        return Response.json(
+          { registrationId, options },
+          { headers }
+        );
+      } catch (error) {
+        console.error(error);
+
+        return Response.json(
+          { error: '登録準備に失敗しました' },
+          { status: 500, headers }
+        );
+      }
+    }
+
+    return new Response('Not Found', {
+      status: 404,
+      headers,
+    });
+  },
+} satisfies ExportedHandler<Env>;
