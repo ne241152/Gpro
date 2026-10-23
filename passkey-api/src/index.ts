@@ -1,3 +1,4 @@
+import { handleLogin } from './login';
 import {
   generateRegistrationOptions,
   verifyRegistrationResponse,
@@ -199,6 +200,10 @@ export default {
           error: 'パスキーの検証または保存に失敗しました'
         }, 400);
       }
+    }
+
+    if (url.pathname.startsWith('/login/')) {
+      return handleLogin(request, env, headers);
     }
 
     return new Response('Not Found', {
