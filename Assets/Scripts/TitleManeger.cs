@@ -1,11 +1,12 @@
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
-    // タイトルの「スタート」等のボタンに割当てる関数
+    // スタートボタンを押したらストーリー画面へ
     public void GoToSelectScene()
     {
-        SceneManager.LoadScene("Select Scene");
+        SceneManager.LoadScene("StoryScene");
     }
 }
