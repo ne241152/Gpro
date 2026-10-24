@@ -19,7 +19,7 @@ public class WizardPlayerController : MonoBehaviour
     public int maxHp = 100; 
     public int hp = 100;
     public int currentExp = 0;
-    public int expToNextLevel = 10;
+    public int expToNextLevel = 6;
     public int currentLevel = 1;
     public int BattlePhase = 1;
 

@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Vector2 spawnPos = (Vector2)player.position + Random.insideUnitCircle.normalized * 10f;
+        Vector2 spawnPos = (Vector2)player.position + Random.insideUnitCircle.normalized * 26f;
         
         // 余計な分岐をなくし、常にセットされた敵（コウモリ）を湧かせる
         Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
