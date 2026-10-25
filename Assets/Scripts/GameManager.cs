@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private float gameTime; 
 
     void Start() {
-        gameTime = timeLimit; // スタート時に60秒をセットする
+        gameTime = timeLimit;
         FindPlayer();
     }
 
@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
 
         if (timerText != null) {
             // Mathf.CeilToInt で切り上げ表示（0.1秒でも残っていれば 1s と表示）
-            timerText.text = "Time: " + Mathf.CeilToInt(gameTime).ToString() + "s";
+            int remainingSeconds = Mathf.Max(0, Mathf.CeilToInt(gameTime));
+            timerText.text = $"{remainingSeconds / 60:00}:{remainingSeconds % 60:00}";
         }
 
         if (spawnTimer >= 0.5f) {

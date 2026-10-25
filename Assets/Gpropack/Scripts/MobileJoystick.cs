@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
 public class MobileJoystick : MonoBehaviour,
     IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
@@ -16,37 +14,32 @@ public class MobileJoystick : MonoBehaviour,
     public Vector2 Direction { get; private set; }
     public bool IsActive { get; private set; }
 
-    private RectTransform touchArea;
     private int activePointerId;
 
     void Awake()
     {
-        touchArea = GetComponent<RectTransform>();
-
         if (joystickBackground != null)
-            joystickBackground.gameObject.SetActive(false);
+        {
+            joystickBackground.gameObject.SetActive(true);
+        }
+        ResetJoystick();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("スティックがタッチされました！");
         if (IsActive || joystickBackground == null ||
             joystickHandle == null) return;
 
-        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            touchArea,
+        if (!RectTransformUtility.RectangleContainsScreenPoint(
+            joystickHandle,
             eventData.position,
-            eventData.pressEventCamera,
-            out Vector2 localPoint)) return;
+            eventData.pressEventCamera)) return;
 
         activePointerId = eventData.pointerId;
         IsActive = true;
         Direction = Vector2.zero;
 
-        joystickBackground.anchoredPosition = localPoint;
         joystickHandle.anchoredPosition = Vector2.zero;
-
-        joystickBackground.gameObject.SetActive(true);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -55,13 +48,12 @@ public class MobileJoystick : MonoBehaviour,
             return;
 
         if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            touchArea,
+            joystickBackground,
             eventData.position,
             eventData.pressEventCamera,
             out Vector2 currentPoint)) return;
 
-        Vector2 offset =
-            currentPoint - joystickBackground.anchoredPosition;
+        Vector2 offset = currentPoint;
 
         float radius = Mathf.Max(1f, movementRadius);
 
@@ -86,7 +78,8 @@ public class MobileJoystick : MonoBehaviour,
         Direction = Vector2.zero;
         IsActive = false;
 
-        if (joystickBackground != null)
-            joystickBackground.gameObject.SetActive(false);
+        if (joystickHandle != null)
+            joystickHandle.anchoredPosition = Vector2.zero;
+
     }
 }
