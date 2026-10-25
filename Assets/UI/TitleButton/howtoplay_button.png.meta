@@ -1,0 +1,2353 @@
+fileFormatVersion: 2
+guid: 290b0070edfd547fc94b52f020118b8c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6357821673905300315
+    second: howtoplay_button_0
+  - first:
+      213: 9021588235281255637
+    second: howtoplay_button_1
+  - first:
+      213: 8858731478845390686
+    second: howtoplay_button_2
+  - first:
+      213: -1410031472373035722
+    second: howtoplay_button_3
+  - first:
+      213: -7085633637989367579
+    second: howtoplay_button_4
+  - first:
+      213: 2389194016939462441
+    second: howtoplay_button_5
+  - first:
+      213: 5982803180171012497
+    second: howtoplay_button_6
+  - first:
+      213: 4567000049306168408
+    second: howtoplay_button_7
+  - first:
+      213: 8730704185191784024
+    second: howtoplay_button_8
+  - first:
+      213: -2830828004581225473
+    second: howtoplay_button_9
+  - first:
+      213: -7317147071092758360
+    second: howtoplay_button_10
+  - first:
+      213: 4839770013019650952
+    second: howtoplay_button_11
+  - first:
+      213: -3647834738758729299
+    second: howtoplay_button_12
+  - first:
+      213: -664638592404208779
+    second: howtoplay_button_13
+  - first:
+      213: -1393096594827391618
+    second: howtoplay_button_14
+  - first:
+      213: 7980716452675797923
+    second: howtoplay_button_15
+  - first:
+      213: -8367984297133654132
+    second: howtoplay_button_16
+  - first:
+      213: 7042982184170264150
+    second: howtoplay_button_17
+  - first:
+      213: -8637602767635688739
+    second: howtoplay_button_18
+  - first:
+      213: 5420466262974561635
+    second: howtoplay_button_19
+  - first:
+      213: -1055611360865688418
+    second: howtoplay_button_20
+  - first:
+      213: -7594277887672224646
+    second: howtoplay_button_21
+  - first:
+      213: 8158024741099981508
+    second: howtoplay_button_22
+  - first:
+      213: 4631304388502797862
+    second: howtoplay_button_23
+  - first:
+      213: 5230138386447229055
+    second: howtoplay_button_24
+  - first:
+      213: 7828922073404962533
+    second: howtoplay_button_25
+  - first:
+      213: -2592802158154422061
+    second: howtoplay_button_26
+  - first:
+      213: 3663619560002084277
+    second: howtoplay_button_27
+  - first:
+      213: -6737902996472534364
+    second: howtoplay_button_28
+  - first:
+      213: -3347873329620279253
+    second: howtoplay_button_29
+  - first:
+      213: -7919807712265450486
+    second: howtoplay_button_30
+  - first:
+      213: 3411566975026606593
+    second: howtoplay_button_31
+  - first:
+      213: 2108478133867428789
+    second: howtoplay_button_32
+  - first:
+      213: 2743173060289652595
+    second: howtoplay_button_33
+  - first:
+      213: -1942661363208108721
+    second: howtoplay_button_34
+  - first:
+      213: 5637988423339879535
+    second: howtoplay_button_35
+  - first:
+      213: 8523091196625671085
+    second: howtoplay_button_36
+  - first:
+      213: 3599661131805271479
+    second: howtoplay_button_37
+  - first:
+      213: 4450907706750044679
+    second: howtoplay_button_38
+  - first:
+      213: 1684571439944469794
+    second: howtoplay_button_39
+  - first:
+      213: -6177698481004184244
+    second: howtoplay_button_40
+  - first:
+      213: 5783195652169909091
+    second: howtoplay_button_41
+  - first:
+      213: 242826634158136780
+    second: howtoplay_button_42
+  - first:
+      213: -2989378321841433517
+    second: howtoplay_button_43
+  - first:
+      213: 4014812203281155969
+    second: howtoplay_button_44
+  - first:
+      213: 3136955511032839677
+    second: howtoplay_button_45
+  - first:
+      213: 7734501835132028685
+    second: howtoplay_button_46
+  - first:
+      213: 160795670530618716
+    second: howtoplay_button_47
+  - first:
+      213: -8090362003989067489
+    second: howtoplay_button_48
+  - first:
+      213: 1313558382088072834
+    second: howtoplay_button_49
+  - first:
+      213: 8215024291716626535
+    second: howtoplay_button_50
+  - first:
+      213: 1659833258373947242
+    second: howtoplay_button_51
+  - first:
+      213: 775469062852516580
+    second: howtoplay_button_52
+  - first:
+      213: 2635876480448311991
+    second: howtoplay_button_53
+  - first:
+      213: -4939200949125313973
+    second: howtoplay_button_54
+  - first:
+      213: 3077803725004330430
+    second: howtoplay_button_55
+  - first:
+      213: -6316036172259387142
+    second: howtoplay_button_56
+  - first:
+      213: 4698692731958376896
+    second: howtoplay_button_57
+  - first:
+      213: 537563579998511134
+    second: howtoplay_button_58
+  - first:
+      213: 6545660327115690660
+    second: howtoplay_button_59
+  - first:
+      213: 8207285567489633589
+    second: howtoplay_button_60
+  - first:
+      213: -7122954713946143353
+    second: howtoplay_button_61
+  - first:
+      213: -8976278875675826802
+    second: howtoplay_button_62
+  - first:
+      213: -6358032920947184204
+    second: howtoplay_button_63
+  - first:
+      213: 7288698844484427005
+    second: howtoplay_button_64
+  - first:
+      213: 8919782371901087259
+    second: howtoplay_button_65
+  - first:
+      213: -9157018388012454574
+    second: howtoplay_button_66
+  - first:
+      213: -3340607139407773034
+    second: howtoplay_button_67
+  - first:
+      213: -4517434279911583731
+    second: howtoplay_button_68
+  - first:
+      213: -7561559705427827160
+    second: howtoplay_button_69
+  - first:
+      213: 2726436245803801389
+    second: howtoplay_button_70
+  - first:
+      213: -7810413622354319409
+    second: howtoplay_button_71
+  - first:
+      213: 2271860945200466846
+    second: howtoplay_button_72
+  - first:
+      213: 7644606383815628705
+    second: howtoplay_button_73
+  - first:
+      213: 1821669673174817586
+    second: howtoplay_button_74
+  - first:
+      213: 455131909338188004
+    second: howtoplay_button_75
+  - first:
+      213: 3438229761333772896
+    second: howtoplay_button_76
+  - first:
+      213: -7830385652948161379
+    second: howtoplay_button_77
+  - first:
+      213: 54658528342350032
+    second: howtoplay_button_78
+  - first:
+      213: 503351147476562525
+    second: howtoplay_button_79
+  - first:
+      213: 8799709173475737969
+    second: howtoplay_button_80
+  - first:
+      213: -906155180262249995
+    second: howtoplay_button_81
+  - first:
+      213: 6783885888291830214
+    second: howtoplay_button_82
+  - first:
+      213: -3140665945442171343
+    second: howtoplay_button_83
+  - first:
+      213: 2001951030480352835
+    second: howtoplay_button_84
+  - first:
+      213: 5365074311883050839
+    second: howtoplay_button_85
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: howtoplay_button_0
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 594
+        width: 53
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ac589d6fda74c7a0800000000000000
+      internalID: -6357821673905300315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_1
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 586
+        width: 17
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dc48c993be133d70800000000000000
+      internalID: 9021588235281255637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_2
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 598
+        width: 34
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5f762d285980fa70800000000000000
+      internalID: 8858731478845390686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_3
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 586
+        width: 85
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d8517b8df8e6ce0800000000000000
+      internalID: -1410031472373035722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_4
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 626
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0c51f5fb5caad90800000000000000
+      internalID: -7085633637989367579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_5
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 592
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f4a27cc4f182120800000000000000
+      internalID: 2389194016939462441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_6
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 586
+        width: 83
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 199ab2b4bcf270350800000000000000
+      internalID: 5982803180171012497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_7
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 627
+        width: 74
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85ce51c095e316f30800000000000000
+      internalID: 4567000049306168408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_8
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 608
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85e5f5df231b92970800000000000000
+      internalID: 8730704185191784024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_9
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 592
+        width: 114
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb45be9de0e6b8d0800000000000000
+      internalID: -2830828004581225473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_10
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 594
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8e93ab185447a90800000000000000
+      internalID: -7317147071092758360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_11
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 584
+        width: 68
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88bbf944f215a2340800000000000000
+      internalID: 4839770013019650952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_12
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 608
+        width: 51
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da1c4f4d1a9406dc0800000000000000
+      internalID: -3647834738758729299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_13
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 598
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5734bbbb8bab6c6f0800000000000000
+      internalID: -664638592404208779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_14
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 592
+        width: 47
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7dc187270abaace0800000000000000
+      internalID: -1393096594827391618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_15
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 586
+        width: 47
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a34bde745331ce60800000000000000
+      internalID: 7980716452675797923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_16
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 627
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f3d430e92fedb80800000000000000
+      internalID: -8367984297133654132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_17
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 582
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6569fde2bf2bdb160800000000000000
+      internalID: 7042982184170264150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_18
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 594
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd2d42cfb02112880800000000000000
+      internalID: -8637602767635688739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_19
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 582
+        width: 111
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36d7699e85d593b40800000000000000
+      internalID: 5420466262974561635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_20
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 584
+        width: 67
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94ebb66f07b951f0800000000000000
+      internalID: -1055611360865688418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_21
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 574
+        width: 65
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7471b35f74bb9690800000000000000
+      internalID: -7594277887672224646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_22
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 578
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cacc1a6740273170800000000000000
+      internalID: 8158024741099981508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_23
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 578
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62eba6bbdc2b54040800000000000000
+      internalID: 4631304388502797862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_24
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 584
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70625ae62f259840800000000000000
+      internalID: 5230138386447229055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_25
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 578
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e67487752be5ac60800000000000000
+      internalID: 7828922073404962533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_26
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 576
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d8e656ac24840cd0800000000000000
+      internalID: -2592802158154422061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_27
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 576
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bdd812449ac7d230800000000000000
+      internalID: 3663619560002084277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_28
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 592
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aae6347ce82e72a0800000000000000
+      internalID: -6737902996472534364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_29
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 578
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20aafac1f6f981d0800000000000000
+      internalID: -3347873329620279253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_30
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 580
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0cc40db8d0371290800000000000000
+      internalID: -7919807712265450486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_31
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 594
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1023ae9a612585f20800000000000000
+      internalID: 3411566975026606593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_32
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 594
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bbb8d901b1d24d10800000000000000
+      internalID: 2108478133867428789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_33
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 598
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3776cf74d55b11620800000000000000
+      internalID: 2743173060289652595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_34
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 586
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f45ca1768c74a05e0800000000000000
+      internalID: -1942661363208108721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_35
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 586
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6c20f489982e3e40800000000000000
+      internalID: 5637988423339879535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_36
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 590
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da3d12b394a184670800000000000000
+      internalID: 8523091196625671085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_37
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 584
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5a8014ab094f130800000000000000
+      internalID: 3599661131805271479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_38
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 578
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a82e43afcc4cd30800000000000000
+      internalID: 4450907706750044679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_39
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 586
+        width: 29
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d88a4acccc06710800000000000000
+      internalID: 1684571439944469794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_40
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 584
+        width: 58
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4d764e56f7644aa0800000000000000
+      internalID: -6177698481004184244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_41
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 580
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 363cb221ec9024050800000000000000
+      internalID: 5783195652169909091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_42
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 584
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccddff68981be5300800000000000000
+      internalID: 242826634158136780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_43
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 578
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354536331489386d0800000000000000
+      internalID: -2989378321841433517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_44
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 592
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1870a707d6a77b730800000000000000
+      internalID: 4014812203281155969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_45
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 588
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfdf05fba64b88b20800000000000000
+      internalID: 3136955511032839677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_46
+      rect:
+        serializedVersion: 2
+        x: 1836
+        y: 584
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d07c6ad9078765b60800000000000000
+      internalID: 7734501835132028685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 403
+        width: 5
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55f5677fc24b3200800000000000000
+      internalID: 160795670530618716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_48
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 391
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f190ae73f9249bf80800000000000000
+      internalID: -8090362003989067489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_49
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 25
+        width: 2133
+        height: 552
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ea8149362ba3210800000000000000
+      internalID: 1313558382088072834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 286
+        width: 5
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76879f87111a10270800000000000000
+      internalID: 8215024291716626535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_51
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 155
+        width: 37
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f12c7ed89e80710800000000000000
+      internalID: 1659833258373947242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_52
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 156
+        width: 42
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea11a9010503ca00800000000000000
+      internalID: 775469062852516580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_53
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 156
+        width: 19
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b2bde881b3849420800000000000000
+      internalID: 2635876480448311991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_54
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 128
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a0d11e7ee647bb0800000000000000
+      internalID: -4939200949125313973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_55
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 156
+        width: 47
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb5d1455e2e86ba20800000000000000
+      internalID: 3077803725004330430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_56
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 156
+        width: 33
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af816fba09ee858a0800000000000000
+      internalID: -6316036172259387142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_57
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 128
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c9b61d152c153140800000000000000
+      internalID: 4698692731958376896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_58
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 119
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10aff55a3fc57700800000000000000
+      internalID: 537563579998511134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_59
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 118
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2191a136bd6da50800000000000000
+      internalID: 6545660327115690660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_60
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 114
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53de8645db226e170800000000000000
+      internalID: 8207285567489633589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_61
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 103
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785cb0c3d6e262d90800000000000000
+      internalID: -7122954713946143353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_62
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 132
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e85ef72cbe9dd6380800000000000000
+      internalID: -8976278875675826802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_63
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 133
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd24b4aebab3c7a0800000000000000
+      internalID: -6358032920947184204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_64
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 123
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc5b4c5bf8a62560800000000000000
+      internalID: 7288698844484427005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_65
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 116
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e94f6eece69cb70800000000000000
+      internalID: 8919782371901087259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_66
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 128
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d2cc4ca4cbbe080800000000000000
+      internalID: -9157018388012454574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_67
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 128
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69247798187c3a1d0800000000000000
+      internalID: -3340607139407773034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_68
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 120
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0092b1f479de41c0800000000000000
+      internalID: -4517434279911583731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_69
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 111
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8262112c281ff0790800000000000000
+      internalID: -7561559705427827160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_70
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 115
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2b92edf15f36d520800000000000000
+      internalID: 2726436245803801389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_71
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 114
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc7e2ba1136db9390800000000000000
+      internalID: -7810413622354319409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_72
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 118
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9bc1c92e75478f10800000000000000
+      internalID: 2271860945200466846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_73
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 122
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a79303d009171a60800000000000000
+      internalID: 7644606383815628705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_74
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 114
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bdfa78aeed74910800000000000000
+      internalID: 1821669673174817586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_75
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 120
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e84c066f04f05600800000000000000
+      internalID: 455131909338188004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_76
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 114
+        width: 28
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 062c97c50cb07bf20800000000000000
+      internalID: 3438229761333772896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_77
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 120
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9ca5bd5cb1e45390800000000000000
+      internalID: -7830385652948161379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_78
+      rect:
+        serializedVersion: 2
+        x: 1647
+        y: 112
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d89ac554af22c000800000000000000
+      internalID: 54658528342350032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_79
+      rect:
+        serializedVersion: 2
+        x: 1953
+        y: 118
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5230a6a3334cf600800000000000000
+      internalID: 503351147476562525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_80
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 114
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17184c3ded8de1a70800000000000000
+      internalID: 8799709173475737969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_81
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 112
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f9a6112aa0bc63f0800000000000000
+      internalID: -906155180262249995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_82
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 114
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c97b68d544352e50800000000000000
+      internalID: 6783885888291830214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_83
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 108
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136c0cb66fc1a64d0800000000000000
+      internalID: -3140665945442171343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_84
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 102
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 346328dfadb58cb10800000000000000
+      internalID: 2001951030480352835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: howtoplay_button_85
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 97
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75fcc5949a2947a40800000000000000
+      internalID: 5365074311883050839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      howtoplay_button_0: -6357821673905300315
+      howtoplay_button_1: 9021588235281255637
+      howtoplay_button_10: -7317147071092758360
+      howtoplay_button_11: 4839770013019650952
+      howtoplay_button_12: -3647834738758729299
+      howtoplay_button_13: -664638592404208779
+      howtoplay_button_14: -1393096594827391618
+      howtoplay_button_15: 7980716452675797923
+      howtoplay_button_16: -8367984297133654132
+      howtoplay_button_17: 7042982184170264150
+      howtoplay_button_18: -8637602767635688739
+      howtoplay_button_19: 5420466262974561635
+      howtoplay_button_2: 8858731478845390686
+      howtoplay_button_20: -1055611360865688418
+      howtoplay_button_21: -7594277887672224646
+      howtoplay_button_22: 8158024741099981508
+      howtoplay_button_23: 4631304388502797862
+      howtoplay_button_24: 5230138386447229055
+      howtoplay_button_25: 7828922073404962533
+      howtoplay_button_26: -2592802158154422061
+      howtoplay_button_27: 3663619560002084277
+      howtoplay_button_28: -6737902996472534364
+      howtoplay_button_29: -3347873329620279253
+      howtoplay_button_3: -1410031472373035722
+      howtoplay_button_30: -7919807712265450486
+      howtoplay_button_31: 3411566975026606593
+      howtoplay_button_32: 2108478133867428789
+      howtoplay_button_33: 2743173060289652595
+      howtoplay_button_34: -1942661363208108721
+      howtoplay_button_35: 5637988423339879535
+      howtoplay_button_36: 8523091196625671085
+      howtoplay_button_37: 3599661131805271479
+      howtoplay_button_38: 4450907706750044679
+      howtoplay_button_39: 1684571439944469794
+      howtoplay_button_4: -7085633637989367579
+      howtoplay_button_40: -6177698481004184244
+      howtoplay_button_41: 5783195652169909091
+      howtoplay_button_42: 242826634158136780
+      howtoplay_button_43: -2989378321841433517
+      howtoplay_button_44: 4014812203281155969
+      howtoplay_button_45: 3136955511032839677
+      howtoplay_button_46: 7734501835132028685
+      howtoplay_button_47: 160795670530618716
+      howtoplay_button_48: -8090362003989067489
+      howtoplay_button_49: 1313558382088072834
+      howtoplay_button_5: 2389194016939462441
+      howtoplay_button_50: 8215024291716626535
+      howtoplay_button_51: 1659833258373947242
+      howtoplay_button_52: 775469062852516580
+      howtoplay_button_53: 2635876480448311991
+      howtoplay_button_54: -4939200949125313973
+      howtoplay_button_55: 3077803725004330430
+      howtoplay_button_56: -6316036172259387142
+      howtoplay_button_57: 4698692731958376896
+      howtoplay_button_58: 537563579998511134
+      howtoplay_button_59: 6545660327115690660
+      howtoplay_button_6: 5982803180171012497
+      howtoplay_button_60: 8207285567489633589
+      howtoplay_button_61: -7122954713946143353
+      howtoplay_button_62: -8976278875675826802
+      howtoplay_button_63: -6358032920947184204
+      howtoplay_button_64: 7288698844484427005
+      howtoplay_button_65: 8919782371901087259
+      howtoplay_button_66: -9157018388012454574
+      howtoplay_button_67: -3340607139407773034
+      howtoplay_button_68: -4517434279911583731
+      howtoplay_button_69: -7561559705427827160
+      howtoplay_button_7: 4567000049306168408
+      howtoplay_button_70: 2726436245803801389
+      howtoplay_button_71: -7810413622354319409
+      howtoplay_button_72: 2271860945200466846
+      howtoplay_button_73: 7644606383815628705
+      howtoplay_button_74: 1821669673174817586
+      howtoplay_button_75: 455131909338188004
+      howtoplay_button_76: 3438229761333772896
+      howtoplay_button_77: -7830385652948161379
+      howtoplay_button_78: 54658528342350032
+      howtoplay_button_79: 503351147476562525
+      howtoplay_button_8: 8730704185191784024
+      howtoplay_button_80: 8799709173475737969
+      howtoplay_button_81: -906155180262249995
+      howtoplay_button_82: 6783885888291830214
+      howtoplay_button_83: -3140665945442171343
+      howtoplay_button_84: 2001951030480352835
+      howtoplay_button_85: 5365074311883050839
+      howtoplay_button_9: -2830828004581225473
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

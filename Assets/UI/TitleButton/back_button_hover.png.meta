@@ -1,0 +1,1391 @@
+fileFormatVersion: 2
+guid: 6fe29296e6eb646839c0dc8b712c7146
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3338976753611371453
+    second: back_button_hover_0
+  - first:
+      213: -6110627713376634506
+    second: back_button_hover_1
+  - first:
+      213: -5190865055430815962
+    second: back_button_hover_2
+  - first:
+      213: 5368058617405982869
+    second: back_button_hover_3
+  - first:
+      213: 7641869176459488219
+    second: back_button_hover_4
+  - first:
+      213: 6860169840202173634
+    second: back_button_hover_5
+  - first:
+      213: -2610844782644653425
+    second: back_button_hover_6
+  - first:
+      213: 1274291946114806363
+    second: back_button_hover_7
+  - first:
+      213: -5356610524410823871
+    second: back_button_hover_8
+  - first:
+      213: -455554583051057486
+    second: back_button_hover_9
+  - first:
+      213: 1363993932357035298
+    second: back_button_hover_10
+  - first:
+      213: 6854643511999725053
+    second: back_button_hover_11
+  - first:
+      213: 5609407047934296560
+    second: back_button_hover_12
+  - first:
+      213: -7334438582054688206
+    second: back_button_hover_13
+  - first:
+      213: 7847159000897687791
+    second: back_button_hover_14
+  - first:
+      213: -5655083501370877108
+    second: back_button_hover_15
+  - first:
+      213: 7226736514184548254
+    second: back_button_hover_16
+  - first:
+      213: 2545083664462765161
+    second: back_button_hover_17
+  - first:
+      213: -6848692191867334224
+    second: back_button_hover_18
+  - first:
+      213: -2743792375592924036
+    second: back_button_hover_19
+  - first:
+      213: -6360800485483414226
+    second: back_button_hover_20
+  - first:
+      213: 8095832447816930211
+    second: back_button_hover_21
+  - first:
+      213: -8021195673279394441
+    second: back_button_hover_22
+  - first:
+      213: -4233211859983470758
+    second: back_button_hover_23
+  - first:
+      213: 3340195373864866463
+    second: back_button_hover_24
+  - first:
+      213: -7108484636070316244
+    second: back_button_hover_25
+  - first:
+      213: -3369420345238215218
+    second: back_button_hover_26
+  - first:
+      213: -7459650241851122084
+    second: back_button_hover_27
+  - first:
+      213: 1113348833500408421
+    second: back_button_hover_28
+  - first:
+      213: -3840763507073380638
+    second: back_button_hover_29
+  - first:
+      213: 3287313090105584798
+    second: back_button_hover_30
+  - first:
+      213: 1921473854748595165
+    second: back_button_hover_31
+  - first:
+      213: 5498185433416729618
+    second: back_button_hover_32
+  - first:
+      213: 1651798572223147152
+    second: back_button_hover_33
+  - first:
+      213: 8492038171773718281
+    second: back_button_hover_34
+  - first:
+      213: 2189372826853359490
+    second: back_button_hover_35
+  - first:
+      213: -8648578336063362968
+    second: back_button_hover_36
+  - first:
+      213: 6482971179787151042
+    second: back_button_hover_37
+  - first:
+      213: -8292528915725333727
+    second: back_button_hover_38
+  - first:
+      213: -1199765697522626696
+    second: back_button_hover_39
+  - first:
+      213: -5379745450426206546
+    second: back_button_hover_40
+  - first:
+      213: -1273796031531639475
+    second: back_button_hover_41
+  - first:
+      213: -339467496209643533
+    second: back_button_hover_42
+  - first:
+      213: 6111905849372781080
+    second: back_button_hover_43
+  - first:
+      213: -7896878835645569988
+    second: back_button_hover_44
+  - first:
+      213: 5786055759299038453
+    second: back_button_hover_45
+  - first:
+      213: -3245387175462628592
+    second: back_button_hover_46
+  - first:
+      213: -7095491879304980918
+    second: back_button_hover_47
+  - first:
+      213: -5260328085911999880
+    second: back_button_hover_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: back_button_hover_0
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 653
+        width: 315
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3fa40baad665e20800000000000000
+      internalID: 3338976753611371453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_1
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 681
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 679378d5870b23ba0800000000000000
+      internalID: -6110627713376634506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_2
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 709
+        width: 32
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62fce060cb756f7b0800000000000000
+      internalID: -5190865055430815962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_3
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 689
+        width: 72
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59845ff0fdc2f7a40800000000000000
+      internalID: 5368058617405982869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_4
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 675
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdbefd2178f5d0a60800000000000000
+      internalID: 7641869176459488219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_5
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 691
+        width: 49
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc49187f18343f50800000000000000
+      internalID: 6860169840202173634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_6
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 653
+        width: 124
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8298c6c08a64cbd0800000000000000
+      internalID: -2610844782644653425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_7
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 665
+        width: 98
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52705406c13fa110800000000000000
+      internalID: 1274291946114806363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_8
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 644
+        width: 71
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14bbf5ccb1f79a5b0800000000000000
+      internalID: -5356610524410823871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_9
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 675
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b6c075358b8da9f0800000000000000
+      internalID: -455554583051057486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_10
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 693
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 225ede53141ede210800000000000000
+      internalID: 1363993932357035298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_11
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 657
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfdfdaae4f5902f50800000000000000
+      internalID: 6854643511999725053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_12
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 640
+        width: 86
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f142bc7dfd98dd40800000000000000
+      internalID: 5609407047934296560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_13
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 634
+        width: 53
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23ae5b918f6d63a90800000000000000
+      internalID: -7334438582054688206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_14
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 666
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe014880985b6ec60800000000000000
+      internalID: 7847159000897687791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_15
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 677
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4bdd95748b1581b0800000000000000
+      internalID: -5655083501370877108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_16
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 637
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9f805d12968a4460800000000000000
+      internalID: 7226736514184548254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_17
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 675
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96cd3ffbb14f15320800000000000000
+      internalID: 2545083664462765161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 2132
+        height: 660
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b191c7ccbe84f0a0800000000000000
+      internalID: -6848692191867334224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_19
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 642
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ccb532f571ce9d0800000000000000
+      internalID: -2743792375592924036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_20
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 634
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2df0afc8a5e9b7a0800000000000000
+      internalID: -6360800485483414226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_21
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 658
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a3953db7bc2a5070800000000000000
+      internalID: 8095832447816930211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_22
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 642
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d0844880dfea090800000000000000
+      internalID: -8021195673279394441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_23
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 626
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5fe6baed3c9045c0800000000000000
+      internalID: -4233211859983470758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_24
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 637
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f925e93def1ca5e20800000000000000
+      internalID: 3340195373864866463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_25
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 627
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c27f4b7c2e6995d90800000000000000
+      internalID: -7108484636070316244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_26
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 630
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec52a174c0a6d31d0800000000000000
+      internalID: -3369420345238215218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_27
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 626
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e9ec1c0aff97890800000000000000
+      internalID: -7459650241851122084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_28
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 620
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56a23e38dd8637f00800000000000000
+      internalID: 1113348833500408421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_29
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 594
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee8b9680fdd2bac0800000000000000
+      internalID: -3840763507073380638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_30
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 95
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c2c39a6d1ee9d20800000000000000
+      internalID: 3287313090105584798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_31
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 96
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd39d7d5a427aaa10800000000000000
+      internalID: 1921473854748595165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_32
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 71
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2140804658a7d4c40800000000000000
+      internalID: 5498185433416729618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_33
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 70
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09cabd1cc0e5ce610800000000000000
+      internalID: 1651798572223147152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_34
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 33
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90f41a779b7c9d570800000000000000
+      internalID: 8492038171773718281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_35
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 34
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28fbc797cf6326e10800000000000000
+      internalID: 2189372826853359490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_36
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 29
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 868edc253d31af780800000000000000
+      internalID: -8648578336063362968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_37
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 24
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c6ee4490f328f950800000000000000
+      internalID: 6482971179787151042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_38
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 18
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12b498803e40bec80800000000000000
+      internalID: -8292528915725333727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_39
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 13
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f07796473995fe0800000000000000
+      internalID: -1199765697522626696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_40
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 17
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea67255140e4755b0800000000000000
+      internalID: -5379745450426206546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_41
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 0
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d11481241925ee0800000000000000
+      internalID: -1273796031531639475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_42
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 15
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f702ab5c18f94bf0800000000000000
+      internalID: -339467496209643533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_43
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 7
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a2f7cdcf9d1d450800000000000000
+      internalID: 6111905849372781080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_44
+      rect:
+        serializedVersion: 2
+        x: 1762
+        y: 19
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c34ab07d986a86290800000000000000
+      internalID: -7896878835645569988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_45
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 13
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fc4f97ae033c4050800000000000000
+      internalID: 5786055759299038453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_46
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 7
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01311f70f8116f2d0800000000000000
+      internalID: -3245387175462628592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_47
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 7
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a469b53babfb78d90800000000000000
+      internalID: -7095491879304980918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button_hover_48
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 8
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87a643de97f8ff6b0800000000000000
+      internalID: -5260328085911999880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      back_button_hover_0: 3338976753611371453
+      back_button_hover_1: -6110627713376634506
+      back_button_hover_10: 1363993932357035298
+      back_button_hover_11: 6854643511999725053
+      back_button_hover_12: 5609407047934296560
+      back_button_hover_13: -7334438582054688206
+      back_button_hover_14: 7847159000897687791
+      back_button_hover_15: -5655083501370877108
+      back_button_hover_16: 7226736514184548254
+      back_button_hover_17: 2545083664462765161
+      back_button_hover_18: -6848692191867334224
+      back_button_hover_19: -2743792375592924036
+      back_button_hover_2: -5190865055430815962
+      back_button_hover_20: -6360800485483414226
+      back_button_hover_21: 8095832447816930211
+      back_button_hover_22: -8021195673279394441
+      back_button_hover_23: -4233211859983470758
+      back_button_hover_24: 3340195373864866463
+      back_button_hover_25: -7108484636070316244
+      back_button_hover_26: -3369420345238215218
+      back_button_hover_27: -7459650241851122084
+      back_button_hover_28: 1113348833500408421
+      back_button_hover_29: -3840763507073380638
+      back_button_hover_3: 5368058617405982869
+      back_button_hover_30: 3287313090105584798
+      back_button_hover_31: 1921473854748595165
+      back_button_hover_32: 5498185433416729618
+      back_button_hover_33: 1651798572223147152
+      back_button_hover_34: 8492038171773718281
+      back_button_hover_35: 2189372826853359490
+      back_button_hover_36: -8648578336063362968
+      back_button_hover_37: 6482971179787151042
+      back_button_hover_38: -8292528915725333727
+      back_button_hover_39: -1199765697522626696
+      back_button_hover_4: 7641869176459488219
+      back_button_hover_40: -5379745450426206546
+      back_button_hover_41: -1273796031531639475
+      back_button_hover_42: -339467496209643533
+      back_button_hover_43: 6111905849372781080
+      back_button_hover_44: -7896878835645569988
+      back_button_hover_45: 5786055759299038453
+      back_button_hover_46: -3245387175462628592
+      back_button_hover_47: -7095491879304980918
+      back_button_hover_48: -5260328085911999880
+      back_button_hover_5: 6860169840202173634
+      back_button_hover_6: -2610844782644653425
+      back_button_hover_7: 1274291946114806363
+      back_button_hover_8: -5356610524410823871
+      back_button_hover_9: -455554583051057486
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

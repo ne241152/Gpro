@@ -1,11 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleManager : MonoBehaviour
+public class TitleManeger : MonoBehaviour
 {
-    // タイトルの「スタート」等のボタンに割当てる関数
+    // スタートボタンを押したらストーリー画面へ
+
+    [SerializeField] private GameObject howToPlayPanel;
+
+    public void OpenHowToPlay()
+    {
+        howToPlayPanel.SetActive(true);
+    }
+
+    public void CloseHowToPlay()
+    {
+        howToPlayPanel.SetActive(false);
+    }
+
     public void GoToSelectScene()
     {
-        SceneManager.LoadScene("Select Scene");
+        SceneManager.LoadScene("StoryScene");
     }
 }
+
