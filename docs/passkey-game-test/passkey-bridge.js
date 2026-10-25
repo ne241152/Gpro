@@ -148,6 +148,7 @@
             'PasskeyAuthBridge',
             'OnPasskeySuccess'
           );
+          overlay.style.display = 'none';
           console.log('Gpro: Unityに認証成功を通知しました');
         } catch (error) {
           console.error('Unityへの通知エラー:', error);
