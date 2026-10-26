@@ -121,14 +121,15 @@ public class UIManager : MonoBehaviour
             case 2:
                 switch (cardNo){
                     case 1:
-                        player.CreateDrone();
+                        player.EnableDelayBomb();
                         break;
                     case 2:
-                        player.IncreaseAttackPower(1);
+                        player.IncreaseAttackPowerPercent(50f);
                         player.IncreaseAttackSpeed(50f);
+                        player.IncreaseMoveSpeed(50f);
                         break;
                     case 3:
-                        player.EnableDelayBomb();
+                        player.CreateDrone();
                         break;
                 }
                 break;

@@ -34,23 +34,21 @@ public class WizardPlayerController : MonoBehaviour
     public GameObject dronePrefab;
     public GameObject delayBombPrefab;
 
-    public int attackPower = 1;
+    public float attackPower = 1f;
     public float gatlingInterval = 0.5f;
-    public float delayBombInterval = 8f;
     public float damageRate = 1.0f;
     public float invincibleTime = 3f;
     
     private float gatlingTimer = 0f;
     private float burstTimer = 0f;
-    private float delayBombTimer = 0f;
     private float invincibleTimer = 0f;
 
     private bool hasBurst = false;
-    private bool hasDelayBomb = false;
     private bool isInvincible = false;
     public bool hasRevive = false;
 
     private GameObject currentDrone;
+    private GameObject currentSmsCannon;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -163,13 +161,7 @@ else
             }
         }
 
-        if (hasDelayBomb) {
-            delayBombTimer += Time.deltaTime;
-            if (delayBombTimer >= delayBombInterval) {
-                FireDelayBomb();
-                delayBombTimer = 0f;
-            }
-        }
+
     }
 
     void FixedUpdate()
@@ -249,34 +241,13 @@ else
         }
     }
 
-    void FireDelayBomb()
-    {
-        if (delayBombPrefab == null) return;
-
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length == 0) return;
-
-        GameObject nearest = null;
-        float minDist = Mathf.Infinity;
-
-        foreach (GameObject e in enemies)
-        {
-            float dist = Vector2.Distance(transform.position, e.transform.position);
-            if (dist < minDist) { minDist = dist; nearest = e; }
-        }
-        if (nearest != null)
-        {
-            Instantiate(delayBombPrefab, nearest.transform.position, Quaternion.identity);
-        }
-    }
-
     public void AddExp(int amount)
     {
         currentExp += amount;
         if (currentExp >= expToNextLevel) {
             currentExp -= expToNextLevel;
             currentLevel++;
-            expToNextLevel += 1; 
+            expToNextLevel += 1;
             
             if (uiManager != null) {
                 uiManager.ShowLevelUp(BattlePhase);
@@ -341,6 +312,7 @@ else
     }
     
     public void IncreaseAttackPower(int amount) { attackPower += amount; }
+    public void IncreaseAttackPowerPercent(float percent) { attackPower *= 1f + percent / 100f; }
     public void DecreaseAttackPower(int amount) { attackPower -= amount; if (attackPower < 1) attackPower = 1; }
     public void IncreaseMaxHP(int amount)
     {
@@ -353,8 +325,22 @@ else
     public void DecreaseMoveSpeed(float percent) { moveSpeed *= (100f - percent) / 100f; }
     public void EnableRevive() { hasRevive = true; }
     public void EnablePasskey() { hasPasskey = true; }
-    public void EnableDelayBomb() { hasDelayBomb = true; FireDelayBomb(); delayBombTimer = 0f; }
-    public void IncreaseAttackSpeed(float percent) { gatlingInterval *= (100f - percent) / 100f; }
+    public void EnableDelayBomb()
+    {
+        if (delayBombPrefab == null) {
+            Debug.LogError("SMSキャノン: Delay Bomb Prefabが未設定です。", this);
+            return;
+        }
+        if (currentSmsCannon != null) return;
+        currentSmsCannon = Instantiate(delayBombPrefab, transform.position, Quaternion.identity);
+        currentSmsCannon.GetComponent<DelayBomb>().Initialize(transform);
+    }
+
+    void OnDestroy()
+    {
+        if (currentSmsCannon != null) Destroy(currentSmsCannon);
+    }
+    public void IncreaseAttackSpeed(float percent) { gatlingInterval /= 1f + percent / 100f; }
     public void DecreaseAttackSpeed(float percent) { gatlingInterval *= (100f + percent) / 100f; }
 
     public void CreateDrone()
@@ -364,6 +350,6 @@ else
         currentDrone = Instantiate(dronePrefab);
         DroneWeapon drone = currentDrone.GetComponent<DroneWeapon>();
         drone.player = transform;
-        drone.bulletPrefab = bulletPrefab;
+        if (drone.bulletPrefab == null) drone.bulletPrefab = bulletPrefab;
     }
 }

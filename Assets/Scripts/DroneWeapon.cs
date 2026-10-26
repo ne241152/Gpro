@@ -5,12 +5,42 @@ public class DroneWeapon : MonoBehaviour
     public Transform player;
     public GameObject bulletPrefab;
 
-    public float radius = 2f;
-    public float rotateSpeed = 120f;
+    public float radius = 3f;
+    public float rotateSpeed = 60f;
+    public float bulletSpeed = 20f;
+    public float playerWidthRatio = 1f / 3f;
+    public Sprite leftSprite;
+    public Sprite rightSprite;
+
+    private SpriteRenderer droneRenderer;
+
+    void Start()
+    {
+        nextAttackInterval = RandomAttackInterval();
+        droneRenderer = GetComponent<SpriteRenderer>();
+        if (player == null || droneRenderer == null || droneRenderer.sprite == null) return;
+        Transform visual = player.Find("WizardSprite");
+        SpriteRenderer playerRenderer = visual != null ? visual.GetComponent<SpriteRenderer>() : null;
+        if (playerRenderer == null) return;
+
+        float width = droneRenderer.sprite.bounds.size.x;
+        if (width > 0f) {
+            float scale = playerRenderer.bounds.size.x * playerWidthRatio / width;
+            transform.localScale = new Vector3(scale, scale, 1f);
+        }
+    }
 
     //攻撃系
-    public float attackInterval = 1.0f;//何秒ごとに撃つか
+    public float minAttackInterval = 0.6f;
+    public float maxAttackInterval = 1.4f;
     private float attackTimer = 0f;
+    private float nextAttackInterval;
+
+    float RandomAttackInterval()
+    {
+        float minimum = Mathf.Max(0.05f, minAttackInterval);
+        return Random.Range(minimum, Mathf.Max(minimum, maxAttackInterval));
+    }
 
     float angle;
 
@@ -26,10 +56,11 @@ public class DroneWeapon : MonoBehaviour
         transform.position = player.position + new Vector3(x, y, 0);
 
         attackTimer += Time.deltaTime;
-        if (attackTimer >= attackInterval)
+        if (attackTimer >= nextAttackInterval)
         {
             FireDrone();
             attackTimer = 0f;
+            nextAttackInterval = RandomAttackInterval();
         }
     }
 
@@ -47,12 +78,16 @@ public class DroneWeapon : MonoBehaviour
                 nearest = e;
             }
         }
-        if (nearest == null)
+        if (nearest == null || bulletPrefab == null)
             return;
 
-        GameObject b = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Vector2 dir =(nearest.transform.position - transform.position).normalized;
-        b.GetComponent<Rigidbody2D>().linearVelocity = dir * 10f;
+        if (droneRenderer != null) {
+            Sprite facing = dir.x < 0 ? leftSprite : rightSprite;
+            if (facing != null) droneRenderer.sprite = facing;
+        }
+        GameObject b = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        b.GetComponent<Rigidbody2D>().linearVelocity = dir * bulletSpeed;
         b.GetComponent<Bullet>().damage = 1;
     }
 }
