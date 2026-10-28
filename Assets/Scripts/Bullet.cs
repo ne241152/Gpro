@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage = 1;
+    public float damage = 1f;
+    public int maxTargets = 1;
     public Sprite[] animationFrames;
     public float frameInterval = 0.06f;
     public int loopStartFrame = 5;
@@ -10,6 +11,8 @@ public class Bullet : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private int frameIndex;
     private float frameTimer;
+    private readonly System.Collections.Generic.HashSet<EnemyHealth> hitEnemies =
+        new System.Collections.Generic.HashSet<EnemyHealth>();
 
     void Start()
     {
@@ -44,8 +47,11 @@ public class Bullet : MonoBehaviour
     {
         // 当たった相手がEnemyタグを持っていたら
         if (col.CompareTag("Enemy")) {
-            col.GetComponent<EnemyHealth>().TakeDamage(damage); // 敵にdamageを与える
-            Destroy(gameObject); // 弾自身は消える
+            if (hitEnemies.Count >= Mathf.Max(1, maxTargets)) return;
+            EnemyHealth enemy = col.GetComponentInParent<EnemyHealth>();
+            if (enemy == null || !hitEnemies.Add(enemy)) return;
+            enemy.TakeDamage(damage);
+            if (hitEnemies.Count >= Mathf.Max(1, maxTargets)) Destroy(gameObject);
         }
     }
 }
