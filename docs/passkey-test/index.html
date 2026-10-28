@@ -31,6 +31,26 @@
   <button id="register">パスキーを登録</button>
   <p id="status">登録ボタンを押してください。</p>
 
+  <section id="demo-credentials" hidden
+    style="margin:24px auto; padding:20px;
+           max-width:420px; border:1px solid #80caff;
+           border-radius:12px;">
+    <h2>ゲーム用アカウント情報</h2>
+    <p>以下はゲーム内で使用する架空の情報です。</p>
+
+    <p>ユーザーID：<strong id="demo-id"></strong></p>
+    <p>パスワード：<strong id="demo-password"></strong></p>
+
+    <p style="font-size:14px;">
+      本物のパスキー認証には使用しません。
+    </p>
+
+    <button id="start-game" type="button">
+      ゲームへ進む
+    </button>
+  </section>
+
+
   <script>
     const API = 'https://passkey-api.gpro-security.workers.dev';
     const button = document.getElementById('register');
@@ -108,6 +128,7 @@
 
         status.textContent =
           '✅ パスキーの登録と検証に成功しました！';
+        showDemoCredentials();
 
       } catch (error) {
         status.textContent =
@@ -119,6 +140,47 @@
         button.textContent = 'もう一度登録';
       }
     });
+
+
+    // フィッシング体験専用の架空ID・パスワード
+    function showDemoCredentials() {
+      function randomHex(size) {
+        const bytes = crypto.getRandomValues(
+          new Uint8Array(size)
+        );
+
+        return Array.from(
+          bytes,
+          b => b.toString(16).padStart(2, '0')
+        ).join('').toUpperCase();
+      }
+
+      const credentials = {
+        id: 'GPRO-' + randomHex(3),
+        password: 'DEMO-' + randomHex(4)
+      };
+
+      // 同じタブでゲームに移動した後も読み取れる
+      sessionStorage.setItem(
+        'gpro.demoCredentials',
+        JSON.stringify(credentials)
+      );
+
+      document.getElementById('demo-id').textContent =
+        credentials.id;
+
+      document.getElementById('demo-password').textContent =
+        credentials.password;
+
+      document.getElementById('demo-credentials').hidden = false;
+    }
+
+    document.getElementById('start-game')
+      .addEventListener('click', () => {
+        window.location.assign(
+          'https://ne241152.github.io/Gpro/'
+        );
+      });
 
     prepareRegistration();
   </script>
