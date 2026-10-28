@@ -31,6 +31,26 @@
   <button id="register">パスキーを登録</button>
   <p id="status">登録ボタンを押してください。</p>
 
+  <section id="demo-credentials" hidden
+    style="margin:24px auto; padding:20px;
+           max-width:420px; border:1px solid #80caff;
+           border-radius:12px;">
+    <h2>ゲーム用アカウント情報</h2>
+    <p>以下はゲーム内で使用する架空の情報です。</p>
+
+    <p>ユーザーID：<strong id="demo-id"></strong></p>
+    <p>パスワード：<strong id="demo-password"></strong></p>
+
+    <p style="font-size:14px;">
+      本物のパスキー認証には使用しません。
+    </p>
+
+    <button id="start-game" type="button">
+      ゲームへ進む
+    </button>
+  </section>
+
+
   <script>
     const API = 'https://passkey-api.gpro-security.workers.dev';
     const button = document.getElementById('register');
@@ -108,6 +128,7 @@
 
         status.textContent =
           '✅ パスキーの登録と検証に成功しました！';
+        showDemoCredentials();
 
       } catch (error) {
         status.textContent =
@@ -120,7 +141,150 @@
       }
     });
 
+
+    // フィッシング体験専用の架空ID・パスワード
+    function showDemoCredentials() {
+      function randomHex(size) {
+        const bytes = crypto.getRandomValues(
+          new Uint8Array(size)
+        );
+
+        return Array.from(
+          bytes,
+          b => b.toString(16).padStart(2, '0')
+        ).join('').toUpperCase();
+      }
+
+      const credentials = {
+        id: 'GPRO-' + randomHex(3),
+        password: 'DEMO-' + randomHex(4)
+      };
+
+      // 同じタブでゲームに移動した後も読み取れる
+      sessionStorage.setItem(
+        'gpro.demoCredentials',
+        JSON.stringify(credentials)
+      );
+
+      document.getElementById('demo-id').textContent =
+        credentials.id;
+
+      document.getElementById('demo-password').textContent =
+        credentials.password;
+
+      document.getElementById('demo-credentials').hidden = false;
+    }
+
+    document.getElementById('start-game')
+      .addEventListener('click', () => {
+        window.location.assign(
+          'https://ne241152.github.io/Gpro/'
+        );
+      });
+
     prepareRegistration();
   </script>
+
+<div style="margin-top:32px">
+  <button id="login-button" disabled>ログイン準備中...</button>
+  <p id="login-status">準備中...</p>
+</div>
+
+<script>
+(() => {
+  const loginAPI = 'https://passkey-api.gpro-security.workers.dev';
+  const loginButton = document.getElementById('login-button');
+  const loginStatus = document.getElementById('login-status');
+
+  let loginPrepared = null;
+  let loginPreparedAt = 0;
+
+  async function prepareLogin() {
+    loginButton.disabled = true;
+    loginStatus.textContent = 'ログインの準備中...';
+
+    try {
+      const res = await fetch(loginAPI + '/login/options', {
+        method: 'POST',
+        cache: 'no-store'
+      });
+
+      if (!res.ok) {
+        throw new Error('ログイン準備API: HTTP ' + res.status);
+      }
+
+      loginPrepared = await res.json();
+      loginPreparedAt = Date.now();
+
+      loginButton.textContent = 'パスキーでログイン';
+      loginStatus.textContent = 'ログイン準備完了';
+    } catch (error) {
+      loginPrepared = null;
+      loginButton.textContent = '準備を再試行';
+      loginStatus.textContent = '準備エラー: ' + error.message;
+    } finally {
+      loginButton.disabled = false;
+    }
+  }
+
+  loginButton.addEventListener('click', async () => {
+    // サーバー側の有効期限は5分
+    if (!loginPrepared ||
+        Date.now() - loginPreparedAt > 240000) {
+      await prepareLogin();
+      return;
+    }
+
+    const { loginId, options } = loginPrepared;
+    loginPrepared = null;
+    loginButton.disabled = true;
+
+    try {
+      loginStatus.textContent = 'パスキー認証を開始します...';
+
+      // Safari対策：タップ直後に認証を開始
+      const credentialPromise =
+        SimpleWebAuthnBrowser.startAuthentication({
+          optionsJSON: options
+        });
+
+      const credential = await credentialPromise;
+
+      loginStatus.textContent = 'サーバーで認証結果を検証中...';
+
+      const res = await fetch(loginAPI + '/login/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          loginId,
+          response: credential
+        })
+      });
+
+      const result = await res.json();
+
+      if (!res.ok || !result.verified) {
+        throw new Error(result.error || '認証に失敗しました');
+      }
+
+      loginStatus.textContent =
+        '登録済みパスキーでログイン成功！';
+      loginButton.textContent = '認証成功';
+
+    } catch (error) {
+      loginStatus.textContent =
+        '❌ ' + (error.name || 'Error') +
+        ': ' + error.message;
+
+      loginButton.textContent = 'ログインを再試行';
+      loginButton.disabled = false;
+      console.error(error);
+    }
+  });
+
+  prepareLogin();
+})();
+</script>
+
 </body>
 </html>
