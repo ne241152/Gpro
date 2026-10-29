@@ -17,6 +17,16 @@ public class EnemyMove : MonoBehaviour
     public float moveInterval = 0.05f;
 
     private float moveTimer = 0f;
+    private Vector2 knockbackVelocity;
+    private float knockbackRemaining;
+
+    public void ApplyKnockback(Vector2 direction, float distance, float duration)
+    {
+        if (duration <= 0f) return;
+        knockbackVelocity = direction.normalized * distance / duration;
+        knockbackRemaining = duration;
+        moveTimer = 0f;
+    }
 
     void Awake()
     {
@@ -45,6 +55,13 @@ public class EnemyMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (rb != null && knockbackRemaining > 0f) {
+            float step = Mathf.Min(Time.fixedDeltaTime, knockbackRemaining);
+            rb.MovePosition(rb.position + knockbackVelocity * step);
+            knockbackRemaining -= step;
+            return;
+        }
+
         if (player == null || rb == null)
             return;
 

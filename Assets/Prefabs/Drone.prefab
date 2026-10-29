@@ -80,9 +80,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: f5f37d14df0b4c21a5a4a37960fd6c9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +105,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroneWeapon
   player: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  radius: 2
-  rotateSpeed: 120
-  attackInterval: 1
+  bulletPrefab: {fileID: 9135767063249597970, guid: 0b4fe63bd1344ec19be629a2ae2e274e, type: 3}
+  radius: 3
+  rotateSpeed: 60
+  minAttackInterval: 0.6
+  maxAttackInterval: 1.4
+  bulletSpeed: 20
+  playerWidthRatio: 0.6
+  leftSprite: {fileID: 21300000, guid: f5f37d14df0b4c21a5a4a37960fd6c9a, type: 3}
+  rightSprite: {fileID: 21300001, guid: f5f37d14df0b4c21a5a4a37960fd6c9a, type: 3}
