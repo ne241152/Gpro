@@ -6483,6 +6483,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   zombiePrefab: {fileID: 1673305358250306745, guid: b1a339ae0c7a541c9b80b9cffa4bd521, type: 3}
+  enemyPrefabs:
+  - {fileID: 1673305358250306745, guid: 13d625d4c8534e0da2e7485e532d1d5e, type: 3}
+  - {fileID: 1673305358250306745, guid: 9f969baa188446a6807dea97f74c1349, type: 3}
+  - {fileID: 1673305358250306745, guid: 255421ea9d1d40238a6da4be26f5d031, type: 3}
+  spawnPhases:
+  - startTime: 0
+    prefabs:
+    - {fileID: 1673305358250306745, guid: 13d625d4c8534e0da2e7485e532d1d5e, type: 3}
+  - startTime: 20
+    prefabs:
+    - {fileID: 1673305358250306745, guid: 13d625d4c8534e0da2e7485e532d1d5e, type: 3}
+    - {fileID: 1673305358250306745, guid: 9f969baa188446a6807dea97f74c1349, type: 3}
+  - startTime: 30
+    prefabs:
+    - {fileID: 1673305358250306745, guid: 9f969baa188446a6807dea97f74c1349, type: 3}
+    - {fileID: 1673305358250306745, guid: 255421ea9d1d40238a6da4be26f5d031, type: 3}
   batPrefab: {fileID: 4965908897929563086, guid: 5bdd09c0a87354959a4be4c760d6cb9f, type: 3}
   timerText: {fileID: 794336380}
   uiManager: {fileID: 1501246635}
