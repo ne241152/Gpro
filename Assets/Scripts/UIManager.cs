@@ -183,36 +183,19 @@ public class UIManager : MonoBehaviour
         Debug.Log("ヒントボタンが押されました: " + cardNo);
         hintPanel.SetActive(true); 
 
-        // ヒントパネル自体の座標パーツを取得
-        RectTransform panelRect = hintPanel.GetComponent<RectTransform>();
-        RectTransform targetBtn = null; // どのボタンが押されたかを記憶する用
-
-        switch (cardNo)
-        {
-            case 1:
-                targetBtn = HintButton_1;
-                break;
-            case 2:
-                targetBtn = HintButton_2;
-                break;
-            case 3:
-                targetBtn = HintButton_3;
-                break;
-        }
-
         switch (player.BattlePhase)
         {
             case 1:
                 switch (cardNo)
                 {
                     case 1:
-                        hintText.text = "【長いパスワード】\n文字数が多いほど解読時間は爆発的に伸びます。\n強力ですが、入力が面倒になるため「攻撃速度低下」のデメリットがついています。";
+                        hintText.text = "【長いパスワード】\n\n文字数が多いほど解読時間は爆発的に伸びます。\n強力ですが、入力が面倒になるため「攻撃速度低下」のデメリットがついています。";
                         break;
                     case 2:
-                        hintText.text = "【パスキー(Passkey)】\nこのカードの正体は最新の認証技術「パスキー」です。\nデバイス内蔵の鍵を使うため、偽サイト(フィッシング)による被害を完全に無効化します！";
+                        hintText.text = "【パスキー(Passkey)】\n\nこのカードの正体は最新の認証技術「パスキー」です。\nデバイス内蔵の鍵を使うため、偽サイト(フィッシング)による被害を完全に無効化します！";
                         break;
                     case 3:
-                        hintText.text = "【二段階認証(2FA)】\nパスワードだけでなく、スマホのSMSなどに届くコードを使う防衛手段です。\n万が一パスワードが突破されても、二重の鍵でアカウントを復活・保護できます。";
+                        hintText.text = "【二段階認証(2FA)】\n\nパスワードだけでなく、スマホのSMSなどに届くコードを使う防衛手段です。\n万が一パスワードが突破されても、二重の鍵でアカウントを復活・保護できます。";
                         break;
                 }
                 break;
@@ -220,16 +203,13 @@ public class UIManager : MonoBehaviour
                 switch (cardNo)
                 {
                     case 1:
-                        hintText.text = "フェーズ2・カード1のヒント";
-                        targetBtn = HintButton_1;
+                        hintText.text = "【SMS認証】\n\nSMSで届く認証コードを確認し、入力することで本人確認を行います。\nコードの受信や入力には時間がかかるため、ゲームでは着弾までにラグがある強力な攻撃として表現しています。";
                         break;
                     case 2:
-                        hintText.text = "フェーズ2・カード2のヒント";
-                        targetBtn = HintButton_2;
+                        hintText.text = "【生体認証】\n\n指紋や顔などの身体的な特徴を使って本人確認を行う技術です。\nパスワード入力が不要で素早く認証できますが、端末の対応状況や利用環境によっては認証できない場合もあります。";
                         break;
                     case 3:
-                        hintText.text = "フェーズ2・カード3のヒント";
-                        targetBtn = HintButton_3;
+                        hintText.text = "【オートフィル（自動入力）】\n\n保存したIDやパスワードなどを自動入力し、ログインの手間を減らす機能です。\n便利ですが、利用できない場合は手入力が必要になるため、ゲームでは攻撃間隔が変動するドローンとして表現しています。";
                         break;
                 }
                 break;
@@ -237,27 +217,16 @@ public class UIManager : MonoBehaviour
                 switch (cardNo)
                 {
                     case 1:
-                        hintText.text = "フェーズ3・カード1のヒント";
-                        targetBtn = HintButton_1;
+                        hintText.text = "【シングルサインオン(SSO)】\n\n一度の認証で複数のサービスにログインできる便利な仕組みです。\nしかし、認証の中心となるアカウントが乗っ取られると、連携する複数のサービスにも被害が広がる危険があります。";
                         break;
                     case 2:
-                        hintText.text = "フェーズ3・カード2のヒント";
-                        targetBtn = HintButton_2;
+                        hintText.text = "【同期パスキー】\n\nパスキーは対応するクラウドサービスを通じて、複数の端末間で同期できます。\n同じパスキーを別の端末でも利用できるため、端末を変えてもパスワードを入力せずに、安全でスムーズなログインが可能になります。";
                         break;
                     case 3:
-                        hintText.text = "フェーズ3・カード3のヒント";
-                        targetBtn = HintButton_3;
+                        hintText.text = "【リスクベース認証】\n\nログインする場所や端末、普段と異なる操作などから不正アクセスの危険度を判断する仕組みです。\n危険度が低い場合は簡単にログインでき、高い場合は追加認証を求めることで、安全性と利便性を両立します。";
                         break;
                 }
                 break;
-        }
-
-        // ヒントパネルの「横位置(X)」だけを、押したボタンに合わせる
-        if (panelRect != null && targetBtn != null)
-        {
-            Vector3 newPos = panelRect.position;
-            newPos.x = targetBtn.position.x; 
-            panelRect.position = newPos;
         }
     }
 
