@@ -2112,7 +2112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24, g: 0.56, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.85, b: 0.1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4886,6 +4886,14 @@ PrefabInstance:
       propertyPath: detectRadius
       value: 14.4
       objectReference: {fileID: 0}
+    - target: {fileID: 3883314898495956719, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
+      propertyPath: riskScanTexture
+      value:
+      objectReference: {fileID: 2800000, guid: 5bd3c1f840a14335aae9dc1d5c1e2c90, type: 3}
+    - target: {fileID: 3883314898495956719, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
+      propertyPath: riskScanResultTexture
+      value:
+      objectReference: {fileID: 2800000, guid: 435808b2612e49d7a705b5acb7bde3a5, type: 3}
     - target: {fileID: 260792381858112327, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

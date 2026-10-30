@@ -5,6 +5,7 @@ public class WizardAutoAttack : MonoBehaviour
     public GameObject meteorPrefab;
     public float attackInterval = 1.0f;
     public float detectRadius = 6f;
+    public float visualOpacity = 1f;
 
     private float timer = 0f;
 
@@ -45,6 +46,7 @@ public class WizardAutoAttack : MonoBehaviour
         if (meteorPrefab == null || target == null) return;
 
         Vector3 spawnPos = target.transform.position + new Vector3(0, 3f, 0);
-        Instantiate(meteorPrefab, spawnPos, Quaternion.identity);
+        GameObject meteor = Instantiate(meteorPrefab, spawnPos, Quaternion.identity);
+        SpectralAppearance.Apply(meteor, visualOpacity);
     }
 }
