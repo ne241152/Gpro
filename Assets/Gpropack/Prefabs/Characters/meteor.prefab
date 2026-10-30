@@ -168,4 +168,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeed: 2
   lifeTime: 2
-  damage: 10
+  damage: 2

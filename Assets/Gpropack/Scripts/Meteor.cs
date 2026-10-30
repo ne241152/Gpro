@@ -4,7 +4,7 @@ public class Meteor : MonoBehaviour
 {
     public float fallSpeed = 2f;
     public float lifeTime = 2f;
-    public int damage = 10;
+    public int damage = 2; // 調整用に一時的に弱体化（元は10）
 
     void Start()
     {
