@@ -11,6 +11,7 @@ public class DroneWeapon : MonoBehaviour
     public float playerWidthRatio = 1f / 3f;
     public Sprite leftSprite;
     public Sprite rightSprite;
+    public float visualOpacity = 1f;
 
     private SpriteRenderer droneRenderer;
 
@@ -87,6 +88,7 @@ public class DroneWeapon : MonoBehaviour
             if (facing != null) droneRenderer.sprite = facing;
         }
         GameObject b = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        SpectralAppearance.Apply(b, visualOpacity);
         b.GetComponent<Rigidbody2D>().linearVelocity = dir * bulletSpeed;
         b.GetComponent<Bullet>().damage = 1;
     }

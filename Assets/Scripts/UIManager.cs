@@ -150,8 +150,10 @@ public class UIManager : MonoBehaviour
                         }
                         break;
                     case 2:
+                        player.EnableRiskScanner();
                         break;
                     case 3:
+                        player.CreateCompanion();
                         break;
                 }
                 break;

@@ -64,7 +64,7 @@ public void TakeDamage(int damage)
     LinkBarrierController barrier =
         GetComponentInChildren<LinkBarrierController>();
 
-    if (barrier != null)
+    if (barrier != null && barrier.IsProtecting)
     {
         Debug.Log("連携バリアがダメージを防ぎました");
         return;
