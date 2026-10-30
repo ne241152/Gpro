@@ -33,6 +33,8 @@ public class WizardPlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject dronePrefab;
     public GameObject delayBombPrefab;
+    public Texture2D riskScanTexture;
+    public Texture2D riskScanResultTexture;
 
     public float attackPower = 1f;
     public float gatlingInterval = 0.5f;
@@ -49,6 +51,13 @@ public class WizardPlayerController : MonoBehaviour
 
     private GameObject currentDrone;
     private GameObject currentSmsCannon;
+    private SpectralCompanion currentCompanion;
+    private RiskBasedScanner riskScanner;
+    public float EffectiveMoveSpeed => moveSpeed * (riskScanner != null ? riskScanner.MoveMultiplier : 1f);
+    public float EffectiveAttackPower => attackPower * (riskScanner != null ? riskScanner.AttackMultiplier : 1f);
+    public float EffectiveDamageRate => damageRate * (riskScanner != null ? riskScanner.DamageMultiplier : 1f);
+    public bool HasDrone => currentDrone != null;
+    public bool HasSmsCannon => currentSmsCannon != null;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -169,7 +178,7 @@ else
         if (rb == null) return;
 
         rb.MovePosition(
-            rb.position + moveInput * moveSpeed * Time.fixedDeltaTime
+            rb.position + moveInput * EffectiveMoveSpeed * Time.fixedDeltaTime
         );
     }
 
@@ -207,6 +216,11 @@ else
 
     void FireGatling()
     {
+        FireGatlingFrom(transform.position, 1f);
+    }
+
+    public void FireGatlingFrom(Vector3 origin, float opacity)
+    {
         if (bulletPrefab == null) return;
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -214,14 +228,15 @@ else
         float minDist = Mathf.Infinity;
 
         foreach (var e in enemies) {
-            float dist = Vector2.Distance(transform.position, e.transform.position);
+            float dist = Vector2.Distance(origin, e.transform.position);
             if (dist < minDist) { minDist = dist; nearest = e; }
         }
 
         if (nearest != null) {
-            GameObject b = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            b.GetComponent<Bullet>().damage = attackPower;
-            Vector2 dir = (nearest.transform.position - transform.position).normalized;
+            GameObject b = Instantiate(bulletPrefab, origin, Quaternion.identity);
+            SpectralAppearance.Apply(b, opacity);
+            b.GetComponent<Bullet>().damage = EffectiveAttackPower;
+            Vector2 dir = (nearest.transform.position - origin).normalized;
             b.GetComponent<Rigidbody2D>().linearVelocity = dir * 10f;
         }
     }
@@ -271,7 +286,7 @@ else
     {
         if (isInvincible) return;
 
-        dmg = Mathf.RoundToInt(dmg * damageRate);
+        dmg = Mathf.RoundToInt(dmg * EffectiveDamageRate);
         hp -= dmg;
         if (hp <= 0) {
             if (hasRevive){
@@ -332,13 +347,24 @@ else
             return;
         }
         if (currentSmsCannon != null) return;
-        currentSmsCannon = Instantiate(delayBombPrefab, transform.position, Quaternion.identity);
-        currentSmsCannon.GetComponent<DelayBomb>().Initialize(transform);
+        currentSmsCannon = SpawnSmsCannonFor(transform, 1f);
+    }
+
+    public GameObject SpawnSmsCannonFor(Transform owner, float opacity)
+    {
+        if (delayBombPrefab == null) return null;
+        GameObject cannon = Instantiate(delayBombPrefab, owner.position, Quaternion.identity);
+        DelayBomb weapon = cannon.GetComponent<DelayBomb>();
+        weapon.visualOpacity = opacity;
+        weapon.Initialize(owner);
+        return cannon;
     }
 
     void OnDestroy()
     {
         if (currentSmsCannon != null) Destroy(currentSmsCannon);
+        if (currentDrone != null) Destroy(currentDrone);
+        if (currentCompanion != null) Destroy(currentCompanion.gameObject);
     }
     public void IncreaseAttackSpeed(float percent) { gatlingInterval /= 1f + percent / 100f; }
     public void DecreaseAttackSpeed(float percent) { gatlingInterval *= (100f + percent) / 100f; }
@@ -347,9 +373,33 @@ else
     {
         if (bulletPrefab == null || dronePrefab == null) return;
         if (currentDrone != null) return;
-        currentDrone = Instantiate(dronePrefab);
-        DroneWeapon drone = currentDrone.GetComponent<DroneWeapon>();
-        drone.player = transform;
+        currentDrone = SpawnDroneFor(transform, 1f);
+    }
+
+    public GameObject SpawnDroneFor(Transform owner, float opacity)
+    {
+        if (dronePrefab == null) return null;
+        GameObject instance = Instantiate(dronePrefab, owner.position, Quaternion.identity);
+        DroneWeapon drone = instance.GetComponent<DroneWeapon>();
+        drone.player = owner;
+        drone.visualOpacity = opacity;
         if (drone.bulletPrefab == null) drone.bulletPrefab = bulletPrefab;
+        SpectralAppearance.Apply(instance, opacity);
+        return instance;
+    }
+
+    public void CreateCompanion()
+    {
+        if (currentCompanion != null) return;
+        GameObject companion = new GameObject("SynchroCompanion");
+        currentCompanion = companion.AddComponent<SpectralCompanion>();
+        currentCompanion.Initialize(this);
+    }
+
+    public void EnableRiskScanner()
+    {
+        if (riskScanner != null) return;
+        riskScanner = gameObject.AddComponent<RiskBasedScanner>();
+        riskScanner.Initialize(this, riskScanTexture, riskScanResultTexture);
     }
 }

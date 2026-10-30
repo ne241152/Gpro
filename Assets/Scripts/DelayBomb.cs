@@ -16,6 +16,7 @@ public class DelayBomb : MonoBehaviour
     public Sprite[] targetFrames;
     public Sprite[] blastFrames;
     public Sprite[] clockFrames;
+    public float visualOpacity = 1f;
 
     private Transform owner;
     private SpriteRenderer clock;
@@ -162,6 +163,7 @@ public class DelayBomb : MonoBehaviour
         if (effectMaterial != null) renderer.sharedMaterial = effectMaterial;
         renderer.sortingLayerID = effectSortingLayer;
         renderer.sortingOrder = order;
+        renderer.color = new Color(1f, 1f, 1f, Mathf.Clamp01(visualOpacity));
         return renderer;
     }
 

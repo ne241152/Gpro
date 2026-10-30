@@ -200,6 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c37f795e0cf4794afe9f286864809d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LinkBarrierController
+  centerOffset: {x: 1.5, y: 1.5}
+  halfExtent: 9
+  barrierTexture: {fileID: 2800000, guid: 7b5139bde0cc4078af8e8820907becc4, type: 3}
 --- !u!1 &6656935035625705360
 GameObject:
   m_ObjectHideFlags: 0
