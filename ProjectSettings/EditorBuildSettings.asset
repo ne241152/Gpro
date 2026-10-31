@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StoryScene.unity
     guid: 83cd1789c604d4635b66ca8bb157e601
   - enabled: 1
+    path: Assets/Scenes/PasskeyScene.unity
+    guid: 7a662a73338df43e78763df2356a0753
+  - enabled: 1
     path: Assets/Scenes/SampleScene1.unity
     guid: c68548771360e43e5bed84f98314ffa1
   - enabled: 1

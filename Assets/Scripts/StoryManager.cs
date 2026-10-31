@@ -204,13 +204,13 @@ public class StoryManager : MonoBehaviour
         }
         else
         {
-            // 最後はキャラクター選択画面へ
-            SceneManager.LoadScene("Select Scene");
+            // 次はパスキー画面へ
+            SceneManager.LoadScene("PasskeyScene");
         }
     }
     
      public void SkipStory()
     {
-        SceneManager.LoadScene("Select Scene");
+        SceneManager.LoadScene("PasskeyScene");
     }
 }
