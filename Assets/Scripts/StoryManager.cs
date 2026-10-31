@@ -51,6 +51,12 @@ public class StoryManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private bool isTyping = false;
 
+    void Awake()
+    {
+        // 2周目でもゲーム内の時間が正常に進むようにする
+        Time.timeScale = 1f;
+    }
+    
     void Start()
     {
         if (storyImage == null ||
