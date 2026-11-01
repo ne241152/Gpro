@@ -51,6 +51,12 @@ public class StoryManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private bool isTyping = false;
 
+    void Awake()
+    {
+        // 2周目でもゲーム内の時間が正常に進むようにする
+        Time.timeScale = 1f;
+    }
+    
     void Start()
     {
         if (storyImage == null ||
@@ -204,13 +210,13 @@ public class StoryManager : MonoBehaviour
         }
         else
         {
-            // 最後はキャラクター選択画面へ
-            SceneManager.LoadScene("Select Scene");
+            // 次はパスキー画面へ
+            SceneManager.LoadScene("PasskeyScene");
         }
     }
     
      public void SkipStory()
     {
-        SceneManager.LoadScene("Select Scene");
+        SceneManager.LoadScene("PasskeyScene");
     }
 }
