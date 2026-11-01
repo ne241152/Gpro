@@ -7,7 +7,7 @@ public class WizardPlayerController : MonoBehaviour
 {
     public bool hasPasskey = false;
     [Header("移動・アニメーション設定")]
-    public float moveSpeed = 3f;
+    public float moveSpeed = 3.3f;
     [Header("スマホ操作")]
     public MobileJoystick mobileJoystick;
     public Sprite front;
@@ -19,7 +19,7 @@ public class WizardPlayerController : MonoBehaviour
     public int maxHp = 100; 
     public int hp = 100;
     public int currentExp = 0;
-    public int expToNextLevel = 6;
+    public int expToNextLevel = 40;
     public int currentLevel = 1;
     public int BattlePhase = 1;
 
@@ -36,14 +36,16 @@ public class WizardPlayerController : MonoBehaviour
     public Texture2D riskScanTexture;
     public Texture2D riskScanResultTexture;
 
-    public float attackPower = 1f;
-    public float gatlingInterval = 0.5f;
+    public float attackPower = 3f;
+    public float gatlingInterval = 0.45f;
     public float damageRate = 1.0f;
     public float invincibleTime = 3f;
+    [Min(0f)] public float hitInvincibilityDuration = 0.3f;
     
     private float gatlingTimer = 0f;
     private float burstTimer = 0f;
     private float invincibleTimer = 0f;
+    private float hitInvincibilityUntil;
 
     private bool hasBurst = false;
     private bool isInvincible = false;
@@ -54,7 +56,8 @@ public class WizardPlayerController : MonoBehaviour
     private SpectralCompanion currentCompanion;
     private RiskBasedScanner riskScanner;
     public float EffectiveMoveSpeed => moveSpeed * (riskScanner != null ? riskScanner.MoveMultiplier : 1f);
-    public float EffectiveAttackPower => attackPower * (riskScanner != null ? riskScanner.AttackMultiplier : 1f);
+    public float RiskAttackMultiplier => riskScanner != null ? riskScanner.AttackMultiplier : 1f;
+    public float EffectiveAttackPower => attackPower * RiskAttackMultiplier;
     public float EffectiveDamageRate => damageRate * (riskScanner != null ? riskScanner.DamageMultiplier : 1f);
     public bool HasDrone => currentDrone != null;
     public bool HasSmsCannon => currentSmsCannon != null;
@@ -219,7 +222,7 @@ else
         FireGatlingFrom(transform.position, 1f);
     }
 
-    public void FireGatlingFrom(Vector3 origin, float opacity)
+    public void FireGatlingFrom(Vector3 origin, float opacity, float damageMultiplier = 1f)
     {
         if (bulletPrefab == null) return;
 
@@ -235,7 +238,7 @@ else
         if (nearest != null) {
             GameObject b = Instantiate(bulletPrefab, origin, Quaternion.identity);
             SpectralAppearance.Apply(b, opacity);
-            b.GetComponent<Bullet>().damage = EffectiveAttackPower;
+            b.GetComponent<Bullet>().damage = EffectiveAttackPower * damageMultiplier;
             Vector2 dir = (nearest.transform.position - origin).normalized;
             b.GetComponent<Rigidbody2D>().linearVelocity = dir * 10f;
         }
@@ -248,7 +251,7 @@ else
             if (c.CompareTag("Enemy")) {
                 EnemyHealth enemy = c.GetComponent<EnemyHealth>();
                 if (enemy != null) {
-                    enemy.TakeDamage(2);
+                    enemy.TakeDamage(2f * RiskAttackMultiplier);
                     Vector2 kbDir = (c.transform.position - transform.position).normalized;
                     enemy.transform.position += (Vector3)kbDir * 1.5f;
                 }
@@ -258,11 +261,19 @@ else
 
     public void AddExp(int amount)
     {
+        if (BattlePhase > 3)
+        {
+            UpdateExpBar();
+            return;
+        }
+
         currentExp += amount;
         if (currentExp >= expToNextLevel) {
             currentExp -= expToNextLevel;
             currentLevel++;
-            expToNextLevel += 1;
+            if (currentLevel == 2) expToNextLevel = 60;
+            else if (currentLevel == 3) expToNextLevel = 60;
+            else expToNextLevel += 5;
             
             if (uiManager != null) {
                 uiManager.ShowLevelUp(BattlePhase);
@@ -275,6 +286,7 @@ else
 
     public void UpdateExpBar()
     {
+        if (BattlePhase > 3) currentExp = expToNextLevel;
         if (expSlider != null)
         {
             expSlider.maxValue = expToNextLevel;
@@ -284,9 +296,12 @@ else
 
     public void TakeDamage(int dmg)
     {
-        if (isInvincible) return;
+        if (isInvincible || Time.time < hitInvincibilityUntil) return;
 
         dmg = Mathf.RoundToInt(dmg * EffectiveDamageRate);
+        if (dmg <= 0) return;
+
+        hitInvincibilityUntil = Time.time + hitInvincibilityDuration;
         hp -= dmg;
         if (hp <= 0) {
             if (hasRevive){
@@ -350,12 +365,14 @@ else
         currentSmsCannon = SpawnSmsCannonFor(transform, 1f);
     }
 
-    public GameObject SpawnSmsCannonFor(Transform owner, float opacity)
+    public GameObject SpawnSmsCannonFor(Transform owner, float opacity, float damageMultiplier = 1f)
     {
         if (delayBombPrefab == null) return null;
         GameObject cannon = Instantiate(delayBombPrefab, owner.position, Quaternion.identity);
         DelayBomb weapon = cannon.GetComponent<DelayBomb>();
         weapon.visualOpacity = opacity;
+        weapon.damageMultiplier = damageMultiplier;
+        weapon.attackSource = this;
         weapon.Initialize(owner);
         return cannon;
     }
@@ -376,13 +393,15 @@ else
         currentDrone = SpawnDroneFor(transform, 1f);
     }
 
-    public GameObject SpawnDroneFor(Transform owner, float opacity)
+    public GameObject SpawnDroneFor(Transform owner, float opacity, float damageMultiplier = 1f)
     {
         if (dronePrefab == null) return null;
         GameObject instance = Instantiate(dronePrefab, owner.position, Quaternion.identity);
         DroneWeapon drone = instance.GetComponent<DroneWeapon>();
         drone.player = owner;
         drone.visualOpacity = opacity;
+        drone.damageMultiplier = damageMultiplier;
+        drone.attackSource = this;
         if (drone.bulletPrefab == null) drone.bulletPrefab = bulletPrefab;
         SpectralAppearance.Apply(instance, opacity);
         return instance;

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorPrefab: {fileID: 5646556488716669239, guid: f52269dbd977e48569785134c7e49bd3, type: 3}
   attackInterval: 1.5
-  detectRadius: 6
+  detectRadius: 26
 --- !u!114 &6775531198010948548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasPasskey: 0
-  moveSpeed: 3
+  moveSpeed: 3.3
   front: {fileID: 21300000, guid: a4e15cfe56ea543e59381e54deaeb115, type: 3}
   walkLeft:
   - {fileID: 21300000, guid: faafce920a25d491198f5256010a75cb, type: 3}
@@ -208,7 +208,7 @@ MonoBehaviour:
   maxHp: 100
   hp: 100
   currentExp: 0
-  expToNextLevel: 10
+  expToNextLevel: 40
   currentLevel: 1
   BattlePhase: 1
   hpText: {fileID: 0}
@@ -218,8 +218,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   dronePrefab: {fileID: 0}
   delayBombPrefab: {fileID: 0}
-  attackPower: 1
-  gatlingInterval: 0.5
+  attackPower: 3
+  gatlingInterval: 0.45
   delayBombInterval: 8
   damageRate: 1
   invincibleTime: 3

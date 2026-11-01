@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b4e4f300c7e43e5948a5789b40a444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 6
   expPrefab: {fileID: 7601855759927414291, guid: 4bcfbb91f665d4dad8bb413a34c9153f, type: 3}
 --- !u!114 &1556214941068499616
 MonoBehaviour:
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
   player: {fileID: 0}
-  moveSpeed: 1
+  moveSpeed: 1.6
   moveInterval: 0.05
 --- !u!114 &100800911702561989
 MonoBehaviour:
@@ -219,5 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFacing
   frontSprite: {fileID: 21300000, guid: 447086a612b34dcb920fac8abcb57330, type: 3}
   leftSprite: {fileID: 21300000, guid: 447086a612b34dcb920fac8abcb57330, type: 3}
-  rightSprite: {fileID: 21300000, guid: 1f015be1805c4b60beea64338c6a6f4a, type: 3}
+  rightSprite: {fileID: 21300000, guid: 447086a612b34dcb920fac8abcb57330, type: 3}
   frontThreshold: 0.1
+  flipLeftSpriteForRight: 1

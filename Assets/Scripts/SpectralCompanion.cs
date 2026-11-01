@@ -6,6 +6,7 @@ public class SpectralCompanion : MonoBehaviour
 {
     public Vector2 followOffset = new Vector2(4f, 0f);
     [Range(0f, 1f)] public float opacity = 0.6f;
+    [Min(0f)] public float damageMultiplier = 0.5f;
 
     private WizardPlayerController source;
     private SpriteRenderer sourceRenderer;
@@ -63,7 +64,7 @@ public class SpectralCompanion : MonoBehaviour
         attackTimer += Time.deltaTime;
         if (attackTimer >= Mathf.Max(0.01f, source.gatlingInterval)) {
             attackTimer = 0f;
-            source.FireGatlingFrom(transform.position, opacity);
+            source.FireGatlingFrom(transform.position, opacity, damageMultiplier);
         }
     }
 
@@ -86,13 +87,15 @@ public class SpectralCompanion : MonoBehaviour
         meteor.attackInterval = sourceMeteor.attackInterval;
         meteor.detectRadius = sourceMeteor.detectRadius;
         meteor.visualOpacity = opacity;
+        meteor.damageMultiplier = damageMultiplier;
+        meteor.attackSource = source;
         meteor.enabled = sourceMeteor.enabled;
     }
 
     void SyncWeapons()
     {
-        if (source.HasDrone && drone == null) drone = source.SpawnDroneFor(transform, opacity);
-        if (source.HasSmsCannon && smsCannon == null) smsCannon = source.SpawnSmsCannonFor(transform, opacity);
+        if (source.HasDrone && drone == null) drone = source.SpawnDroneFor(transform, opacity, damageMultiplier);
+        if (source.HasSmsCannon && smsCannon == null) smsCannon = source.SpawnSmsCannonFor(transform, opacity, damageMultiplier);
     }
 
     void OnDestroy()

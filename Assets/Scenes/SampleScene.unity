@@ -4884,7 +4884,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7584904733753895881, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
       propertyPath: detectRadius
-      value: 14.4
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 3883314898495956719, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
       propertyPath: riskScanTexture
@@ -4964,7 +4964,7 @@ PrefabInstance:
       objectReference: {fileID: 9135767063249597970, guid: 02a8faa0a016a42a1ace488cc40d0421, type: 3}
     - target: {fileID: 3883314898495956719, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
       propertyPath: expToNextLevel
-      value: 6
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3883314898495956719, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
       propertyPath: delayBombPrefab
@@ -6490,6 +6490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35097fad12dde46c3925b8b11a96d5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  doubleSpawnPrefab: {fileID: 1673305358250306745, guid: 13d625d4c8534e0da2e7485e532d1d5e, type: 3}
   zombiePrefab: {fileID: 1673305358250306745, guid: b1a339ae0c7a541c9b80b9cffa4bd521, type: 3}
   enemyPrefabs:
   - {fileID: 1673305358250306745, guid: 13d625d4c8534e0da2e7485e532d1d5e, type: 3}
@@ -6499,18 +6500,26 @@ MonoBehaviour:
   - startTime: 0
     prefabs:
     - {fileID: 1673305358250306745, guid: 13d625d4c8534e0da2e7485e532d1d5e, type: 3}
-  - startTime: 20
+    - {fileID: 1673305358250306745, guid: 9f969baa188446a6807dea97f74c1349, type: 3}
+    populationWeights: 0900000001000000
+    maxActiveEnemies: 135
+  - startTime: 40
     prefabs:
     - {fileID: 1673305358250306745, guid: 13d625d4c8534e0da2e7485e532d1d5e, type: 3}
     - {fileID: 1673305358250306745, guid: 9f969baa188446a6807dea97f74c1349, type: 3}
-  - startTime: 30
+    populationWeights: 0300000007000000
+    maxActiveEnemies: 120
+  - startTime: 80
     prefabs:
+    - {fileID: 1673305358250306745, guid: 13d625d4c8534e0da2e7485e532d1d5e, type: 3}
     - {fileID: 1673305358250306745, guid: 9f969baa188446a6807dea97f74c1349, type: 3}
     - {fileID: 1673305358250306745, guid: 255421ea9d1d40238a6da4be26f5d031, type: 3}
+    populationWeights: 020000000600000002000000
+    maxActiveEnemies: 150
   batPrefab: {fileID: 4965908897929563086, guid: 5bdd09c0a87354959a4be4c760d6cb9f, type: 3}
   timerText: {fileID: 794336380}
   uiManager: {fileID: 1501246635}
-  timeLimit: 45
+  timeLimit: 120
 --- !u!4 &1968267939
 Transform:
   m_ObjectHideFlags: 0

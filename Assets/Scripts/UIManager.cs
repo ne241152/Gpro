@@ -114,7 +114,7 @@ public class UIManager : MonoBehaviour
                         break;
                     case 3:
                         player.EnableRevive();
-                        player.DecreaseMoveSpeed(30f);
+                        player.DecreaseMoveSpeed(10f);
                         break;
                 }
                 break;
@@ -159,6 +159,7 @@ public class UIManager : MonoBehaviour
                 break;
         }
         player.BattlePhase++;
+        player.UpdateExpBar();
         levelUpPanel.SetActive(false);
         Time.timeScale = 1;
     }
