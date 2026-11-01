@@ -4,8 +4,9 @@ using UnityEngine;
 public class RiskBasedScanner : MonoBehaviour
 {
     public float scanRadius = 14f;
-    public int dangerThreshold = 5;
+    public int dangerThreshold = 35;
     public float bonusPercent = 30f;
+    public float attackBonusPercent = 50f;
     public float scanInterval = 10f;
     public float expansionDuration = 0.4f;
     public float holdDuration = 0.1f;
@@ -17,7 +18,7 @@ public class RiskBasedScanner : MonoBehaviour
     public int EnemyCount => currentEnemyCount;
     public bool IsHighRisk => currentEnemyCount >= Mathf.Max(1, dangerThreshold);
     public float MoveMultiplier => isActiveAndEnabled && hasScanResult && !IsHighRisk ? 1f + bonusPercent / 100f : 1f;
-    public float AttackMultiplier => isActiveAndEnabled && hasScanResult && IsHighRisk ? 1f + bonusPercent / 100f : 1f;
+    public float AttackMultiplier => isActiveAndEnabled && hasScanResult && IsHighRisk ? 1f + attackBonusPercent / 100f : 1f;
     public float DamageMultiplier => isActiveAndEnabled && hasScanResult && IsHighRisk ? Mathf.Clamp01(1f - bonusPercent / 100f) : 1f;
 
     private WizardPlayerController owner;

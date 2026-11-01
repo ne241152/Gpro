@@ -9,6 +9,9 @@ public class EnemyFacing : MonoBehaviour
     public Sprite leftSprite;
     public Sprite rightSprite;
 
+    [Tooltip("左向きの画像1枚を使い、プレイヤーが右にいるとき左右反転する")]
+    public bool flipLeftSpriteForRight;
+
     [Header("正面を向くX座標の許容差")]
     [Min(0f)] public float frontThreshold = 0.1f;
 
@@ -29,6 +32,12 @@ public class EnemyFacing : MonoBehaviour
         if (player != null)
         {
             float deltaX = player.position.x - transform.position.x;
+            if (flipLeftSpriteForRight)
+            {
+                spriteRenderer.sprite = leftSprite != null ? leftSprite : frontSprite;
+                spriteRenderer.flipX = deltaX > 0f;
+                return;
+            }
             float threshold = Mathf.Max(0f, frontThreshold);
             if (deltaX < -threshold && leftSprite != null)
                 nextSprite = leftSprite;

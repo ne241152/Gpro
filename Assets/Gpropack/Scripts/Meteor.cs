@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class Meteor : MonoBehaviour
 {
-    public float fallSpeed = 2f;
+    public float fallSpeed = 6f;
     public float lifeTime = 2f;
-    public int damage = 2; // 調整用に一時的に弱体化（元は10）
+    public int damage = 3;
+    public float damageMultiplier = 1f;
+    [Min(0f)] public float hitDelay = 0.2f;
+
+    private float elapsedTime;
 
     void Start()
     {
@@ -18,12 +22,31 @@ public class Meteor : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        TryHit(collision);
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        TryHit(collision);
+    }
+
+    void FixedUpdate()
+    {
+        elapsedTime += Time.fixedDeltaTime;
+    }
+
+    private bool hasHit;
+
+    void TryHit(Collider2D collision)
+    {
+        if (hasHit || elapsedTime < hitDelay) return;
         if (!collision.CompareTag("Enemy")) return;
 
+        hasHit = true;
         EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
         if (enemyHealth != null)
         {
-            enemyHealth.TakeDamage(damage);
+            enemyHealth.TakeDamage(damage * damageMultiplier);
         }
 
         Destroy(gameObject);

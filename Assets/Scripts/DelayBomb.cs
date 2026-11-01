@@ -7,7 +7,9 @@ public class DelayBomb : MonoBehaviour
     public int damage = 10;
     public float cycleDuration = 6f;
     public float flightDuration = 1f;
-    public float explosionRadius = 3f;
+    public float explosionRadius = 5f;
+    public float damageMultiplier = 1f;
+    [System.NonSerialized] public WizardPlayerController attackSource;
     public float arcHeight = 3f;
     public float clockWidth = 1.4f;
     public float clockHeadGap = 0.15f;
@@ -137,7 +139,9 @@ public class DelayBomb : MonoBehaviour
         var hit = new HashSet<EnemyHealth>();
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(position, explosionRadius)) {
             EnemyHealth enemy = collider.GetComponentInParent<EnemyHealth>();
-            if (enemy != null && enemy.CompareTag("Enemy") && hit.Add(enemy)) enemy.TakeDamage(damage);
+            if (enemy != null && enemy.CompareTag("Enemy") && hit.Add(enemy))
+                enemy.TakeDamage(damage * damageMultiplier
+                    * (attackSource != null ? attackSource.RiskAttackMultiplier : 1f));
         }
         StartCoroutine(BlastAnimation(position));
     }

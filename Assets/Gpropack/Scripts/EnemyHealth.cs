@@ -39,19 +39,26 @@ public class EnemyHealth : MonoBehaviour
         if (defeated || damage <= 0) return;
         hp -= damage;
 
-        if (hp <= 0)
-        {
-            defeated = true;
-            // 倒されたらその場に経験値をドロップして消滅
-            Instantiate(expPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            return;
-        }
-
         if (spriteRenderer != null) {
             spriteRenderer.color = new Color(1f, 0.45f, 0.45f, originalColor.a);
             flashRemaining = flashDuration;
         }
+
+        if (hp <= 0)
+        {
+            defeated = true;
+            // 被弾表示だけ短く残し、死亡時点で移動・接触ダメージ・衝突を止める。
+            if (movement != null) movement.enabled = false;
+            EnemyAttack attack = GetComponent<EnemyAttack>();
+            if (attack != null) attack.enabled = false;
+            foreach (Collider2D body in GetComponentsInChildren<Collider2D>()) body.enabled = false;
+            Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
+            if (rigidBody != null) rigidBody.simulated = false;
+            if (expPrefab != null) Instantiate(expPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject, Mathf.Max(0.01f, flashDuration));
+            return;
+        }
+
         if (movement != null && movement.player != null) {
             Vector2 direction = transform.position - movement.player.position;
             movement.ApplyKnockback(direction, knockbackDistance, knockbackDuration);

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage = 1f;
+    [Tooltip("命中できる敵数。0以下なら無制限")]
     public int maxTargets = 1;
     public Sprite[] animationFrames;
     public float frameInterval = 0.06f;
@@ -47,11 +48,11 @@ public class Bullet : MonoBehaviour
     {
         // 当たった相手がEnemyタグを持っていたら
         if (col.CompareTag("Enemy")) {
-            if (hitEnemies.Count >= Mathf.Max(1, maxTargets)) return;
+            if (maxTargets > 0 && hitEnemies.Count >= maxTargets) return;
             EnemyHealth enemy = col.GetComponentInParent<EnemyHealth>();
             if (enemy == null || !hitEnemies.Add(enemy)) return;
             enemy.TakeDamage(damage);
-            if (hitEnemies.Count >= Mathf.Max(1, maxTargets)) Destroy(gameObject);
+            if (maxTargets > 0 && hitEnemies.Count >= maxTargets) Destroy(gameObject);
         }
     }
 }

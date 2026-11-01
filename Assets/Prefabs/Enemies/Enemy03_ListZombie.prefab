@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
   player: {fileID: 0}
-  moveSpeed: 1
+  moveSpeed: 1.5
   moveInterval: 0.05
 --- !u!114 &100800911702561989
 MonoBehaviour:
@@ -219,5 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFacing
   frontSprite: {fileID: 21300000, guid: 4b8568bde5b04546a61316be5f98487d, type: 3}
   leftSprite: {fileID: 21300000, guid: 4b8568bde5b04546a61316be5f98487d, type: 3}
-  rightSprite: {fileID: 21300000, guid: 1f015be1805c4b60beea64338c6a6f4a, type: 3}
+  rightSprite: {fileID: 21300000, guid: 4b8568bde5b04546a61316be5f98487d, type: 3}
   frontThreshold: 0.1
+  flipLeftSpriteForRight: 1

@@ -12,6 +12,8 @@ public class DroneWeapon : MonoBehaviour
     public Sprite leftSprite;
     public Sprite rightSprite;
     public float visualOpacity = 1f;
+    public float damageMultiplier = 1f;
+    [System.NonSerialized] public WizardPlayerController attackSource;
 
     private SpriteRenderer droneRenderer;
 
@@ -90,6 +92,7 @@ public class DroneWeapon : MonoBehaviour
         GameObject b = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         SpectralAppearance.Apply(b, visualOpacity);
         b.GetComponent<Rigidbody2D>().linearVelocity = dir * bulletSpeed;
-        b.GetComponent<Bullet>().damage = 1;
+        b.GetComponent<Bullet>().damage = 5f * damageMultiplier
+            * (attackSource != null ? attackSource.RiskAttackMultiplier : 1f);
     }
 }

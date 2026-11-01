@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88df20a8fd66d4f4f933952e91cd822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BarrierPiece
-  durability: 5
+  durability: 8
 --- !u!61 &7031644669733119748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88df20a8fd66d4f4f933952e91cd822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BarrierPiece
-  durability: 5
+  durability: 8
 --- !u!61 &7298715434092622065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88df20a8fd66d4f4f933952e91cd822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BarrierPiece
-  durability: 5
+  durability: 8
 --- !u!61 &498610731936309030
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88df20a8fd66d4f4f933952e91cd822e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BarrierPiece
-  durability: 5
+  durability: 8
 --- !u!61 &8462983663335146933
 BoxCollider2D:
   m_ObjectHideFlags: 0

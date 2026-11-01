@@ -17,16 +17,46 @@ public class EnemyAttack : MonoBehaviour
 
     [Header("攻撃間隔（秒）")]
     public float attackInterval = 1.0f;
+    [Min(0f)] public float contactTolerance = 0.08f;
 
     private float attackTimer = 0f;
     private PlayerHealth playerHealth;
+    private Collider2D bodyCollider;
+    private Collider2D playerCollider;
     private bool touchingPlayer = false;
+
+    void Start()
+    {
+        bodyCollider = GetComponent<Collider2D>();
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject == null) return;
+        playerHealth = playerObject.GetComponentInParent<PlayerHealth>();
+        playerCollider = playerObject.GetComponent<Collider2D>();
+    }
 
     void Update()
     {
-        // プレイヤーに触れていなければ攻撃しない
-        if (!touchingPlayer || playerHealth == null)
+        if (Time.timeScale == 0f) return;
+        bool inContact = false;
+        if (playerHealth != null && bodyCollider != null && playerCollider != null
+            && bodyCollider.enabled && playerCollider.enabled)
+        {
+            ColliderDistance2D gap = bodyCollider.Distance(playerCollider);
+            inContact = gap.isValid && gap.distance <= contactTolerance;
+        }
+        if (!inContact)
+        {
+            touchingPlayer = false;
+            attackTimer = 0f;
             return;
+        }
+        if (!touchingPlayer)
+        {
+            touchingPlayer = true;
+            attackTimer = 0f;
+            AttackPlayer();
+            return;
+        }
 
         attackTimer += Time.deltaTime;
 
@@ -59,37 +89,4 @@ public class EnemyAttack : MonoBehaviour
         playerHealth.TakeDamage(damage);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerHealth =
-                collision.gameObject.GetComponentInParent<PlayerHealth>();
-
-            if (playerHealth != null)
-            {
-                Debug.Log("敵がプレイヤーに接触！攻撃します");
-
-                touchingPlayer = true;
-
-                AttackPlayer();
-
-                attackTimer = 0f;
-            }
-            else
-            {
-            Debug.LogWarning("PlayerHealthが見つかりません！");
-            }
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            touchingPlayer = false;
-            playerHealth = null;
-            attackTimer = 0f;
-        }
-    }
 }

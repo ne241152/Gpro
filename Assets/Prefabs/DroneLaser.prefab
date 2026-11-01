@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   damage: 1
-  maxTargets: 2
+  maxTargets: 0
   animationFrames:
   - {fileID: 21300000, guid: 360d42b224764cc8ac811602631ba6df, type: 3}
   - {fileID: 21300001, guid: 360d42b224764cc8ac811602631ba6df, type: 3}

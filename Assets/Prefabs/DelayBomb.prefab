@@ -107,7 +107,7 @@ MonoBehaviour:
   damage: 10
   cycleDuration: 6
   flightDuration: 1
-  explosionRadius: 3
+  explosionRadius: 5
   arcHeight: 3
   flightFrames:
   - {fileID: 21300000, guid: 6ab7d99a0eac4faf9a7a89ef067333e4, type: 3}

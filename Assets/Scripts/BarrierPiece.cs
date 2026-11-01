@@ -4,15 +4,16 @@ using UnityEngine;
 public class BarrierPiece : MonoBehaviour
 {
     [Header("バリア設定")]
-    public int durability = 5;
-    public float contactDamage = 2f;
-    public float knockbackDistance = 0.9f;
+    public int durability = 8;
+    public float contactDamage = 5f;
+    public float knockbackDistance = 1.3f;
     public float knockbackDuration = 0.12f;
     public float hitCooldown = 0.5f;
     [Range(0f, 1f)] public float opacity = 0.3f;
     public float hitFlashDuration = 0.22f;
 
     private LinkBarrierController parentBarrier;
+    private WizardPlayerController attackSource;
     private SpriteRenderer visual;
     private Sprite shieldSprite;
     private SpriteRenderer hitGlow;
@@ -22,6 +23,7 @@ public class BarrierPiece : MonoBehaviour
     public void Initialize(LinkBarrierController parent)
     {
         parentBarrier = parent;
+        attackSource = parent.GetComponentInParent<WizardPlayerController>();
         visual = GetComponent<SpriteRenderer>();
     }
 
@@ -76,7 +78,8 @@ public class BarrierPiece : MonoBehaviour
         if (nextHitTimes.TryGetValue(enemy, out float next) && Time.time < next) return;
         nextHitTimes[enemy] = Time.time + Mathf.Max(0.05f, hitCooldown);
 
-        enemy.TakeDamage(contactDamage);
+        enemy.TakeDamage(contactDamage
+            * (attackSource != null ? attackSource.RiskAttackMultiplier : 1f));
         EnemyMove movement = enemy.GetComponent<EnemyMove>();
         if (movement != null && enemy.hp > 0f) {
             Vector2 direction = enemy.transform.position - parentBarrier.transform.position;
