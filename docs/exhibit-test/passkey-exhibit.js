@@ -47,9 +47,11 @@
       '<form id="gpro-fake-form" autocomplete="off">',
       '<label for="gpro-input-id">ID</label>',
       '<input id="gpro-input-id" type="text" autocomplete="off" required>',
+      '<button id="gpro-fill-id" class="alt" type="button" hidden>IDを入力する</button>',
       '<label for="gpro-input-pass">パスワード</label>',
       '<input id="gpro-input-pass" type="password" autocomplete="off" required>',
-      '<button type="submit">入力して進む</button></form>',
+      '<button id="gpro-fill-pass" class="alt" type="button" hidden>パスワードを入力する</button>',
+      '<button id="gpro-fake-submit" type="submit">入力して進む</button></form>',
       '<button id="gpro-fake-decline" class="alt">入力しない</button>',
       '<p>普段お使いのID・パスワードは入力しないでください。</p>',
     '</section>',
@@ -73,6 +75,42 @@
   const $ = id => document.getElementById(id);
   const authButton = $('gpro-real-auth');
   const authStatus = $('gpro-real-status');
+
+  // iPhone/Android の横画面ではソフトウェアキーボードが画面を覆うため、
+  // 発行済みの架空情報だけをボタンで入力できるようにする。
+  const touchDevice = window.matchMedia('(pointer: coarse)').matches
+    || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (touchDevice) {
+    for (const id of ['gpro-input-id', 'gpro-input-pass']) {
+      const field = $(id);
+      field.readOnly = true;
+      field.inputMode = 'none';
+      field.tabIndex = -1;
+      field.style.pointerEvents = 'none';
+    }
+    $('gpro-fill-id').hidden = false;
+    $('gpro-fill-pass').hidden = false;
+  }
+
+  function refreshFakeSubmit() {
+    if (touchDevice) {
+      $('gpro-fake-submit').disabled =
+        !$('gpro-input-id').value || !$('gpro-input-pass').value;
+    }
+  }
+
+  function fillFakeField(fieldId, buttonId, value, label) {
+    $(fieldId).value = value;
+    $(buttonId).textContent = label + '：入力済み ✓';
+    $(buttonId).disabled = true;
+    refreshFakeSubmit();
+  }
+
+  $('gpro-fill-id').addEventListener('click', () =>
+    fillFakeField('gpro-input-id', 'gpro-fill-id', credentials().id, 'ID'));
+  $('gpro-fill-pass').addEventListener('click', () =>
+    fillFakeField('gpro-input-pass', 'gpro-fill-pass',
+      credentials().password, 'パスワード'));
 
   function setStage(value) {
     stage = value;
@@ -106,6 +144,13 @@
     const c = credentials();
     $('gpro-demo-id').textContent = c.id;
     $('gpro-demo-password').textContent = c.password;
+    $('gpro-input-id').value = '';
+    $('gpro-input-pass').value = '';
+    $('gpro-fill-id').textContent = 'IDを入力する';
+    $('gpro-fill-id').disabled = false;
+    $('gpro-fill-pass').textContent = 'パスワードを入力する';
+    $('gpro-fill-pass').disabled = false;
+    refreshFakeSubmit();
     setStage('fake');
   };
 
@@ -123,6 +168,9 @@
 
   $('gpro-fake-form').addEventListener('submit', event => {
     event.preventDefault();
+    // キーボード不要の端末では両方の入力ボタンを押した後に進む。
+    if (touchDevice &&
+        (!$('gpro-input-id').value || !$('gpro-input-pass').value)) return;
     finishFake(true);
   });
   $('gpro-fake-decline').addEventListener('click', () => finishFake(false));
