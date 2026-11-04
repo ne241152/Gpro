@@ -28,27 +28,45 @@
   }
 }
 
-/* スマホ縦向きではゲームを覆う */
-@media (orientation: portrait) and (pointer: coarse) {
-  body::after {
-    content: "📱 スマートフォンを横向きにしてください";
+/* スマートフォンのページ自体はスクロール・バウンスさせない。
+   ドアのダイアログ内部のスクロールは維持する。 */
+@media (pointer: coarse) {
+  html, body {
     position: fixed;
     inset: 0;
-    z-index: 2147483647;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    box-sizing: border-box;
-    background: #141b2b;
-    color: white;
-    text-align: center;
-    font: bold 20px sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
   }
+}
+#gpro-rotate-notice {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 2147483647;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #141b2b;
+  color: white;
+  text-align: center;
+  font: bold 20px sans-serif;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+@media (orientation: portrait) and (pointer: coarse) {
+  #gpro-rotate-notice { display: flex; }
 }
 </style>
 </head>
   <body>
+    <div id="gpro-rotate-notice" aria-live="polite">📱 スマートフォンを横向きにしてください</div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -66,6 +84,10 @@
     </div>
     <script>
       var canvas = document.querySelector("#unity-canvas");
+      // 縦向き案内に触れても、iOS Safariのページが引きずられないようにする。
+      document.getElementById("gpro-rotate-notice").addEventListener(
+        "touchmove", function (event) { event.preventDefault(); }, {passive: false}
+      );
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -172,6 +194,6 @@
 
     </script>
     <script src="https://unpkg.com/@simplewebauthn/browser@14.0.0/dist/bundle/index.umd.min.js"></script>
-  <script src="passkey-exhibit.js?v=20261104-inputbuttons"></script>
+  <script src="passkey-exhibit.js?v=20261104-door-landscape"></script>
   </body>
 </html>

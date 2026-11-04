@@ -6,6 +6,7 @@
   let options = null;
   let fetchedAt = 0;
   let requesting = false;
+  let preparingLogin = false;
 
   const style = document.createElement('style');
   style.textContent = [
@@ -28,7 +29,22 @@
     '#gpro-door .demo{background:#0c1a2c;padding:10px;',
     'border-radius:8px;overflow-wrap:anywhere;}',
     '#gpro-door a{color:#a9dcff;}',
-    '#gpro-door [hidden]{display:none!important;}'
+    '#gpro-door [hidden]{display:none!important;}',
+    '#gpro-door-map{position:fixed;display:none;z-index:99999;',
+    'box-sizing:border-box;pointer-events:none;font-family:system-ui,sans-serif;}',
+    '#gpro-door-map .hint{position:absolute;top:2%;left:3%;right:3%;',
+    'padding:8px 12px;text-align:center;background:rgba(7,19,36,.90);',
+    'color:#fff;font-size:clamp(13px,2.5vw,19px);font-weight:bold;',
+    'border-radius:10px;text-shadow:0 1px 2px #000;}',
+    '#gpro-door-map button{position:absolute;top:17%;height:72%;width:43%;',
+    'box-sizing:border-box;pointer-events:auto;cursor:pointer;',
+    'color:white;font-size:clamp(13px,2.2vw,20px);font-weight:bold;',
+    'text-shadow:0 2px 4px #000;background:rgba(38,98,148,.12);',
+    'border:2px dashed #80caff;border-radius:12px;touch-action:manipulation;}',
+    '#gpro-door-map button:disabled{opacity:.35;cursor:default;',
+    'background:transparent;border-color:#a9b1bc;}',
+    '#gpro-door-left{left:5%;}',
+    '#gpro-door-right{right:5%;}'
   ].join('');
   document.head.appendChild(style);
 
@@ -72,6 +88,35 @@
   ].join('');
   document.body.appendChild(root);
 
+  // Unityの扉の画像はそのまま表示し、画像の左右半分をタップ領域にする。
+  const doorMap = document.createElement('div');
+  doorMap.id = 'gpro-door-map';
+  doorMap.innerHTML = [
+    '<div class="hint" id="gpro-door-tip" aria-live="polite"></div>',
+    '<button type="button" id="gpro-door-left" aria-label="左の扉を開く">左の扉を開く</button>',
+    '<button type="button" id="gpro-door-right" aria-label="右の扉を開く">右の扉を開く</button>'
+  ].join('');
+  document.body.appendChild(doorMap);
+
+  function positionDoorMap() {
+    const canvas = document.getElementById('unity-canvas');
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    Object.assign(doorMap.style, {
+      left: rect.left + 'px',
+      top: rect.top + 'px',
+      width: rect.width + 'px',
+      height: rect.height + 'px'
+    });
+  }
+  window.addEventListener('resize', positionDoorMap, {passive:true});
+  window.addEventListener('orientationchange', () =>
+    requestAnimationFrame(positionDoorMap));
+  if (window.ResizeObserver) {
+    const canvas = document.getElementById('unity-canvas');
+    if (canvas) new ResizeObserver(positionDoorMap).observe(canvas);
+  }
+
   const $ = id => document.getElementById(id);
   const authButton = $('gpro-real-auth');
   const authStatus = $('gpro-real-status');
@@ -112,8 +157,23 @@
     fillFakeField('gpro-input-pass', 'gpro-fill-pass',
       credentials().password, 'パスワード'));
 
+  function showDoorMap(value) {
+    stage = value;
+    root.style.display = 'none';
+    doorMap.style.display = 'block';
+    $('gpro-door-tip').textContent = value === 'choose-fake'
+      ? 'まず左の扉をタップしてください'
+      : '次は右の扉をタップしてください';
+    $('gpro-door-left').textContent = value === 'choose-fake'
+      ? '左の扉を開く' : '左の扉：体験済み ✓';
+    $('gpro-door-left').disabled = value !== 'choose-fake';
+    $('gpro-door-right').disabled = value !== 'choose-real';
+    positionDoorMap();
+  }
+
   function setStage(value) {
     stage = value;
+    doorMap.style.display = 'none';
     $('gpro-fake').hidden = value !== 'fake';
     $('gpro-result').hidden = value !== 'result';
     $('gpro-real').hidden = value !== 'real';
@@ -151,7 +211,8 @@
     $('gpro-fill-pass').textContent = 'パスワードを入力する';
     $('gpro-fill-pass').disabled = false;
     refreshFakeSubmit();
-    setStage('fake');
+    showDoorMap('choose-fake');
+    prepareLogin(); // 左の扉の体験中に認証準備を済ませる
   };
 
   function finishFake(entered) {
@@ -174,9 +235,13 @@
     finishFake(true);
   });
   $('gpro-fake-decline').addEventListener('click', () => finishFake(false));
+  $('gpro-door-left').addEventListener('click', () => {
+    if (stage === 'choose-fake') setStage('fake');
+  });
+  $('gpro-next-door').textContent = '扉の前に戻る';
   $('gpro-next-door').addEventListener('click', () => {
-    setStage('real');
-    prepareLogin();
+    showDoorMap('choose-real');
+    if (!options || Date.now() - fetchedAt > 240000) prepareLogin();
   });
 
   window.GproShowPasskeyAuth = function () {
@@ -186,7 +251,8 @@
   };
 
   async function prepareLogin() {
-    if (requesting) return;
+    if (requesting || preparingLogin) return;
+    preparingLogin = true;
     authButton.disabled = true;
     authStatus.textContent = '認証の準備中...';
     try {
@@ -204,11 +270,12 @@
       authButton.textContent = '準備を再試行';
       authStatus.textContent = '準備エラー: ' + error.message;
     } finally {
+      preparingLogin = false;
       authButton.disabled = false;
     }
   }
 
-  authButton.addEventListener('click', async () => {
+  async function authenticateFromGesture() {
     if (requesting || stage !== 'real') return;
     if (!options || Date.now() - fetchedAt > 240000) {
       await prepareLogin();
@@ -261,6 +328,19 @@
         authButton.textContent = '認証を再試行';
         prepareLogin();
       }
+    }
+  }
+
+  authButton.addEventListener('click', authenticateFromGesture);
+  $('gpro-door-right').addEventListener('click', () => {
+    if (stage !== 'choose-real') return;
+    setStage('real');
+    // 認証準備が済んでいれば「右の扉を押す」タップから
+    // 直接WebAuthnを開始する。iPhone Safariでもユーザー操作を保つ。
+    if (options && Date.now() - fetchedAt <= 240000) {
+      authenticateFromGesture();
+    } else {
+      prepareLogin();
     }
   });
 })();
