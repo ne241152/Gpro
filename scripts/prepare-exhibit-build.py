@@ -53,8 +53,8 @@ if old not in register:
     parser.error("登録ページの遷移先が見つかりません")
 register = register.replace(old, "https://ne241152.github.io/Gpro/exhibit-test/")
 # 展示の登録ページは登録ボタンのみ。独立したログインテストUIは除外する。
-login_section_start = register.find('\\n<div style="margin-top:32px">\\n  <button id="login-button"')
-login_section_end = register.rfind('\\n</body>')
+login_section_start = register.find('\n<div style="margin-top:32px">\n  <button id="login-button"')
+login_section_end = register.rfind('\n</body>')
 if login_section_start < 0 or login_section_end < login_section_start:
     parser.error("登録ページのログインテスト領域が見つかりません")
 register = register[:login_section_start] + register[login_section_end:]
