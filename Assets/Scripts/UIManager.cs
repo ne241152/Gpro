@@ -14,6 +14,15 @@ public class UIManager : MonoBehaviour
     public Sprite phase1Image;
     public Sprite phase2Image;
     public Sprite phase3Image;
+    public Sprite extraWithoutSsoImage;
+    public Sprite extraWithoutCompanionImage;
+    public Sprite extraWithoutRiskImage;
+    public Button[] skillButtons = System.Array.Empty<Button>();
+
+    private int firstPhase3Card;
+    private int[] displayedCards = { 1, 2, 3 };
+    private Vector2[] originalCardPositions;
+    private Vector2[] originalHintPositions;
 
     private Image levelUpPanelImage;
     
@@ -39,6 +48,13 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         levelUpPanelImage = levelUpPanel.GetComponent<Image>();
+        originalCardPositions = new Vector2[skillButtons.Length];
+        originalHintPositions = new Vector2[3];
+        RectTransform[] hints = { HintButton_1, HintButton_2, HintButton_3 };
+        for (int i = 0; i < skillButtons.Length; i++)
+            originalCardPositions[i] = ((RectTransform)skillButtons[i].transform).anchoredPosition;
+        for (int i = 0; i < hints.Length; i++)
+            if (hints[i] != null) originalHintPositions[i] = hints[i].anchoredPosition;
 
         //ゲーム開始前はバリアを無効化
         if (linkBarrier != null)
@@ -78,7 +94,9 @@ public class UIManager : MonoBehaviour
     // レベルアップ画面を表示
     public void ShowLevelUp(int phase)
     {
+        if (phase < 1 || phase > 4) return;
         hintPanel.SetActive(false);
+        displayedCards = new[] { 1, 2, 3 };
         if (phase == 1)
         {
             levelUpPanelImage.sprite = phase1Image;
@@ -91,6 +109,26 @@ public class UIManager : MonoBehaviour
         {
             levelUpPanelImage.sprite = phase3Image;
         }
+        else if (phase == 4)
+        {
+            switch (firstPhase3Card)
+            {
+                case 1:
+                    levelUpPanelImage.sprite = extraWithoutSsoImage;
+                    displayedCards = new[] { 3, 2 };
+                    break;
+                case 2:
+                    levelUpPanelImage.sprite = extraWithoutRiskImage;
+                    displayedCards = new[] { 1, 3 };
+                    break;
+                case 3:
+                    levelUpPanelImage.sprite = extraWithoutCompanionImage;
+                    displayedCards = new[] { 1, 2 };
+                    break;
+                default: return;
+            }
+        }
+        ConfigureCardButtons(phase == 4);
 
         levelUpPanel.SetActive(true);
 
@@ -100,6 +138,9 @@ public class UIManager : MonoBehaviour
     // 強化カードを選んだ時の処理
     public void SelectSkillCard(int cardNo)
     {
+        if (!levelUpPanel.activeSelf || cardNo < 1 || cardNo > displayedCards.Length) return;
+        cardNo = displayedCards[cardNo - 1];
+        if (player.BattlePhase == 4 && cardNo == firstPhase3Card) return;
         Debug.Log("Card " + cardNo + " が押されました");
         switch (player.BattlePhase){
             case 1:
@@ -134,6 +175,12 @@ public class UIManager : MonoBehaviour
                 }
                 break;
             case 3:
+            case 4:
+                if (player.BattlePhase == 3)
+                {
+                    firstPhase3Card = cardNo;
+                    player.MarkLevel3Acquired();
+                }
                 switch (cardNo){
                     case 1:
                         player.IncreaseAttackSpeed(20f);
@@ -181,6 +228,8 @@ public class UIManager : MonoBehaviour
     // 「？」ボタンを押したときに呼ばれる処理
     public void ShowHint(int cardNo)
     {
+        if (cardNo < 1 || cardNo > displayedCards.Length) return;
+        cardNo = displayedCards[cardNo - 1];
         Debug.Log("ヒントボタンが押されました: " + cardNo);
         hintPanel.SetActive(true); 
 
@@ -193,7 +242,7 @@ public class UIManager : MonoBehaviour
                         hintText.text = "【長いパスワード】\n\n文字数が多いほど解読時間は爆発的に伸びます。\n強力ですが、入力が面倒になるため「攻撃速度低下」のデメリットがついています。";
                         break;
                     case 2:
-                        hintText.text = "【パスキー(Passkey)】\n\nこのカードの正体は最新の認証技術「パスキー」です。\nデバイス内蔵の鍵を使うため、偽サイト(フィッシング)による被害を完全に無効化します！";
+                        hintText.text = "【パスキー(Passkey)】\n\nこのカードの正体は最新の認証技術「パスキー」です。\nデバイス内蔵の鍵を使うため、偽サイト(フィッシング)による被害を完全に無効化します！\nゲーム内では、取得経験値が40％減少する代償があります。";
                         break;
                     case 3:
                         hintText.text = "【二段階認証(2FA)】\n\nパスワードだけでなく、スマホのSMSなどに届くコードを使う防衛手段です。\n万が一パスワードが突破されても、二重の鍵でアカウントを復活・保護できます。";
@@ -215,6 +264,7 @@ public class UIManager : MonoBehaviour
                 }
                 break;
             case 3:
+            case 4:
                 switch (cardNo)
                 {
                     case 1:
@@ -235,5 +285,32 @@ public class UIManager : MonoBehaviour
     public void CloseHint()
     {
         hintPanel.SetActive(false); 
+    }
+
+    void ConfigureCardButtons(bool extraSelection)
+    {
+        RectTransform[] hints = { HintButton_1, HintButton_2, HintButton_3 };
+        for (int i = 0; i < skillButtons.Length; i++)
+        {
+            bool visible = !extraSelection || i < 2;
+            skillButtons[i].gameObject.SetActive(visible);
+            if (i < hints.Length && hints[i] != null) hints[i].gameObject.SetActive(visible);
+            if (!visible) continue;
+
+            RectTransform rect = (RectTransform)skillButtons[i].transform;
+            Vector2 position = originalCardPositions[i];
+            if (extraSelection)
+            {
+                float parentWidth = ((RectTransform)rect.parent).rect.width;
+                position.x = (i == 0 ? -0.185f : 0.185f) * parentWidth;
+            }
+            rect.anchoredPosition = position;
+            if (i < hints.Length && hints[i] != null)
+            {
+                Vector2 hintPosition = originalHintPositions[i];
+                hintPosition.x += position.x - originalCardPositions[i].x;
+                hints[i].anchoredPosition = hintPosition;
+            }
+        }
     }
 }
