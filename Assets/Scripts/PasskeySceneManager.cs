@@ -1,38 +1,68 @@
-
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PasskeySceneManager : MonoBehaviour
 {
-    [Header("仮の画面遷移（認証実装後に変更予定）")]
     [SerializeField] private string nextSceneName = "Select Scene";
+    private bool verified;
+    private bool transitioning;
 
-    void Update()
+#if UNITY_WEBGL && !UNITY_EDITOR
+    [DllImport("__Internal")]
+    private static extern void GproShowPasskeyDoor();
+#endif
+
+    private void OnEnable()
     {
-        // PC：スペースキー
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GoToNextScene();
-            return;
-        }
+        PasskeyAuthBridge.AuthenticationSucceeded += OnSuccess;
+        PasskeyAuthBridge.AuthenticationFailed += OnFailure;
+    }
 
-        // PC：マウスクリック
-        if (Input.GetMouseButtonDown(0))
-        {
-            GoToNextScene();
-            return;
-        }
+    private void OnDisable()
+    {
+        PasskeyAuthBridge.AuthenticationSucceeded -= OnSuccess;
+        PasskeyAuthBridge.AuthenticationFailed -= OnFailure;
+    }
 
-        // スマホ：画面タップ
-        if (Input.touchCount > 0 &&
-            Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            GoToNextScene();
-        }
+    private void Start()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        GproShowPasskeyDoor();
+#else
+        Debug.Log("パスキー扉はWebGLでのみ動作します");
+#endif
+    }
+
+    private void OnSuccess()
+    {
+        verified = true;
+        GoToNextScene();
+    }
+
+    private void OnFailure(string reason)
+    {
+        Debug.LogWarning("パスキー扉: " + reason);
     }
 
     public void GoToNextScene()
     {
-        SceneManager.LoadScene("Select Scene");
+        if (!verified || transitioning)
+        {
+            Debug.LogWarning("認証が成功するまで先へは進めません");
+            return;
+        }
+        if (!Application.CanStreamedLevelBeLoaded(nextSceneName))
+        {
+            Debug.LogError("シーンがビルドにありません: " + nextSceneName);
+            return;
+        }
+        transitioning = true;
+        SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void RequestRealDoorAuthentication()
+    {
+        PasskeyAuthBridge.RequestAuthentication();
     }
 }
