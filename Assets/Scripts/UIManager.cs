@@ -226,6 +226,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void OpenSurvey()
+    {
+        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSforOUgzDrITUtWusPw-tadVGyV5ta7bs2cNZtYD0lzk1360w/viewform?usp=header");
+    }
+
     // 「？」ボタンを押したときに呼ばれる処理
     public void ShowHint(int cardNo)
     {
