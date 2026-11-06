@@ -37,7 +37,11 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (defeated || damage <= 0) return;
-        hp -= damage;
+        GameManager spawnManager = movement != null ? movement.spawnManager : null;
+        if (spawnManager != null && spawnManager.IsOneHitKillActive)
+            hp = 0f;
+        else
+            hp -= damage;
 
         if (spriteRenderer != null) {
             spriteRenderer.color = new Color(1f, 0.45f, 0.45f, originalColor.a);

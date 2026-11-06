@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     public bool IsAssaultActive => playerController != null && playerController.Level3AcquiredTime >= 0f
         && Time.time - playerController.Level3AcquiredTime >= assaultDelay
         && assaultPhase != null && assaultPhase.prefabs != null && assaultPhase.prefabs.Length > 0;
+    // レベル3取得から強襲開始までの間だけ、既存の敵も含めて一撃で倒せる。
+    public bool IsOneHitKillActive => playerController != null && playerController.Level3AcquiredTime >= 0f
+        && Time.time - playerController.Level3AcquiredTime < assaultDelay;
     public float EnemyMoveSpeedMultiplier => IsAssaultActive ? 1.2f : 1f;
 
     public TextMeshProUGUI timerText;
@@ -139,6 +142,16 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    float GetSpawnElapsedTime()
+    {
+        float elapsedTime = timeLimit - gameTime;
+        // レベル3取得後は通常フェーズ3まで進める。制限時間は変更しない。
+        if (playerController != null && playerController.Level3AcquiredTime >= 0f
+            && spawnPhases != null && spawnPhases.Length >= 3 && spawnPhases[2] != null)
+            elapsedTime = Mathf.Max(elapsedTime, spawnPhases[2].startTime);
+        return elapsedTime;
+    }
+
     GameObject[] GetSpawnPrefabs(float elapsedTime)
     {
         // 時間帯の指定がない既存Sceneは従来どおり生成します。
@@ -165,7 +178,7 @@ public class GameManager : MonoBehaviour
         if (spawnPhases != null)
         {
             foreach (EnemySpawnPhase phase in spawnPhases)
-                if (phase != null && phase.startTime <= timeLimit - gameTime
+                if (phase != null && phase.startTime <= GetSpawnElapsedTime()
                     && (activePhase == null || phase.startTime >= activePhase.startTime))
                     activePhase = phase;
         }
@@ -213,7 +226,7 @@ public class GameManager : MonoBehaviour
         }
 
         // カウントダウン表示ではなく、開始から何秒経ったかで切り替えます。
-        GameObject[] candidates = GetSpawnPrefabs(timeLimit - gameTime);
+        GameObject[] candidates = GetSpawnPrefabs(GetSpawnElapsedTime());
         int count = 0;
         if (candidates != null)
         {

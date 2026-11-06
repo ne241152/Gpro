@@ -179,7 +179,6 @@ public class UIManager : MonoBehaviour
                 if (player.BattlePhase == 3)
                 {
                     firstPhase3Card = cardNo;
-                    player.MarkLevel3Acquired();
                 }
                 switch (cardNo){
                     case 1:
@@ -205,6 +204,8 @@ public class UIManager : MonoBehaviour
                 }
                 break;
         }
+        // レベル3到達時のカード選択を終えた時点から強襲までを計測する。
+        if (player.currentLevel >= 3) player.MarkLevel3Acquired();
         player.BattlePhase++;
         player.UpdateExpBar();
         levelUpPanel.SetActive(false);
