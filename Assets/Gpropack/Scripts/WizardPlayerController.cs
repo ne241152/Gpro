@@ -22,6 +22,14 @@ public class WizardPlayerController : MonoBehaviour
     public int expToNextLevel = 40;
     public int currentLevel = 1;
     public int BattlePhase = 1;
+    public float Level3AcquiredTime { get; private set; } = -1f;
+
+    public void MarkLevel3Acquired()
+    {
+        if (Level3AcquiredTime < 0f) Level3AcquiredTime = Time.time;
+    }
+    [Range(0, 100)] public int passkeyExperienceReductionPercent = 40;
+    private int experienceRemainder;
 
     [Header("UI割り当て")]
     public TextMeshProUGUI hpText;
@@ -261,12 +269,20 @@ else
 
     public void AddExp(int amount)
     {
-        if (BattlePhase > 3)
+        if (BattlePhase > 4)
         {
             UpdateExpBar();
             return;
         }
 
+        if (amount <= 0) return;
+        if (hasPasskey)
+        {
+            // 整数の百分率で端数を保持し、5個なら正確に3経験値にする。
+            int scaledExperience = amount * (100 - passkeyExperienceReductionPercent) + experienceRemainder;
+            amount = scaledExperience / 100;
+            experienceRemainder = scaledExperience % 100;
+        }
         currentExp += amount;
         if (currentExp >= expToNextLevel) {
             currentExp -= expToNextLevel;
@@ -286,7 +302,7 @@ else
 
     public void UpdateExpBar()
     {
-        if (BattlePhase > 3) currentExp = expToNextLevel;
+        if (BattlePhase > 4) currentExp = expToNextLevel;
         if (expSlider != null)
         {
             expSlider.maxValue = expToNextLevel;

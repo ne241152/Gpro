@@ -5132,6 +5132,13 @@ MonoBehaviour:
   phase1Image: {fileID: -3273148185640608202, guid: eabb1c18587ee48e6a0193806337481a, type: 3}
   phase2Image: {fileID: -8733063017929654013, guid: 87708d874332e4cdea76851171aac446, type: 3}
   phase3Image: {fileID: 2230822592000104784, guid: 5e927f735c78d4411971004961e9d0f4, type: 3}
+  extraWithoutSsoImage: {fileID: 2230822592000104784, guid: ab5379fa6e5c468dafc71799576aee91, type: 3}
+  extraWithoutCompanionImage: {fileID: 2230822592000104784, guid: 856d64605c5748eab720bb88ca8586a4, type: 3}
+  extraWithoutRiskImage: {fileID: 2230822592000104784, guid: fc332b2d1646434694124f2cbac1361a, type: 3}
+  skillButtons:
+  - {fileID: 527950893}
+  - {fileID: 1039092664}
+  - {fileID: 908077848}
   player: {fileID: 1313847722}
   enemySpawner: {fileID: 0}
   linkBarrier: {fileID: 504898472}
@@ -6517,6 +6524,15 @@ MonoBehaviour:
     - {fileID: 1673305358250306745, guid: 255421ea9d1d40238a6da4be26f5d031, type: 3}
     populationWeights: 020000000600000002000000
     maxActiveEnemies: 150
+  assaultDelay: 20
+  assaultPhase:
+    startTime: 0
+    prefabs:
+    - {fileID: 1673305358250306745, guid: 13d625d4c8534e0da2e7485e532d1d5e, type: 3}
+    - {fileID: 1673305358250306745, guid: 9f969baa188446a6807dea97f74c1349, type: 3}
+    - {fileID: 1673305358250306745, guid: 255421ea9d1d40238a6da4be26f5d031, type: 3}
+    populationWeights: 020000000400000004000000
+    maxActiveEnemies: 200
   timerText: {fileID: 794336380}
   uiManager: {fileID: 1501246635}
   timeLimit: 120
