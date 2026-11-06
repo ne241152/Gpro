@@ -30,7 +30,8 @@ public class CharacterSelectManagerEditor : Editor
         {
             Object[] parts = { manager.characterImageDisplay, manager.nameText,
                 manager.descriptionText, manager.recommendationText,
-                manager.previousButton, manager.nextButton, manager.confirmButton };
+                manager.previousButton, manager.nextButton, manager.confirmButton,
+                manager.confirmButtonText };
             foreach (Object part in parts)
                 if (part != null) Undo.RecordObject(part, "キャラクター表示プレビュー");
         }
