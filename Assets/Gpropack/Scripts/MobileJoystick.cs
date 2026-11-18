@@ -15,12 +15,17 @@ public class MobileJoystick : MonoBehaviour,
     public bool IsActive { get; private set; }
 
     private int activePointerId;
+    private Vector2 startPoint;
 
     void Awake()
     {
         if (joystickBackground != null)
         {
             joystickBackground.gameObject.SetActive(true);
+
+            // 基盤全体でタッチを受け取れるようにする
+            var bgImage = joystickBackground.GetComponent<UnityEngine.UI.Image>();
+            if (bgImage != null) bgImage.raycastTarget = true;
         }
         ResetJoystick();
     }
@@ -30,10 +35,18 @@ public class MobileJoystick : MonoBehaviour,
         if (IsActive || joystickBackground == null ||
             joystickHandle == null) return;
 
+        // ハンドルだけでなく基盤のどこを触っても操作開始
         if (!RectTransformUtility.RectangleContainsScreenPoint(
-            joystickHandle,
+            joystickBackground,
             eventData.position,
             eventData.pressEventCamera)) return;
+
+        // 押した位置を基準点(ニュートラル)として記録する
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            joystickBackground,
+            eventData.position,
+            eventData.pressEventCamera,
+            out startPoint)) return;
 
         activePointerId = eventData.pointerId;
         IsActive = true;
@@ -53,7 +66,8 @@ public class MobileJoystick : MonoBehaviour,
             eventData.pressEventCamera,
             out Vector2 currentPoint)) return;
 
-        Vector2 offset = currentPoint;
+        // 押した位置からどれだけ動かしたか
+        Vector2 offset = currentPoint - startPoint;
 
         float radius = Mathf.Max(1f, movementRadius);
 
