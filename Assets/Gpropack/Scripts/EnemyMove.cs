@@ -126,9 +126,10 @@ public class EnemyMove : MonoBehaviour
             ((Vector2)player.position - rb.position).normalized;
 
         // Allow sideways separation even while touching the player, without speeding up pursuit.
-        Vector2 chase = touchingPlayer ? Vector2.zero : direction * moveSpeed * chaseClearance;
-        Vector2 velocity = chase + separation * moveSpeed * Mathf.Max(0f, separationStrength);
-        velocity = Vector2.ClampMagnitude(velocity, Mathf.Max(0f, moveSpeed));
+        float effectiveSpeed = moveSpeed * (spawnManager != null ? spawnManager.EnemyMoveSpeedMultiplier : 1f);
+        Vector2 chase = touchingPlayer ? Vector2.zero : direction * effectiveSpeed * chaseClearance;
+        Vector2 velocity = chase + separation * effectiveSpeed * Mathf.Max(0f, separationStrength);
+        velocity = Vector2.ClampMagnitude(velocity, Mathf.Max(0f, effectiveSpeed));
         MoveWithoutPushingPlayer(velocity * moveTimer);
 
         moveTimer = 0f;

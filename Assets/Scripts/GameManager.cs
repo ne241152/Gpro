@@ -26,6 +26,17 @@ public class GameManager : MonoBehaviour
     [Header("開始からの経過秒ごとの敵（未設定なら上の配列を使用）")]
     public EnemySpawnPhase[] spawnPhases;
 
+    [Header("レベル3取得後の強襲フェーズ")]
+    [Min(0f)] public float assaultDelay = 20f;
+    public EnemySpawnPhase assaultPhase;
+    public bool IsAssaultActive => playerController != null && playerController.Level3AcquiredTime >= 0f
+        && Time.time - playerController.Level3AcquiredTime >= assaultDelay
+        && assaultPhase != null && assaultPhase.prefabs != null && assaultPhase.prefabs.Length > 0;
+    // レベル3取得から強襲開始までの間だけ、既存の敵も含めて一撃で倒せる。
+    public bool IsOneHitKillActive => playerController != null && playerController.Level3AcquiredTime >= 0f
+        && Time.time - playerController.Level3AcquiredTime < assaultDelay;
+    public float EnemyMoveSpeedMultiplier => IsAssaultActive ? 1.2f : 1f;
+
     public TextMeshProUGUI timerText;
     public UIManager uiManager; 
 
@@ -35,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     private readonly List<GameObject> activeEnemies = new List<GameObject>();
     private Transform player;
+    private WizardPlayerController playerController;
     private float spawnTimer = 0f;
     private float gameTime; 
 
@@ -63,8 +75,10 @@ public class GameManager : MonoBehaviour
             timerText.text = $"{remainingSeconds / 60:00}:{remainingSeconds % 60:00}";
         }
 
-        // 敵の出現頻度を2倍に変更（元は0.5秒ごと）。
-        if (gameTime > 0f && spawnTimer >= 0.25f) {
+        // 強襲フェーズだけ通常の2倍の頻度で補充する。
+        EnemySpawnPhase activePhase = GetActivePhase();
+        float spawnInterval = assaultPhase != null && activePhase == assaultPhase ? 0.125f : 0.25f;
+        if (gameTime > 0f && spawnTimer >= spawnInterval) {
             SpawnEnemy();
             spawnTimer = 0f;
         }
@@ -88,6 +102,7 @@ public class GameManager : MonoBehaviour
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) {
             player = p.transform;
+            playerController = p.GetComponent<WizardPlayerController>();
         }
     }
 
@@ -127,6 +142,16 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    float GetSpawnElapsedTime()
+    {
+        float elapsedTime = timeLimit - gameTime;
+        // レベル3取得後は通常フェーズ3まで進める。制限時間は変更しない。
+        if (playerController != null && playerController.Level3AcquiredTime >= 0f
+            && spawnPhases != null && spawnPhases.Length >= 3 && spawnPhases[2] != null)
+            elapsedTime = Mathf.Max(elapsedTime, spawnPhases[2].startTime);
+        return elapsedTime;
+    }
+
     GameObject[] GetSpawnPrefabs(float elapsedTime)
     {
         // 時間帯の指定がない既存Sceneは従来どおり生成します。
@@ -145,11 +170,15 @@ public class GameManager : MonoBehaviour
 
     EnemySpawnPhase GetActivePhase()
     {
+        // 追加カードの選択では開始時刻を更新しない。メニュー中はゲーム時間も止まる。
+        if (IsAssaultActive)
+            return assaultPhase;
+
         EnemySpawnPhase activePhase = null;
         if (spawnPhases != null)
         {
             foreach (EnemySpawnPhase phase in spawnPhases)
-                if (phase != null && phase.startTime <= timeLimit - gameTime
+                if (phase != null && phase.startTime <= GetSpawnElapsedTime()
                     && (activePhase == null || phase.startTime >= activePhase.startTime))
                     activePhase = phase;
         }
@@ -197,7 +226,7 @@ public class GameManager : MonoBehaviour
         }
 
         // カウントダウン表示ではなく、開始から何秒経ったかで切り替えます。
-        GameObject[] candidates = GetSpawnPrefabs(timeLimit - gameTime);
+        GameObject[] candidates = GetSpawnPrefabs(GetSpawnElapsedTime());
         int count = 0;
         if (candidates != null)
         {

@@ -44,7 +44,7 @@ for key, name in names.items():
         parser.error("Unity用HTMLの変更箇所が見つかりません: " + key)
 if "window.GproUnityInstance = unityInstance;" not in html:
     parser.error("Unity通知の設定がありません")
-if 'src="passkey-exhibit.js"' not in html:
+if not re.search(r'src=["\']passkey-exhibit\.js(?:\?[^"\']*)?["\']', html):
     parser.error("認証用JavaScriptの設定がありません")
 
 register = (root / "docs/passkey-test/index.html").read_text(encoding="utf-8")

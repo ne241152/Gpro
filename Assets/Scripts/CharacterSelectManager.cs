@@ -15,6 +15,7 @@ public class CharacterSelectManager : MonoBehaviour
     public Button previousButton;
     public Button nextButton;
     public Button confirmButton;
+    public TextMeshProUGUI confirmButtonText;
 
     [Header("決定後のシーン")]
     public string gameplaySceneName = "SampleScene";
@@ -24,6 +25,7 @@ public class CharacterSelectManager : MonoBehaviour
     {
         public Sprite characterSprite;
         public string characterName;
+        public bool isComingSoon;
         [TextArea(3, 5)]
         public string description;
         [TextArea(2, 3)]
@@ -58,7 +60,8 @@ public class CharacterSelectManager : MonoBehaviour
         int count = characters == null ? 0 : characters.Length;
         if (previousButton != null) previousButton.interactable = count > 1;
         if (nextButton != null) nextButton.interactable = count > 1;
-        if (confirmButton != null) confirmButton.interactable = count > 0;
+        if (confirmButton != null) confirmButton.interactable = false;
+        if (confirmButtonText != null) confirmButtonText.text = "決定";
 
         if (count == 0)
         {
@@ -71,6 +74,9 @@ public class CharacterSelectManager : MonoBehaviour
 
         currentIndex = ((index % count) + count) % count;
         CharacterData character = characters[currentIndex];
+        if (confirmButton != null) confirmButton.interactable = !character.isComingSoon;
+        if (confirmButtonText != null)
+            confirmButtonText.text = character.isComingSoon ? "Coming Soon" : "決定";
         if (characterImageDisplay != null)
         {
             characterImageDisplay.sprite = character.characterSprite;
@@ -83,7 +89,8 @@ public class CharacterSelectManager : MonoBehaviour
 
     public void ConfirmSelection()
     {
-        if (characters == null || characters.Length == 0) return;
+        if (characters == null || characters.Length == 0 ||
+            characters[currentIndex].isComingSoon) return;
 
         Debug.Log(characters[currentIndex].characterName + " が選ばれました！");
 

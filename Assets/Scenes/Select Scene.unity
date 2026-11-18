@@ -2014,18 +2014,22 @@ MonoBehaviour:
   previousButton: {fileID: 58389024}
   nextButton: {fileID: 64989586}
   confirmButton: {fileID: 813088634}
+  confirmButtonText: {fileID: 2134436176}
   gameplaySceneName: SampleScene
   characters:
   - characterSprite: {fileID: 1751645756, guid: 954341bbd6b424df6903fc6c473ab933, type: 3}
     characterName: "\u9B54\u6CD5\u4F7F\u3044"
+    isComingSoon: 0
     description: "\u3042\u308B\u6642\u9593\u3054\u3068\u306B\u30E1\u30C6\u30AA\u3092\u4F7F\u3048\u308B\uFF01"
     recommendation: "\u521D\u5FC3\u8005\u306B\u304A\u3059\u3059\u3081\uFF01"
   - characterSprite: {fileID: -224216179, guid: d1563a462d4214b589c11333a8ff207a, type: 3}
     characterName: "\u52C7\u8005"
+    isComingSoon: 1
     description: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u5B9F\u529B\u306E\u307F\uFF01"
     recommendation: "\u81EA\u5206\u306E\u5B9F\u529B\u3068\u5411\u304D\u5408\u3044\u305F\u3044\u4EBA\u306B\u304A\u3059\u3059\u3081\uFF01"
   - characterSprite: {fileID: 42237704, guid: 86069dc17e4fc42c7857556f818f11ee, type: 3}
     characterName: "\u5B87\u5B99\u4EBA"
+    isComingSoon: 1
     description: "\u5B9F\u529B\u4EE5\u4E0A\u306E\u3082\u306E\u304C\u6C42\u3081\u3089\u308C\u308B\u4E8B\u306B\u306A\u308B\u3067\u3057\u3087\u3046\uFF01"
     recommendation: "\u3053\u306E\u30B2\u30FC\u30E0\u306E\u9054\u4EBA\u3060\u3068\u601D\u308F\u308C\u308B\u4EBA\u306B\u304A\u3059\u3059\u3081\uFF01"
 --- !u!114 &1778112079
@@ -2353,7 +2357,7 @@ MonoBehaviour:
   m_fontSizeBase: 74
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 57.719997
+  m_fontSizeMin: 32
   m_fontSizeMax: 74
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -2366,7 +2370,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
