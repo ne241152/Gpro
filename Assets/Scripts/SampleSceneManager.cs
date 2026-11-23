@@ -3,14 +3,14 @@ using UnityEngine;
 public class SampleSceneManager : MonoBehaviour
 {
     [Header("UIパネルの切り替え")]
-    public GameObject titlePanel;     
-    public GameObject gameHUDPanel;   
+    public GameObject titlePanel;
+    public GameObject gameHUDPanel;
 
     [Header("キャラクター画像（プレハブ）の配列")]
-    public GameObject[] playerPrefabs; 
+    public GameObject[] playerPrefabs;
 
     [Header("最初からヒエラルキーにいる完璧なPlayer")]
-    public GameObject defaultPlayer;   
+    public GameObject defaultPlayer;
 
     void Awake()
     {
@@ -18,37 +18,96 @@ public class SampleSceneManager : MonoBehaviour
 
         if (isGameStart == 1)
         {
-            // シーン上のプレイヤーを自動で探して確実に1体に絞る
+            // シーン上のプレイヤーを探す
             if (defaultPlayer == null)
             {
                 defaultPlayer = GameObject.FindGameObjectWithTag("Player");
             }
 
-            if (defaultPlayer != null) 
+            if (defaultPlayer != null)
             {
-                // 見た目のすり替え処理
-                SpriteRenderer targetSR = defaultPlayer.GetComponent<SpriteRenderer>();
+                int selectedID =
+                    PlayerPrefs.GetInt("SelectedCharacterID", 0);
+
+                WizardPlayerController controller =
+                    defaultPlayer.GetComponent<WizardPlayerController>();
+
+                WizardAutoAttack meteorAttack =
+                    defaultPlayer.GetComponent<WizardAutoAttack>();
+
+                // =========================
+                // キャラクター固有設定
+                // =========================
+
+                if (controller != null)
+                {
+                    // ID 2 = 宇宙人だけ逆操作
+                    controller.invertMovement = (selectedID == 2);
+                }
+
+                if (meteorAttack != null)
+                {
+                    // ID 0 = 魔法使いだけ隕石攻撃あり
+                    meteorAttack.enabled = (selectedID == 0);
+                }
+
+                // =========================
+                // 見た目の変更
+                // =========================
+
+                SpriteRenderer targetSR =
+                    defaultPlayer.GetComponent<SpriteRenderer>();
 
                 if (targetSR == null)
                 {
-                    Transform wizardSprite = defaultPlayer.transform.Find("WizardSprite");
+                    Transform wizardSprite =
+                        defaultPlayer.transform.Find("WizardSprite");
 
                     if (wizardSprite != null)
                     {
-                        targetSR = wizardSprite.GetComponent<SpriteRenderer>();
+                        targetSR =
+                            wizardSprite.GetComponent<SpriteRenderer>();
                     }
                 }
 
-                int selectedID = PlayerPrefs.GetInt("SelectedCharacterID", 0);
-
-                if (selectedID < playerPrefabs.Length && playerPrefabs[selectedID] != null)
+                if (selectedID < playerPrefabs.Length &&
+                    playerPrefabs[selectedID] != null)
                 {
-                    SpriteRenderer prefabSR = playerPrefabs[selectedID].GetComponent<SpriteRenderer>();
-                    if (prefabSR == null) prefabSR = playerPrefabs[selectedID].GetComponentInChildren<SpriteRenderer>();
+                    SpriteRenderer prefabSR =
+                        playerPrefabs[selectedID]
+                        .GetComponent<SpriteRenderer>();
+
+                    if (prefabSR == null)
+                    {
+                        prefabSR =
+                            playerPrefabs[selectedID]
+                            .GetComponentInChildren<SpriteRenderer>();
+                    }
 
                     if (targetSR != null && prefabSR != null)
                     {
-                        targetSR.sprite = prefabSR.sprite;
+                        Sprite selectedSprite = prefabSR.sprite;
+
+                        // 現在の表示画像を変更
+                        targetSR.sprite = selectedSprite;
+
+                        if (controller != null)
+                        {
+                            // Controller側の正面画像も変更しないと
+                            // 次のフレームで魔法使い画像に戻ってしまう
+                            controller.front = selectedSprite;
+
+                            // 勇者・宇宙人はまだ歩行画像が無いため
+                            // 正面の白画像だけを使用
+                            if (selectedID != 0)
+                            {
+                                controller.walkLeft =
+                                    System.Array.Empty<Sprite>();
+
+                                controller.walkRight =
+                                    System.Array.Empty<Sprite>();
+                            }
+                        }
                     }
                 }
             }
@@ -63,22 +122,28 @@ public class SampleSceneManager : MonoBehaviour
 
         if (isGameStart == 1)
         {
-            if (titlePanel != null) titlePanel.SetActive(false); 
-            if (gameHUDPanel != null) gameHUDPanel.SetActive(true); 
-            
-            // ここでシーン上に元々いる本物だけをアクティブにする
-            if (defaultPlayer != null) defaultPlayer.SetActive(true);
+            if (titlePanel != null)
+                titlePanel.SetActive(false);
+
+            if (gameHUDPanel != null)
+                gameHUDPanel.SetActive(true);
+
+            if (defaultPlayer != null)
+                defaultPlayer.SetActive(true);
 
             PlayerPrefs.SetInt("IsGameStart", 0);
             PlayerPrefs.Save();
         }
         else
         {
-            if (titlePanel != null) titlePanel.SetActive(true); 
-            if (gameHUDPanel != null) gameHUDPanel.SetActive(false); 
-            
-            // タイトル画面の時はプレイヤーの重複を防ぐために非表示、または1体のみに制限
-            if (defaultPlayer != null) defaultPlayer.SetActive(false); 
+            if (titlePanel != null)
+                titlePanel.SetActive(true);
+
+            if (gameHUDPanel != null)
+                gameHUDPanel.SetActive(false);
+
+            if (defaultPlayer != null)
+                defaultPlayer.SetActive(false);
         }
     }
 }
