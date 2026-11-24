@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     private EnemyMove movement;
     private float flashRemaining;
     private bool defeated;
+    private bool invulnerable;//第二形態移行中の無敵
 
     void Awake()
     {
@@ -36,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (defeated || damage <= 0) return;
+        if (defeated || invulnerable || damage <= 0) return;
         GameManager spawnManager = movement != null ? movement.spawnManager : null;
         if (spawnManager != null && spawnManager.IsOneHitKillActive)
             hp = 0f;
@@ -50,6 +51,25 @@ public class EnemyHealth : MonoBehaviour
 
         if (hp <= 0)
         {
+            //ボスは通常の死亡処理を行わず、第二形態へ移行する
+            BossController boss = GetComponent<BossController>();
+            if (boss != null && boss.BeginSecondPhase())
+            {
+                invulnerable = true;
+                return;
+            }
+
+            //第二形態のボスを倒したらクリア画面を表示する
+            if (boss != null)
+            {
+                UIManager uiManager = FindFirstObjectByType<UIManager>();
+
+                if (uiManager != null)
+                {
+                    uiManager.ShowResult(true);
+                }
+            }
+
             defeated = true;
             // 被弾表示だけ短く残し、死亡時点で移動・接触ダメージ・衝突を止める。
             if (movement != null) movement.enabled = false;
@@ -64,8 +84,26 @@ public class EnemyHealth : MonoBehaviour
         }
 
         if (movement != null && movement.player != null) {
-            Vector2 direction = transform.position - movement.player.position;
-            movement.ApplyKnockback(direction, knockbackDistance, knockbackDuration);
+            BossController boss = GetComponent<BossController>();
+
+            // ボス以外にだけヒットバックを適用
+            if(boss == null)
+            {
+                Vector2 direction = transform.position - movement.player.position;
+                movement.ApplyKnockback(direction, knockbackDistance, knockbackDuration);
+            }
         }
+    }
+
+    //第二形態への移行中はダメージを受け付けない
+    public void SetInvulnerable(bool value)
+    {
+        invulnerable = value;
+    }
+
+    //ボスのHPを設定する
+    public void SetHP(float value)
+    {
+        hp = value;
     }
 }

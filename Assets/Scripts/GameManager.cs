@@ -10,6 +10,17 @@ public class GameManager : MonoBehaviour
     [Header("生成する敵（空なら従来のZombie Prefabを使用）")]
     public GameObject[] enemyPrefabs;
 
+    //ラストのボス用
+    [Header("Boss Settings")]
+    public GameObject bossPrefab;
+    public GameObject bossHpSlider;
+
+    [Min(0f)]
+    public float bossStartRemainingTime = 0f;//ボスが出現する残り時間
+
+    public bool IsBossBattle { get; private set; } = false;//ボス戦かを判別する
+    private bool bossSpawned = false;
+
     [Header("一度に2体生成する敵")]
     public GameObject doubleSpawnPrefab;
 
@@ -53,6 +64,8 @@ public class GameManager : MonoBehaviour
     void Start() {
         gameTime = timeLimit;
         FindPlayer();
+        if (bossHpSlider != null)
+            bossHpSlider.SetActive(false);
         activeEnemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         foreach (GameObject enemy in activeEnemies)
             if (enemy.TryGetComponent<EnemyMove>(out var movement)) movement.spawnManager = this;
@@ -65,6 +78,13 @@ public class GameManager : MonoBehaviour
             return; 
         }
 
+        //ラスボス戦が始まったら通常のタイマー・スポーン処理を停止
+        if (IsBossBattle)
+        {
+            UpdateBossPreparation();
+            return;
+        }
+
         // 足し算から引き算（カウントダウン）に変更
         gameTime -= Time.deltaTime;
         spawnTimer += Time.deltaTime;
@@ -73,6 +93,15 @@ public class GameManager : MonoBehaviour
             // Mathf.CeilToInt で切り上げ表示（0.1秒でも残っていれば 1s と表示）
             int remainingSeconds = Mathf.Max(0, Mathf.CeilToInt(gameTime));
             timerText.text = $"{remainingSeconds / 60:00}:{remainingSeconds % 60:00}";
+        }
+
+        //ラスボス登場時間になったらタイマーを切り替える
+        if (gameTime <= bossStartRemainingTime)
+        {
+            gameTime = Mathf.Max(0f, bossStartRemainingTime);
+
+            StartBossBattle();
+            return;
         }
 
         // 強襲フェーズだけ通常の2倍の頻度で補充する。
@@ -84,7 +113,7 @@ public class GameManager : MonoBehaviour
         }
 
         // 0秒以下になったらゲームクリア！
-        if (gameTime <= 0f) {
+        /*if (gameTime <= 0f) {
             gameTime = 0f; 
             if (timerText != null) timerText.text = "Game Clear!"; 
             
@@ -94,7 +123,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
             }
             enabled = false;
-        }
+        }*/
     }
 
     void FindPlayer()
@@ -110,7 +139,9 @@ public class GameManager : MonoBehaviour
     {
         // 遠距離での削除だけを補充する。通常の死亡からは呼ばない。
         if (!activeEnemies.Remove(enemy)) return;
-        if (!isActiveAndEnabled || gameTime <= 0f || Time.timeScale <= 0f || player == null) return;
+        if (IsBossBattle || !isActiveAndEnabled ||
+        gameTime <= 0f || Time.timeScale <= 0f || player == null)
+        return;
         SpawnEnemy(1);
     }
 
@@ -150,6 +181,88 @@ public class GameManager : MonoBehaviour
             && spawnPhases != null && spawnPhases.Length >= 3 && spawnPhases[2] != null)
             elapsedTime = Mathf.Max(elapsedTime, spawnPhases[2].startTime);
         return elapsedTime;
+    }
+
+    void UpdateBossPreparation()
+    {
+        // レベルアップ画面などで一時停止している間は待機
+        if (Time.timeScale == 0f) return;
+
+        // すでにボスが出現している場合は何もしない
+        if (bossSpawned) return;
+
+        // フィールドに残っている経験値を取得
+        Experience[] remainingExps =
+            FindObjectsByType<Experience>(FindObjectsSortMode.None);
+
+        // 経験値が残っている間は待機
+        if (remainingExps.Length > 0) return;
+
+        // すべて回収できたらボスを生成
+        SpawnBoss();
+    }
+
+    void StartBossBattle()
+    {
+        if (IsBossBattle) return;
+
+        IsBossBattle = true;
+
+        Debug.Log("ボス戦準備開始！");
+
+        // 通常敵をすべて削除
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        activeEnemies.Clear();
+
+        // フィールド上のすべての経験値を引き寄せる
+        Experience[] exps =
+            FindObjectsByType<Experience>(FindObjectsSortMode.None);
+
+        foreach (Experience exp in exps)
+        {
+            exp.StartForceAttract();
+        }
+
+        if (timerText != null)
+        {
+            timerText.text = "COLLECTING EXP";
+        }
+
+        Debug.Log("経験値の回収を開始しました。");
+    }
+
+    void SpawnBoss()
+    {
+        if (bossSpawned) return;
+
+        bossSpawned = true;
+
+        Debug.Log("ボス出現！");
+
+        if (bossHpSlider != null)
+            bossHpSlider.SetActive(true);
+
+        if (bossPrefab != null)
+        {
+            Vector3 bossPosition =
+                player.position + new Vector3(0f, 5f, 0f);
+
+            Instantiate(bossPrefab, bossPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogWarning("Boss Prefabが設定されていません");
+        }
+
+        if (timerText != null)
+        {
+            timerText.text = "BOSS BATTLE";
+        }
     }
 
     GameObject[] GetSpawnPrefabs(float elapsedTime)
