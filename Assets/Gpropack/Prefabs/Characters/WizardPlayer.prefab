@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 3883314898495956719}
   - component: {fileID: 3286639920814457281}
   - component: {fileID: 5903207351243434947}
+  - component: {fileID: 4721938456102938475}
   m_Layer: 0
   m_Name: WizardPlayer
   m_TagString: Player
@@ -482,3 +483,15 @@ Transform:
   - {fileID: 1237490413115248309}
   m_Father: {fileID: 260792381858112327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4721938456102938475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209496015032530632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3322a3e2478e4af688604bea403a053c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

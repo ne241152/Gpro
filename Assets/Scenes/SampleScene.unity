@@ -6572,6 +6572,27 @@ MonoBehaviour:
   - {fileID: 7165073736540146477, guid: 4a3e2d827b4134664a28de674caa1bac, type: 3}
   - {fileID: 821624298942977368, guid: 9a11ea23faeef440abe1d731fcababe2, type: 3}
   defaultPlayer: {fileID: 0}
+  heroFront: {fileID: 21300000, guid: ed63746de2fa4e21aca778c5c35d416f, type: 3}
+  heroWalkRight:
+  - {fileID: 21300000, guid: 45c922b496364c1aab140b70413399c3, type: 3}
+  - {fileID: 21300000, guid: 929cda9f8e0641fea21006568ad1604f, type: 3}
+  - {fileID: 21300000, guid: 4b78f27e5efc40359740415cfd047023, type: 3}
+  - {fileID: 21300000, guid: 929cda9f8e0641fea21006568ad1604f, type: 3}
+  alienFront: {fileID: 21300000, guid: 0e68189d8d2540ee92f620c158d474af, type: 3}
+  alienWalkRight:
+  - {fileID: 21300000, guid: a462479b309741f79c4cd7e9786ab99c, type: 3}
+  - {fileID: 21300000, guid: fdc43d342ad449b397d3beae0963e9eb, type: 3}
+  - {fileID: 21300000, guid: 07ff61457c9f4df381e8ac9e8585d05b, type: 3}
+  - {fileID: 21300000, guid: fdc43d342ad449b397d3beae0963e9eb, type: 3}
+  - {fileID: 21300000, guid: a462479b309741f79c4cd7e9786ab99c, type: 3}
+  - {fileID: 21300000, guid: 90b9336e7d0246d190a84f5e767059a3, type: 3}
+  alienWalkLeft:
+  - {fileID: 21300000, guid: c2066cb0a61c4429a5319981f1f2717e, type: 3}
+  - {fileID: 21300000, guid: 9080ca08721b46f5a8dd8cbfc90f7c3c, type: 3}
+  - {fileID: 21300000, guid: 0645664607a8443bb5a9b1eaf55a5e91, type: 3}
+  - {fileID: 21300000, guid: 9080ca08721b46f5a8dd8cbfc90f7c3c, type: 3}
+  - {fileID: 21300000, guid: c2066cb0a61c4429a5319981f1f2717e, type: 3}
+  - {fileID: 21300000, guid: 316f13740704483c8751b34bb14d9c17, type: 3}
 --- !u!1 &2028552150
 GameObject:
   m_ObjectHideFlags: 0
