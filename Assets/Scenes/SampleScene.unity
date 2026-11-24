@@ -6569,8 +6569,8 @@ MonoBehaviour:
   gameHUDPanel: {fileID: 1581944345}
   playerPrefabs:
   - {fileID: 3209496015032530632, guid: ee2c1a059a9bb45e4862616e50d63774, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7165073736540146477, guid: 4a3e2d827b4134664a28de674caa1bac, type: 3}
+  - {fileID: 821624298942977368, guid: 9a11ea23faeef440abe1d731fcababe2, type: 3}
   defaultPlayer: {fileID: 0}
 --- !u!1 &2028552150
 GameObject:
@@ -6781,7 +6781,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
     m_Mode: 3
@@ -6824,7 +6824,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument:
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &8000000003
@@ -6837,7 +6837,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6920,7 +6920,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6930,7 +6930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: アンケートにご協力ください
+  m_text: "\u30A2\u30F3\u30B1\u30FC\u30C8\u306B\u3054\u5354\u529B\u304F\u3060\u3055\u3044"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba785aa71b9554374915a7fb895bd9f6, type: 2}
   m_sharedMaterial: {fileID: 7713391995271381375, guid: ba785aa71b9554374915a7fb895bd9f6, type: 2}

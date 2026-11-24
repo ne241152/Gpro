@@ -8,6 +8,7 @@ public class WizardPlayerController : MonoBehaviour
     public bool hasPasskey = false;
     [Header("移動・アニメーション設定")]
     public float moveSpeed = 3.3f;
+    public bool invertMovement = false;
     [Header("スマホ操作")]
     public MobileJoystick mobileJoystick;
     public Sprite front;
@@ -155,6 +156,12 @@ else
     moveInput.x = Input.GetAxisRaw("Horizontal");
     moveInput.y = Input.GetAxisRaw("Vertical");
     moveInput = moveInput.normalized;
+}
+
+// 宇宙人だけ移動方向を完全に反転
+if (invertMovement)
+{
+    moveInput *= -1f;
 }
 
         UpdateSprite();

@@ -1799,7 +1799,7 @@ RectTransform:
   m_GameObject: {fileID: 1298509481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9997903, y: 0.9997903, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 61555767}
@@ -2024,12 +2024,12 @@ MonoBehaviour:
     recommendation: "\u521D\u5FC3\u8005\u306B\u304A\u3059\u3059\u3081\uFF01"
   - characterSprite: {fileID: -224216179, guid: d1563a462d4214b589c11333a8ff207a, type: 3}
     characterName: "\u52C7\u8005"
-    isComingSoon: 1
+    isComingSoon: 0
     description: "\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u5B9F\u529B\u306E\u307F\uFF01"
     recommendation: "\u81EA\u5206\u306E\u5B9F\u529B\u3068\u5411\u304D\u5408\u3044\u305F\u3044\u4EBA\u306B\u304A\u3059\u3059\u3081\uFF01"
   - characterSprite: {fileID: 42237704, guid: 86069dc17e4fc42c7857556f818f11ee, type: 3}
     characterName: "\u5B87\u5B99\u4EBA"
-    isComingSoon: 1
+    isComingSoon: 0
     description: "\u5B9F\u529B\u4EE5\u4E0A\u306E\u3082\u306E\u304C\u6C42\u3081\u3089\u308C\u308B\u4E8B\u306B\u306A\u308B\u3067\u3057\u3087\u3046\uFF01"
     recommendation: "\u3053\u306E\u30B2\u30FC\u30E0\u306E\u9054\u4EBA\u3060\u3068\u601D\u308F\u308C\u308B\u4EBA\u306B\u304A\u3059\u3059\u3081\uFF01"
 --- !u!114 &1778112079
