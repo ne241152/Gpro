@@ -64,7 +64,10 @@ public class SpectralCompanion : MonoBehaviour
         attackTimer += Time.deltaTime;
         if (attackTimer >= Mathf.Max(0.01f, source.gatlingInterval)) {
             attackTimer = 0f;
-            source.FireGatlingFrom(transform.position, opacity, damageMultiplier);
+            // 本体に付いている通常攻撃をまねする（オフなら撃たない）
+            BasicAttack basicAttack = source.GetComponent<BasicAttack>();
+            if (basicAttack != null && basicAttack.enabled)
+                basicAttack.Fire(transform.position, opacity, damageMultiplier);
         }
     }
 

@@ -12,6 +12,16 @@ public class SampleSceneManager : MonoBehaviour
     [Header("最初からヒエラルキーにいる完璧なPlayer")]
     public GameObject defaultPlayer;
 
+    [Header("勇者（ID 1）の画像")]
+    public Sprite heroFront;
+    // 右歩行のコマ（1,2,3,2 の順で登録してループさせる）。左歩行は反転で表示
+    public Sprite[] heroWalkRight;
+
+    [Header("宇宙人（ID 2）の画像")]
+    public Sprite alienFront;
+    public Sprite[] alienWalkRight;
+    public Sprite[] alienWalkLeft;
+
     void Awake()
     {
         int isGameStart = PlayerPrefs.GetInt("IsGameStart", 0);
@@ -49,6 +59,16 @@ public class SampleSceneManager : MonoBehaviour
                 {
                     // ID 0 = 魔法使いだけ隕石攻撃あり
                     meteorAttack.enabled = (selectedID == 0);
+                }
+
+                BasicAttack basicAttack =
+                    defaultPlayer.GetComponent<BasicAttack>();
+
+                if (basicAttack != null)
+                {
+                    // ID 0 = 魔法使いだけ通常攻撃（弾）あり
+                    // 勇者・宇宙人は専用の通常攻撃ができるまでなし
+                    basicAttack.enabled = (selectedID == 0);
                 }
 
                 // =========================
@@ -109,6 +129,30 @@ public class SampleSceneManager : MonoBehaviour
                             }
                         }
                     }
+                }
+
+                // 勇者は専用の正面画像・歩行画像を使う
+                if (selectedID == 1 && heroFront != null &&
+                    targetSR != null && controller != null)
+                {
+                    targetSR.sprite = heroFront;
+                    controller.front = heroFront;
+                    controller.walkRight = heroWalkRight ??
+                        System.Array.Empty<Sprite>();
+                    // 左歩行画像を空にすると、右歩行画像の反転で表示される
+                    controller.walkLeft = System.Array.Empty<Sprite>();
+                }
+
+                // 宇宙人は専用の正面画像・左右の歩行画像を使う
+                if (selectedID == 2 && alienFront != null &&
+                    targetSR != null && controller != null)
+                {
+                    targetSR.sprite = alienFront;
+                    controller.front = alienFront;
+                    controller.walkRight = alienWalkRight ??
+                        System.Array.Empty<Sprite>();
+                    controller.walkLeft = alienWalkLeft ??
+                        System.Array.Empty<Sprite>();
                 }
             }
         }
