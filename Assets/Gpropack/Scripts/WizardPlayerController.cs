@@ -76,6 +76,8 @@ public class WizardPlayerController : MonoBehaviour
     private int frameIndex;
     private Sprite[] lastWalkDirection;
     private bool facingLeft;
+    // 最後に左右どちらへ動いたか（通常攻撃の向きなどに使う）
+    public bool IsFacingLeft => facingLeft;
 
     // ★追加：最初のゲージの大きさを記憶しておく変数
     private Vector3 initialHpFillScale;
