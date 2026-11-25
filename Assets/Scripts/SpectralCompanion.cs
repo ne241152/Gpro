@@ -61,13 +61,17 @@ public class SpectralCompanion : MonoBehaviour
 
         SyncMeteor();
         SyncWeapons();
+        // 本体に付いている通常攻撃のうち、オンのものをまねする（なければ撃たない）
+        BasicAttack basicAttack = null;
+        foreach (BasicAttack attack in source.GetComponents<BasicAttack>()) {
+            if (attack.enabled) { basicAttack = attack; break; }
+        }
+        if (basicAttack == null) return;
+
         attackTimer += Time.deltaTime;
-        if (attackTimer >= Mathf.Max(0.01f, source.gatlingInterval)) {
+        if (attackTimer >= Mathf.Max(0.01f, basicAttack.CurrentInterval)) {
             attackTimer = 0f;
-            // 本体に付いている通常攻撃をまねする（オフなら撃たない）
-            BasicAttack basicAttack = source.GetComponent<BasicAttack>();
-            if (basicAttack != null && basicAttack.enabled)
-                basicAttack.Fire(transform.position, opacity, damageMultiplier);
+            basicAttack.Fire(transform.position, opacity, damageMultiplier);
         }
     }
 

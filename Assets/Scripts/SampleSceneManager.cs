@@ -61,14 +61,32 @@ public class SampleSceneManager : MonoBehaviour
                     meteorAttack.enabled = (selectedID == 0);
                 }
 
-                BasicAttack basicAttack =
-                    defaultPlayer.GetComponent<BasicAttack>();
+                // 通常攻撃：キャラクターごとに使う攻撃だけをオンにする
+                BulletBasicAttack bulletAttack =
+                    defaultPlayer.GetComponent<BulletBasicAttack>();
 
-                if (basicAttack != null)
+                if (bulletAttack != null)
                 {
-                    // ID 0 = 魔法使いだけ通常攻撃（弾）あり
-                    // 勇者・宇宙人は専用の通常攻撃ができるまでなし
-                    basicAttack.enabled = (selectedID == 0);
+                    // ID 0 = 魔法使いは弾
+                    bulletAttack.enabled = (selectedID == 0);
+                }
+
+                HeroWhipAttack whipAttack =
+                    defaultPlayer.GetComponent<HeroWhipAttack>();
+
+                if (whipAttack != null)
+                {
+                    // ID 1 = 勇者は炎の鞭
+                    whipAttack.enabled = (selectedID == 1);
+                }
+
+                AlienBeamAttack beamAttack =
+                    defaultPlayer.GetComponent<AlienBeamAttack>();
+
+                if (beamAttack != null)
+                {
+                    // ID 2 = 宇宙人は敵がいる方向へのビーム
+                    beamAttack.enabled = (selectedID == 2);
                 }
 
                 // =========================
