@@ -61,6 +61,24 @@ public class SampleSceneManager : MonoBehaviour
                     meteorAttack.enabled = (selectedID == 0);
                 }
 
+                HeroFlameColumn flameColumn =
+                    defaultPlayer.GetComponent<HeroFlameColumn>();
+
+                if (flameColumn != null)
+                {
+                    // ID 1 = 勇者だけ炎の列（上下の敵への攻撃）あり
+                    flameColumn.enabled = (selectedID == 1);
+                }
+
+                AlienFanBurst fanBurst =
+                    defaultPlayer.GetComponent<AlienFanBurst>();
+
+                if (fanBurst != null)
+                {
+                    // ID 2 = 宇宙人だけ扇形の範囲攻撃あり
+                    fanBurst.enabled = (selectedID == 2);
+                }
+
                 // 通常攻撃：キャラクターごとに使う攻撃だけをオンにする
                 BulletBasicAttack bulletAttack =
                     defaultPlayer.GetComponent<BulletBasicAttack>();
