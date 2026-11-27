@@ -8,6 +8,7 @@ public class Experience : MonoBehaviour
     private WizardPlayerController target;
     private bool isAttracting;
     private bool collected;
+    private bool forceAttract = false;
 
     void Start()
     {
@@ -21,8 +22,13 @@ public class Experience : MonoBehaviour
         if (collected || target == null || target.hp <= 0 || Time.timeScale == 0f) return;
 
         Vector2 offset = target.transform.position - transform.position;
-        if (offset.sqrMagnitude <= attractionRadius * attractionRadius)
+
+        //通常時は近づいたら経験値が寄ってくるが、回収中は際限なく集める
+        if (forceAttract ||offset.sqrMagnitude <= attractionRadius * attractionRadius)
+        {
             isAttracting = true;
+        }
+
         if (!isAttracting) return;
 
         // 移動速度の強化後も追いつける速さにする。
@@ -44,6 +50,14 @@ public class Experience : MonoBehaviour
                 Collect(player);
             }
         }
+    }
+
+    public void StartForceAttract()
+    {
+        if (collected) return;
+
+        forceAttract = true;
+        isAttracting = true;
     }
 
     void Collect(WizardPlayerController player)

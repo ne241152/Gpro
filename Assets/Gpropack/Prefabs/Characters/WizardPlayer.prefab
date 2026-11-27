@@ -287,6 +287,9 @@ GameObject:
   - component: {fileID: 3883314898495956719}
   - component: {fileID: 3286639920814457281}
   - component: {fileID: 5903207351243434947}
+  - component: {fileID: 4721938456102938475}
+  - component: {fileID: 8150392746618203947}
+  - component: {fileID: 5308271946630184927}
   m_Layer: 0
   m_Name: WizardPlayer
   m_TagString: Player
@@ -348,21 +351,6 @@ CapsuleCollider2D:
   m_Offset: {x: 2, y: 1.5}
   m_Size: {x: 9, y: 11}
   m_Direction: 0
---- !u!114 &7584904733753895881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3209496015032530632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5897c90767d647fb93aaa03dc617def, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meteorPrefab: {fileID: 6582384471695014286, guid: ce861dfd4121e49f494177e6f64ccfdc, type: 3}
-  attackInterval: 1.5
-  detectRadius: 26
 --- !u!114 &3883314898495956719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasPasskey: 0
   moveSpeed: 4.95
+  invertMovement: 0
+  mobileJoystick: {fileID: 0}
   front: {fileID: 21300000, guid: a4e15cfe56ea543e59381e54deaeb115, type: 3}
   walkLeft:
   - {fileID: 21300000, guid: faafce920a25d491198f5256010a75cb, type: 3}
@@ -393,6 +383,7 @@ MonoBehaviour:
   expToNextLevel: 40
   currentLevel: 1
   BattlePhase: 1
+  passkeyExperienceReductionPercent: 40
   hpText: {fileID: 0}
   hpFillTransform: {fileID: 0}
   expSlider: {fileID: 0}
@@ -400,11 +391,13 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   dronePrefab: {fileID: 0}
   delayBombPrefab: {fileID: 0}
+  riskScanTexture: {fileID: 0}
+  riskScanResultTexture: {fileID: 0}
   attackPower: 3
   gatlingInterval: 0.45
-  delayBombInterval: 8
   damageRate: 1
   invincibleTime: 3
+  hitInvincibilityDuration: 0.3
   hasRevive: 0
 --- !u!114 &3286639920814457281
 MonoBehaviour:
@@ -449,6 +442,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4721938456102938475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209496015032530632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3322a3e2478e4af688604bea403a053c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3405502370297691973
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,3 +487,60 @@ Transform:
   - {fileID: 1237490413115248309}
   m_Father: {fileID: 260792381858112327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8150392746618203947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209496015032530632}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f8ef23b2ae42f4b8743bec7d284439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightSlashSprite: {fileID: 21300000, guid: 71b1699a547b45f8a11cad000b3905a3, type: 3}
+  leftSlashSprite: {fileID: 21300000, guid: b19f509fb0da4ea58588d3daa03040eb, type: 3}
+  intervalMultiplier: 2.5
+  damageScale: 1.6
+  secondSlashDelay: 0.15
+  effectDuration: 0.25
+  hitboxScale: {x: 0.9, y: 0.6}
+  forwardOffset: -0.1
+  verticalOffset: 0
+--- !u!114 &7584904733753895881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209496015032530632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5897c90767d647fb93aaa03dc617def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meteorPrefab: {fileID: 6582384471695014286, guid: ce861dfd4121e49f494177e6f64ccfdc, type: 3}
+  attackInterval: 1.5
+  detectRadius: 26
+--- !u!114 &5308271946630184927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209496015032530632}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa2bcb3581c439f8cf972e66b703c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beamRightPrefab: {fileID: 6921454336366451198, guid: 5ce5b11fc571b496db0e72c39d43bdf1, type: 3}
+  beamLeftPrefab: {fileID: 1653259176703651407, guid: c94877497924f4fe1bc044e986ed31a4, type: 3}
+  beamBackPrefab: {fileID: 4582854919993314921, guid: 5e1b0e91487d84b728a2e1523b6f04df, type: 3}
+  beamFrontPrefab: {fileID: 5911098728020946301, guid: 22a70ca9215fd4ecc8b6c738e4b4f437, type: 3}
+  intervalMultiplier: 1.78
+  referenceAttackPower: 3
+  detectRadius: 5.5
+  beamOffset: 2.5
+  attackCenterOffset: {x: 0.2, y: 0}

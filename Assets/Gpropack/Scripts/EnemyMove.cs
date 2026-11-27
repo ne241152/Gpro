@@ -19,6 +19,16 @@ public class EnemyMove : MonoBehaviour
     [Header("移動のカクカク感")]
     public float moveInterval = 0.05f;
 
+    [Header("ボス専用移動設定")]
+    public bool useBossMovement = false;
+
+    [Min(0f)] public float bossIdealDistance = 5f;
+    [Min(0f)] public float bossDistanceCorrectionStrength = 0.8f;
+    [Min(0f)] public float bossSideMoveSpeed = 0.6f;
+    public float bossSideDirection = 1f;
+
+    [Min(0.01f)] public float bossTurnSmoothTime = 0.35f;
+
     [Header("敵同士の押し合い")]
     public float separationDistance = 3.6f;
     public float separationStrength = 4f;
@@ -41,6 +51,9 @@ public class EnemyMove : MonoBehaviour
     private float moveTimer = 0f;
     private Vector2 knockbackVelocity;
     private float knockbackRemaining;
+
+    private Vector2 bossCurrentVelocity;
+    private Vector2 bossVelocitySmooth;
 
     public void ApplyKnockback(Vector2 direction, float distance, float duration)
     {
@@ -116,6 +129,14 @@ public class EnemyMove : MonoBehaviour
         // 一定時間経つまでは動かさない
         if (moveTimer < moveInterval)
             return;
+        
+        //ボス専用の移動処理
+        if (useBossMovement)
+        {
+            MoveBoss();
+            moveTimer = 0f;
+            return;
+        }
 
         if (separationTimer <= 0f) {
             UpdateSeparation();
@@ -201,6 +222,52 @@ public class EnemyMove : MonoBehaviour
             separation += away * (1f - distance / separationDistance);
         }
         separation = Vector2.ClampMagnitude(separation, 1f);
+    }
+
+    void MoveBoss()
+    {
+        // ボスからプレイヤーに向かう方向と距離
+        Vector2 offset = rb.position - (Vector2)player.position;
+        float distance = offset.magnitude;
+
+        if (distance <= 0.001f)
+            return;
+
+        Vector2 awayDirection = offset.normalized;
+
+        // 理想距離との差に応じて近づく・離れる強さを決める
+        float distanceError = distance - bossIdealDistance;
+
+        float radialSpeed = Mathf.Clamp(
+            distanceError * bossDistanceCorrectionStrength,
+            -moveSpeed,
+            moveSpeed
+        );
+
+        // プレイヤーの周囲を回る方向
+        Vector2 sideDirection = new Vector2(
+            -awayDirection.y,
+            awayDirection.x
+        ) * Mathf.Sign(bossSideDirection);
+
+        // 距離調整と横移動を組み合わせる
+        Vector2 desiredVelocity =
+            -awayDirection * radialSpeed
+            + sideDirection * bossSideMoveSpeed;
+
+        // 方向を急に変えず、滑らかに追従させる
+        float maxSpeed = Mathf.Max(moveSpeed, bossSideMoveSpeed) * 1.5f;
+
+        bossCurrentVelocity = Vector2.SmoothDamp(
+            bossCurrentVelocity,
+            desiredVelocity,
+            ref bossVelocitySmooth,
+            bossTurnSmoothTime,
+            maxSpeed,
+            moveTimer
+        );
+
+        MoveWithoutPushingPlayer(bossCurrentVelocity * moveTimer);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

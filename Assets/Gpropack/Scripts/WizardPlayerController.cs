@@ -8,6 +8,7 @@ public class WizardPlayerController : MonoBehaviour
     public bool hasPasskey = false;
     [Header("移動・アニメーション設定")]
     public float moveSpeed = 3.3f;
+    public bool invertMovement = false;
     [Header("スマホ操作")]
     public MobileJoystick mobileJoystick;
     public Sprite front;
@@ -50,7 +51,6 @@ public class WizardPlayerController : MonoBehaviour
     public float invincibleTime = 3f;
     [Min(0f)] public float hitInvincibilityDuration = 0.3f;
     
-    private float gatlingTimer = 0f;
     private float burstTimer = 0f;
     private float invincibleTimer = 0f;
     private float hitInvincibilityUntil;
@@ -75,6 +75,9 @@ public class WizardPlayerController : MonoBehaviour
     private float animTimer;
     private int frameIndex;
     private Sprite[] lastWalkDirection;
+    private bool facingLeft;
+    // 最後に左右どちらへ動いたか（通常攻撃の向きなどに使う）
+    public bool IsFacingLeft => facingLeft;
 
     // ★追加：最初のゲージの大きさを記憶しておく変数
     private Vector3 initialHpFillScale;
@@ -157,13 +160,15 @@ else
     moveInput = moveInput.normalized;
 }
 
+// 宇宙人だけ移動方向を完全に反転
+if (invertMovement)
+{
+    moveInput *= -1f;
+}
+
         UpdateSprite();
 
-        gatlingTimer += Time.deltaTime;
-        if (gatlingTimer >= gatlingInterval) {
-            FireGatling();
-            gatlingTimer = 0f;
-        }
+        // 通常攻撃は BasicAttack（例: BulletBasicAttack）側で行う
 
         if (hasBurst) {
             burstTimer += Time.deltaTime;
@@ -197,12 +202,30 @@ else
     {
         if (spriteRenderer == null) return;
 
-        if (moveInput.x < 0) lastWalkDirection = walkLeft;
-        else if (moveInput.x > 0) lastWalkDirection = walkRight;
+        // 左歩行画像が無いキャラは、右歩行画像を左右反転して使う
+        bool useFlipForLeft = (walkLeft == null || walkLeft.Length == 0);
+
+        // キャラ選択で歩行画像が差し替えられた場合、古い画像を使い続けないようにする
+        if (lastWalkDirection != walkLeft && lastWalkDirection != walkRight)
+        {
+            lastWalkDirection = walkRight;
+        }
+
+        if (moveInput.x < 0)
+        {
+            lastWalkDirection = useFlipForLeft ? walkRight : walkLeft;
+            facingLeft = true;
+        }
+        else if (moveInput.x > 0)
+        {
+            lastWalkDirection = walkRight;
+            facingLeft = false;
+        }
 
         if (moveInput == Vector2.zero)
         {
             spriteRenderer.sprite = front;
+            spriteRenderer.flipX = false;
             frameIndex = 0;
             animTimer = 0f;
             return;
@@ -212,8 +235,12 @@ else
         if (currentWalk == null || currentWalk.Length == 0)
         {
             spriteRenderer.sprite = front;
+            spriteRenderer.flipX = false;
             return;
         }
+
+        if (frameIndex >= currentWalk.Length) frameIndex = 0;
+        spriteRenderer.flipX = useFlipForLeft && facingLeft;
 
         animTimer += Time.deltaTime;
         if (animTimer >= animationSpeed)
@@ -223,33 +250,6 @@ else
         }
 
         spriteRenderer.sprite = currentWalk[frameIndex];
-    }
-
-    void FireGatling()
-    {
-        FireGatlingFrom(transform.position, 1f);
-    }
-
-    public void FireGatlingFrom(Vector3 origin, float opacity, float damageMultiplier = 1f)
-    {
-        if (bulletPrefab == null) return;
-
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject nearest = null;
-        float minDist = Mathf.Infinity;
-
-        foreach (var e in enemies) {
-            float dist = Vector2.Distance(origin, e.transform.position);
-            if (dist < minDist) { minDist = dist; nearest = e; }
-        }
-
-        if (nearest != null) {
-            GameObject b = Instantiate(bulletPrefab, origin, Quaternion.identity);
-            SpectralAppearance.Apply(b, opacity);
-            b.GetComponent<Bullet>().damage = EffectiveAttackPower * damageMultiplier;
-            Vector2 dir = (nearest.transform.position - origin).normalized;
-            b.GetComponent<Rigidbody2D>().linearVelocity = dir * 10f;
-        }
     }
 
     void FireBurst()
