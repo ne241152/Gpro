@@ -7,9 +7,8 @@ using UnityEngine;
 // 斬撃の範囲にいる敵全員に、1回の斬撃につき1回ずつダメージを与える。
 public class HeroWhipAttack : BasicAttack
 {
-    [Header("エフェクト画像")]
-    public Sprite rightSlashSprite;
-    public Sprite leftSlashSprite;
+    [Header("エフェクト画像（右向きのコマを順番に登録。左向きは反転して表示）")]
+    public Sprite[] slashFrames;
 
     [Header("攻撃設定")]
     [Tooltip("攻撃間隔の倍率（コントローラーの攻撃間隔 × この値）")]
@@ -18,8 +17,8 @@ public class HeroWhipAttack : BasicAttack
     public float damageScale = 2f;
     [Tooltip("反対側の斬撃を出すまでの時間（秒）")]
     public float secondSlashDelay = 0.15f;
-    [Tooltip("エフェクトが消えるまでの時間（秒）")]
-    public float effectDuration = 0.25f;
+    [Tooltip("1コマを表示する時間（秒）。全コマを表示し終えたら消える")]
+    public float frameDuration = 0.05f;
     [Tooltip("当たり判定の大きさ（エフェクトの見た目に対する倍率）")]
     public Vector2 hitboxScale = new Vector2(0.9f, 0.6f);
     [Tooltip("キャラクターからの距離（エフェクトの横幅に対する割合。大きいほど外側に出る）")]
@@ -55,8 +54,9 @@ public class HeroWhipAttack : BasicAttack
 
     void Slash(Vector3 origin, bool toLeft, float opacity, float damageMultiplier)
     {
-        Sprite sprite = toLeft ? leftSlashSprite : rightSlashSprite;
-        if (sprite == null) return;
+        if (slashFrames == null || slashFrames.Length == 0 || slashFrames[0] == null) return;
+        // 全コマ同じ大きさの画像なので、1コマ目の大きさを基準にする
+        Sprite sprite = slashFrames[0];
 
         Vector3 scale = transform.lossyScale;
         Vector2 size = new Vector2(
@@ -68,18 +68,20 @@ public class HeroWhipAttack : BasicAttack
         Vector3 center = origin + new Vector3(
             dir * size.x * (0.5f + forwardOffset), size.y * verticalOffset, 0f);
 
-        SpawnEffect(sprite, center, scale, opacity);
-        DealDamage(center, Vector2.Scale(size, hitboxScale), damageMultiplier);
+        SpriteRenderer sr = SpawnEffect(center, scale, toLeft, opacity);
+        float damage = player.EffectiveAttackPower * damageScale * damageMultiplier;
+        StartCoroutine(PlayAndDestroy(sr, center, Vector2.Scale(size, hitboxScale), damage));
     }
 
-    void SpawnEffect(Sprite sprite, Vector3 position, Vector3 scale, float opacity)
+    SpriteRenderer SpawnEffect(Vector3 position, Vector3 scale, bool toLeft, float opacity)
     {
         GameObject effect = new GameObject("HeroWhipSlash");
         effect.transform.position = position;
         effect.transform.localScale = new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), 1f);
 
         SpriteRenderer sr = effect.AddComponent<SpriteRenderer>();
-        sr.sprite = sprite;
+        sr.sprite = slashFrames[0];
+        sr.flipX = toLeft;
         sr.color = new Color(1f, 1f, 1f, opacity);
 
         // プレイヤーの画像より手前に表示する
@@ -91,26 +93,33 @@ public class HeroWhipAttack : BasicAttack
             sr.sortingOrder = playerSR.sortingOrder + 1;
         }
 
-        StartCoroutine(FadeAndDestroy(sr, opacity));
+        return sr;
     }
 
-    IEnumerator FadeAndDestroy(SpriteRenderer sr, float opacity)
+    // コマを順番に表示し、最後のコマを表示し終えたら消す。
+    // 表示している間は当たり判定を残し、後から炎に入った敵にも当てる
+    // （同じ敵に当たるのは、1回の斬撃につき1回だけ）
+    IEnumerator PlayAndDestroy(SpriteRenderer sr, Vector3 center, Vector2 hitbox, float damage)
     {
+        HashSet<EnemyHealth> hit = new HashSet<EnemyHealth>();
+        float total = frameDuration * slashFrames.Length;
         float t = 0f;
-        while (t < effectDuration && sr != null)
+
+        while (t < total && sr != null)
         {
-            t += Time.deltaTime;
-            sr.color = new Color(1f, 1f, 1f, opacity * (1f - t / effectDuration));
+            int index = Mathf.Min((int)(t / Mathf.Max(0.001f, frameDuration)), slashFrames.Length - 1);
+            if (slashFrames[index] != null) sr.sprite = slashFrames[index];
+
+            DealDamage(center, hitbox, damage, hit);
+
             yield return null;
+            t += Time.deltaTime;
         }
         if (sr != null) Destroy(sr.gameObject);
     }
 
-    void DealDamage(Vector3 center, Vector2 size, float damageMultiplier)
+    void DealDamage(Vector3 center, Vector2 size, float damage, HashSet<EnemyHealth> hit)
     {
-        float damage = player.EffectiveAttackPower * damageScale * damageMultiplier;
-        HashSet<EnemyHealth> hit = new HashSet<EnemyHealth>();
-
         foreach (Collider2D col in Physics2D.OverlapBoxAll(center, size, 0f))
         {
             if (!col.CompareTag("Enemy")) continue;
@@ -123,11 +132,11 @@ public class HeroWhipAttack : BasicAttack
     // シーン上で当たり判定の大きさを確認するための表示（選択時のみ）
     void OnDrawGizmosSelected()
     {
-        if (rightSlashSprite == null) return;
+        if (slashFrames == null || slashFrames.Length == 0 || slashFrames[0] == null) return;
         Vector3 scale = transform.lossyScale;
         Vector2 size = new Vector2(
-            rightSlashSprite.bounds.size.x * Mathf.Abs(scale.x),
-            rightSlashSprite.bounds.size.y * Mathf.Abs(scale.y));
+            slashFrames[0].bounds.size.x * Mathf.Abs(scale.x),
+            slashFrames[0].bounds.size.y * Mathf.Abs(scale.y));
         Vector2 box = Vector2.Scale(size, hitboxScale);
         Gizmos.color = Color.red;
         float shift = size.x * (0.5f + forwardOffset);

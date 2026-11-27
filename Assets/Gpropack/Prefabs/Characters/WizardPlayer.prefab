@@ -290,6 +290,8 @@ GameObject:
   - component: {fileID: 4721938456102938475}
   - component: {fileID: 8150392746618203947}
   - component: {fileID: 5308271946630184927}
+  - component: {fileID: 1946283750194628375}
+  - component: {fileID: 7391046528193746201}
   m_Layer: 0
   m_Name: WizardPlayer
   m_TagString: Player
@@ -499,12 +501,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f8ef23b2ae42f4b8743bec7d284439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightSlashSprite: {fileID: 21300000, guid: 71b1699a547b45f8a11cad000b3905a3, type: 3}
-  leftSlashSprite: {fileID: 21300000, guid: b19f509fb0da4ea58588d3daa03040eb, type: 3}
-  intervalMultiplier: 2.5
+  slashFrames:
+  - {fileID: 21300000, guid: b31a0f417ff1423785c8d2a3848ffbf5, type: 3}
+  - {fileID: 21300000, guid: 6dce9d616c7d43dbb63c83aeaf06fb7d, type: 3}
+  - {fileID: 21300000, guid: 3343acd50f3d4bd2a1fc64257c82d974, type: 3}
+  - {fileID: 21300000, guid: 2a691069fb564e628d1f2ecac6f60c98, type: 3}
+  - {fileID: 21300000, guid: 2aa2a05673104e95a5b58b62e9019ef3, type: 3}
+  - {fileID: 21300000, guid: 2435c61a8dd44ed6ba5d852ad7d8d987, type: 3}
+  intervalMultiplier: 3.5
   damageScale: 1.6
   secondSlashDelay: 0.15
-  effectDuration: 0.25
+  frameDuration: 0.06
   hitboxScale: {x: 0.9, y: 0.6}
   forwardOffset: -0.1
   verticalOffset: 0
@@ -535,12 +542,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa2bcb3581c439f8cf972e66b703c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beamRightPrefab: {fileID: 6921454336366451198, guid: 5ce5b11fc571b496db0e72c39d43bdf1, type: 3}
-  beamLeftPrefab: {fileID: 1653259176703651407, guid: c94877497924f4fe1bc044e986ed31a4, type: 3}
-  beamBackPrefab: {fileID: 4582854919993314921, guid: 5e1b0e91487d84b728a2e1523b6f04df, type: 3}
-  beamFrontPrefab: {fileID: 5911098728020946301, guid: 22a70ca9215fd4ecc8b6c738e4b4f437, type: 3}
+  boltFrames:
+  - {fileID: 21300000, guid: 057c5df2db534e71a020625f8fc8cf77, type: 3}
+  - {fileID: 21300000, guid: c022bb8ccfbc4adebdec2302759a4d06, type: 3}
+  - {fileID: 21300000, guid: 942e8ff928204bd2930676d04eeddb55, type: 3}
+  - {fileID: 21300000, guid: 7432c96c3d5243eca93a1fbc781fd1eb, type: 3}
+  - {fileID: 21300000, guid: 950b441d415e4c5aac220380ac3bad90, type: 3}
+  - {fileID: 21300000, guid: fb0d6e3556204431a1f0e1e2add21515, type: 3}
+  - {fileID: 21300000, guid: 5a874697e74d4e9d8ec0b39bbf09a376, type: 3}
+  frameReach:
+  - 0.22
+  - 0.36
+  - 0.54
+  - 0.6
+  - 0.64
+  - 0.69
+  - 1
+  boltMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  sortingOrder: 10
   intervalMultiplier: 1.78
   referenceAttackPower: 3
+  damage: 5.5
   detectRadius: 5.5
-  beamOffset: 2.5
+  branchCount: 2
+  chainStages: 4
+  chainRadius: 4
+  chainChances:
+  - 0.9
+  - 0.8
+  - 0.6
+  frameDuration: 0.008
+  holdDuration: 0.06
+  fadeDuration: 0.08
+  thicknessRange: {x: 0.8, y: 1.6}
+  hitboxWidthRatio: 0.35
   attackCenterOffset: {x: 0.2, y: 0}
+--- !u!114 &1946283750194628375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209496015032530632}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066322f3d2cd4646a167f5254c3209cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flameSheet: {fileID: 2800000, guid: 688db154f92243038889777ef13a32e0, type: 3}
+  particleMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  sheetColumns: 4
+  sheetRows: 2
+  activeDuration: 2
+  cooldown: 3
+  columnWidth: 5.5
+  edgeMargin: 0.8
+  fallbackReach: 11
+  expandTime: 0.55
+  damageScale: 0.3
+  tickInterval: 0.3
+  arcCurvature: 0.2
+  spawnBandHeight: 0.8
+  driftSpeed: 0.5
+  sideDriftSpeed: 0.3
+  frontCount: 50
+  frontSize: {x: 0.7, y: 1.1}
+  frontThickness: 0.035
+  remainCount: 45
+  remainSize: {x: 0.6, y: 1}
+  remainReach: {x: 0.08, y: 0.85}
+--- !u!114 &7391046528193746201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209496015032530632}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ccf1b07da74927bb7e78fadd69e64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startFrame: {fileID: 21300000, guid: dfff72861fe34cfdbbcccaca15819c01, type: 3}
+  loopFrames:
+  - {fileID: 21300000, guid: 54d1d88afbdc41b9843ee8f6c2de36fd, type: 3}
+  - {fileID: 21300000, guid: c74d2460c5804d0d8ca34f0f7bc7e4a3, type: 3}
+  - {fileID: 21300000, guid: 4df41f7655c640acbfb3a700a3662863, type: 3}
+  endFrame: {fileID: 21300000, guid: 929c294d84e242628bce9adefb19fe1f, type: 3}
+  material: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  sortingOrder: 10
+  visualScale: 1.5
+  cooldown: 4
+  activeDuration: 1.5
+  startDuration: 0.08
+  loopFrameDuration: 0.07
+  randomFlip: 1
+  endDuration: 0.25
+  damage: 2
+  referenceAttackPower: 3
+  tickInterval: 0.3
+  reach: 8
+  halfAngle: 35
+  bodyCenterOffset: {x: 0.32, y: 0.3}
+  startOffset: 1
+  verticalStartOffset: 1.25

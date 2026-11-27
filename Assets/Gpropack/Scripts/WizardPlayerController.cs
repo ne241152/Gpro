@@ -78,6 +78,9 @@ public class WizardPlayerController : MonoBehaviour
     private bool facingLeft;
     // 最後に左右どちらへ動いたか（通常攻撃の向きなどに使う）
     public bool IsFacingLeft => facingLeft;
+    // 最後に実際に動いた方向（上下も含む。宇宙人の範囲攻撃の向きなどに使う）
+    private Vector2 lastMoveDirection = Vector2.right;
+    public Vector2 LastMoveDirection => lastMoveDirection;
 
     // ★追加：最初のゲージの大きさを記憶しておく変数
     private Vector3 initialHpFillScale;
@@ -164,6 +167,12 @@ else
 if (invertMovement)
 {
     moveInput *= -1f;
+}
+
+// 止まっている間は、最後に動いた方向を覚えておく
+if (moveInput != Vector2.zero)
+{
+    lastMoveDirection = moveInput;
 }
 
         UpdateSprite();
